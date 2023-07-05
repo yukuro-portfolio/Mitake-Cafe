@@ -67,6 +67,9 @@ Version: 1.0
 /* --------------------------------------------------
   clamp() 文字サイズ調整の関数定義
 -------------------------------------------------- */
+/* --------------------------------------------------
+  rem単位をpx感覚で使用する関数
+-------------------------------------------------- */
 /*===================================================
  _variables.scss
  共通使用変数 定義ファイル
@@ -83,6 +86,9 @@ Version: 1.0
  Border-Color　ボーダーカラー
 -------------------------------------------------- */
 /* --------------------------------------------------
+ Border-Color　ホバーカラー
+-------------------------------------------------- */
+/* --------------------------------------------------
  Other　その他カラー
 -------------------------------------------------- */
 /* --------------------------------------------------
@@ -92,6 +98,8 @@ Version: 1.0
 -------------------------------------------------- */
 body {
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.1rem;
 }
 
 /* ##### 游明朝体フォント ##### */
@@ -130,9 +138,24 @@ body {
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ 最大コンテンツ画面幅の定義
+-------------------------------------------------- */
+/* --------------------------------------------------
+ テキストリンク 矢印の定義
+-------------------------------------------------- */
 /*===================================================
  animation.scss
  アニメーションの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+/* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ アニメーションの全体的なデフォルト値を設定
+-------------------------------------------------- */
+/*===================================================
+ keyframe.scss
+ Keyframeの関数定義
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
@@ -142,8 +165,63 @@ body {
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
-h1 {
+/* --------------------------------------------------
+ セクション見出しの定義
+-------------------------------------------------- */
+.section-heading {
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  padding-left: 192px;
+}
+@media screen and (max-width: 767px) {
+  .section-heading {
+    padding-left: 104px;
+  }
+}
+.section-heading__text {
+  display: block;
+  color: #FBFFF7;
+}
+.section-heading__text::before {
+  content: "";
+  width: 160px;
+  height: 1.5px;
+  background-color: #FBFFF7;
+  position: absolute;
+  top: 26px;
+  left: 0;
+}
+@media screen and (max-width: 767px) {
+  .section-heading__text::before {
+    width: 80px;
+  }
+}
+.section-heading__text--main {
+  font-size: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);
   font-family: YuMincho, "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+}
+.section-heading__text--sub {
+  font-size: 1.125rem;
+}
+
+/* --------------------------------------------------
+ コンテンツラベルの定義
+-------------------------------------------------- */
+.label {
+  font-family: YuMincho, "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 48px;
+  text-align: center;
+  color: #4A5733;
+  font-weight: 300;
+}
+.label--menu {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 0;
 }
 
 /*===================================================
@@ -152,12 +230,70 @@ h1 {
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ Primary-buttonの定義
+-------------------------------------------------- */
+.primary-btn {
+  width: 240px;
+  margin: 0 auto;
+  background-color: #4A5733;
+}
+.primary-btn__link {
+  width: 100%;
+  height: 100%;
+  padding: 16px 0;
+  color: #FBFFF7;
+  text-align: center;
+}
+
 /*===================================================
  link.scss
  リンクテキストの定義
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+.link {
+  font-size: 0.875rem;
+  text-align: right;
+}
+.link__text {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  color: #3A3E33;
+  outline: none;
+}
+.link__text::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 15%;
+  width: 85%;
+  height: 1px;
+  background: #3A3E33;
+  transition: all 0.3s;
+}
+.link__text::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  width: 15px;
+  height: 1px;
+  background-color: #3A3E33;
+  transform: rotate(35deg);
+  transition: all 0.3s;
+}
+.link__text:hover {
+  color: #AAA;
+}
+.link__text:hover::before {
+  left: 20%;
+}
+.link__text:hover::after {
+  right: -5%;
+}
+
 /*===================================================
  pagination.scss
  ページネーションの定義
@@ -171,11 +307,77 @@ h1 {
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
 /*===================================================
+ catch-copy.scss
+ ビジュアルキャッチコピーの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+/* //////////// 変数読み込み ここまで //////////// */
+.catch-copy {
+  max-width: 1152px;
+  margin: 0 auto;
+  height: 70%;
+  position: relative;
+}
+.catch-copy__catch-text {
+  font-size: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
+  font-family: YuMincho, "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  color: #FBFFF7;
+  position: absolute;
+  top: 40%;
+  right: 0;
+}
+.catch-copy__text-top {
+  display: block;
+  margin-right: 256px;
+}
+@media screen and (max-width: 1024px) {
+  .catch-copy__text-top {
+    margin-right: 112px;
+  }
+}
+.catch-copy__text-bottom {
+  text-align: right;
+  display: block;
+}
+.catch-copy .js-textanime span {
+  opacity: 0;
+}
+.catch-copy .js-textanime.appeartext span {
+  animation: text_anime_on 1.5s ease-out forwards;
+}
+@keyframes text_anime_on {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*===================================================
  header.scss
  ヘッダーの定義
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ visual-headerの指定
+-------------------------------------------------- */
+.visual-header {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+.visual-header__inner {
+  display: flex;
+  padding-top: 24px;
+}
+.visual-header__logo {
+  width: 124px;
+  height: 40px;
+  margin-right: 132px;
+  filter: invert(89%) sepia(64%) saturate(198%) hue-rotate(298deg) brightness(110%) contrast(102%);
+}
+
 /*===================================================
  footer.scss
  フッターの定義
@@ -188,12 +390,208 @@ h1 {
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ visual-navの指定
+-------------------------------------------------- */
+.visual-nav__nav-list {
+  display: flex;
+}
+.visual-nav__nav-menu {
+  margin-right: 64px;
+}
+.visual-nav__nav-menu:last-child {
+  margin-right: 0;
+}
+.visual-nav__nav-link {
+  font-family: YuMincho, "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  color: #FBFFF7;
+}
+
+/*===================================================
+ visual-capture.scss
+ ページキャプチャの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+/* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ トップページキャプチャの定義
+-------------------------------------------------- */
+.visual-capture {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/img/img_hero-capture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* --------------------------------------------------
+ ビジュアルスクロール固定の定義
+-------------------------------------------------- */
+.visual-fixed {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.visual-fixed__inner {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .visual-fixed__inner {
+    padding: 0 32px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .visual-fixed__inner {
+    padding: 0 16px;
+  }
+}
+.visual-fixed--about {
+  background-image: url("../../images/img/img_about-capture.jpg");
+}
+.visual-fixed--menu {
+  background-image: url("../../images/img/img_menu-capture.jpg");
+}
+.visual-fixed--mitake {
+  background-image: url("../../images/img/img_mitake-capture.jpg");
+}
+
 /*===================================================
  base.scss
  ベースCSSの定義
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
+body {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FDFFFC;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+p {
+  font-size: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
+  color: #3A3E33;
+}
+
+.contents {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+@media screen and (max-width: 1024px) {
+  .contents {
+    padding: 64px 32px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .contents {
+    padding: 48px 16px;
+  }
+}
+
+/*===================================================
+ top.scss
+ トップページのスタイリング
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+/* //////////// 変数読み込み ここまで //////////// */
+/* --------------------------------------------------
+ aboutコンテンツの定義
+-------------------------------------------------- */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 0 64px;
+}
+@media screen and (max-width: 767px) {
+  .about {
+    flex-direction: column;
+  }
+}
+.about__capture {
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .about__capture {
+    margin-bottom: 32px;
+  }
+}
+.about__desc {
+  flex: 1;
+}
+.about__desc-text {
+  margin-bottom: 32px;
+}
+.about__desc-text:last-child {
+  margin-bottom: 0;
+}
+.about__desc-list {
+  margin-bottom: 32px;
+}
+.about__desc-item {
+  margin-bottom: 24px;
+}
+
+/* --------------------------------------------------
+ menuコンテンツの定義
+-------------------------------------------------- */
+.menu__wrapper {
+  margin-bottom: 80px;
+}
+.menu__column {
+  display: flex;
+  align-items: center;
+  gap: 0 64px;
+}
+.menu__capture {
+  position: relative;
+}
+.menu__capture--position {
+  top: -18px;
+}
+.menu__label {
+  flex: 1;
+  position: relative;
+}
+.menu__desc {
+  width: 528px;
+}
+
+/*===================================================
+ mitake.scss
+ 御岳ページの定義
+================================================== */
+/* --------------------------------------------------
+ mitakeコンテンツの定義
+-------------------------------------------------- */
+.mitake__wrapper {
+  display: flex;
+  gap: 0px 64px;
+  margin-bottom: 80px;
+}
+.mitake__capture {
+  max-width: 560px;
+}
+.mitake__desc {
+  max-width: 528px;
+}
+
 /*===================================================
  style.scss
  各パーツscssの定義
