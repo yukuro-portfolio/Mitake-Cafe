@@ -1,0 +1,23 @@
+/*===================================================
+ keyframe.scss
+ Keyframeの関数定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/animation" as *;
+@use "../mixin/mixin" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+@mixin keyframe( $name ){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

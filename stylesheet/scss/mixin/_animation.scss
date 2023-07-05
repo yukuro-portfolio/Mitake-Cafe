@@ -4,7 +4,30 @@
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 @use "../mixin/mixin" as *;
-@use "../config/variables" as *;
 @use "../config/function" as *;
-@use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ アニメーションの全体的なデフォルト値を設定
+-------------------------------------------------- */ 
+@mixin animation(
+	// アニメーションの全体的なデフォルト値を設定
+	$name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: normal
+) {
+	// animation-〇〇のようなハイフン前の文言(animation)を定義しなくて済む
+  animation: {
+		name: $name;
+		duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+	}
+}

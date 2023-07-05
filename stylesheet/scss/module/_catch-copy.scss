@@ -1,0 +1,47 @@
+/*===================================================
+ catch-copy.scss
+ ビジュアルキャッチコピーの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/animation" as *;
+@use "../mixin/mixin" as *;
+@use "../mixin/keyframe" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+.catch-copy {
+  @include maxWidth;
+  height: 70%;
+  position: relative;
+  &__catch-text {
+    font-size: $catch-copy;
+    font-family: $f-mincho;
+    color: $c-font-white;
+    position: absolute;
+    top: 40%;
+    right: 0;
+  }
+
+  &__text-top {
+    display: block;
+    margin-right: 256px;
+    @include mq(tab) {
+      margin-right: 112px;
+    }
+  }
+
+  &__text-bottom {
+    text-align: right;
+    display: block;
+  }
+
+  .js-textanime span{opacity: 0;}
+  .js-textanime.appeartext span{ animation:text_anime_on 1.5s ease-out forwards; }
+  @keyframes text_anime_on {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+}

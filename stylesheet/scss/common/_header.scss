@@ -8,3 +8,22 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ visual-headerの指定
+-------------------------------------------------- */ 
+.visual-header {
+  @include maxWidth;
+
+  &__inner {
+    display: flex;
+    padding-top: 24px;
+  }
+
+  &__logo {
+    width: 124px;
+    height: 40px;
+    margin-right: 132px;
+    filter: invert(89%) sepia(64%) saturate(198%) hue-rotate(298deg) brightness(110%) contrast(102%);
+  }
+}

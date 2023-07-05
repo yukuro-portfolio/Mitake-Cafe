@@ -8,3 +8,25 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ visual-navの指定
+-------------------------------------------------- */ 
+.visual-nav {
+
+  &__nav-list {
+    display: flex;
+  }
+
+  &__nav-menu {
+    margin-right: 64px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__nav-link {
+    font-family: $f-mincho;
+    color: $c-font-white;
+  }
+}

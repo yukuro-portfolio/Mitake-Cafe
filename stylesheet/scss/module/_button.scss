@@ -8,3 +8,20 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ Primary-buttonの定義
+-------------------------------------------------- */ 
+.primary-btn {
+  width: 240px;
+  margin: 0 auto;
+  background-color: $c-accent;
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    padding: 16px 0;
+    color: $c-font-white;
+    text-align: center;
+  }
+}

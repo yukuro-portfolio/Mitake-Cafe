@@ -2,7 +2,7 @@
  _variables.scss
  共通使用変数 定義ファイル
 ================================================== */
-
+@use "../config/function" as *;
 
 /* --------------------------------------------------
  ##### Color  #####
@@ -25,6 +25,11 @@ $c-font-white: #FBFFF7;
 $c-border: #AAA;
 
 /* --------------------------------------------------
+ Border-Color　ホバーカラー
+-------------------------------------------------- */ 
+$c-hover: #AAA;
+
+/* --------------------------------------------------
  Other　その他カラー
 -------------------------------------------------- */ 
 $c-note: #F24343;
@@ -38,6 +43,8 @@ $c-opacity: rgba(181,181,181,1.6);
 -------------------------------------------------- */ 
 body {
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: 1.8;
+  letter-spacing: 0.1rem;
 }
 
 /* ##### 游明朝体フォント ##### */
@@ -46,16 +53,16 @@ $f-mincho: YuMincho , "游ゴシック体", YuGothic, "游ゴシック", "Yu Got
 /* --------------------------------------------------
  Heading-size 見出しフォントサイズ
 -------------------------------------------------- */ 
-$catch-copy: 4.0rem;
-$section-title: 3.2rem;
-$section-subtitle: 1.6rem;
+$catch-copy: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
+$section-title: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);
+$section-subtitle: rem(18);
 $blog-title: 2.0rem;
 
 /* --------------------------------------------------
  base-size 基本フォントサイズ
 -------------------------------------------------- */ 
-$f-large: 2.0rem;
+$f-large: rem(20);
 $f-medium: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
 $f-default: clamp(0.875rem, 0.83rem + 0.23vw, 1rem);
-$f-small: 1.4rem;
+$f-small: rem(14);
 $f-sm-small: 1.2rem;

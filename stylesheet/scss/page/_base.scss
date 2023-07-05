@@ -9,3 +9,40 @@
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
 
+body {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: $c-base;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+p {
+  font-size: $f-default;
+  color: $c-font-black;
+}
+
+.contents {
+  @include maxWidth;
+  padding: 80px 0;
+
+  @include mq(tab) {
+    padding: 64px 32px;
+  }
+
+  @include mq(tab) {
+    padding: 48px 16px;
+  }
+}

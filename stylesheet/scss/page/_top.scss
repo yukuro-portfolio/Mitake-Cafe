@@ -1,0 +1,86 @@
+/*===================================================
+ top.scss
+ トップページのスタイリング
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/animation" as *;
+@use "../mixin/mixin" as *;
+@use "../mixin/keyframe" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ aboutコンテンツの定義
+-------------------------------------------------- */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 0 64px;
+  @include mq(sp) {
+    flex-direction: column;
+  }
+
+  &__capture {
+    flex: 1;
+
+    @include mq(sp) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__desc {
+    flex: 1;
+  }
+
+  &__desc-text {
+    margin-bottom: 32px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__desc-list {
+    margin-bottom: 32px;
+  }
+
+  &__desc-item {
+    margin-bottom: 24px;
+  }
+}
+
+
+/* --------------------------------------------------
+ menuコンテンツの定義
+-------------------------------------------------- */
+.menu {
+
+  &__wrapper {
+    margin-bottom: 80px;
+  }
+
+  &__column {
+    display: flex;
+    align-items: center;
+    gap: 0 64px;
+  }
+
+  &__capture {
+    position: relative;
+    &--position {
+      top: -18px;
+    }
+  }
+
+  &__label {
+    flex: 1;
+    position: relative;
+  }
+
+  &__desc {
+    width: 528px;
+  }
+
+}
+

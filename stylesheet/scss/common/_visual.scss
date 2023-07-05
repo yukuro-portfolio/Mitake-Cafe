@@ -1,0 +1,54 @@
+/*===================================================
+ visual-capture.scss
+ ページキャプチャの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ トップページキャプチャの定義
+-------------------------------------------------- */ 
+.visual-capture {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../images/img/img_hero-capture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* --------------------------------------------------
+ ビジュアルスクロール固定の定義
+-------------------------------------------------- */ 
+.visual-fixed {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &__inner {
+    @include maxWidth;
+    @include mq(tab) {
+      padding: 0 32px;
+    }
+
+    @include mq(sp) {
+      padding: 0 16px;
+    }
+  }
+
+  &--about {
+    background-image: url("../../images/img/img_about-capture.jpg");
+  }
+  &--menu {
+    background-image: url("../../images/img/img_menu-capture.jpg");
+  }
+
+  &--mitake {
+    background-image: url("../../images/img/img_mitake-capture.jpg");
+  }
+}

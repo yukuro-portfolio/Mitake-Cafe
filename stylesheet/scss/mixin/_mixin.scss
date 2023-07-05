@@ -7,3 +7,57 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ 最大コンテンツ画面幅の定義
+-------------------------------------------------- */ 
+@mixin maxWidth {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------
+ テキストリンク 矢印の定義
+-------------------------------------------------- */ 
+@mixin LinkArrow {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  color: $c-font-black;
+  outline: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 15%;
+    width: 85%;
+    height: 1px;
+    background: $c-font-black;
+    transition: all 0.3s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    width: 15px;
+    height: 1px;
+    background-color: $c-font-black;
+    transform: rotate(35deg);
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    color: $c-hover;
+  }
+
+  &:hover::before {
+    left: 20%;
+  }
+
+  &:hover::after {
+    right: -5%;
+  }
+}

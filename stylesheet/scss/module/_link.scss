@@ -8,3 +8,11 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+.link {
+  font-size: $f-small;
+  text-align: right;
+  &__text {
+    @include LinkArrow;
+  }
+}

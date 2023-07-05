@@ -8,6 +8,64 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
-h1 {
+
+/* --------------------------------------------------
+ セクション見出しの定義
+-------------------------------------------------- */
+.section-heading {
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  padding-left: 192px;
+
+  @include mq(sp) {
+    padding-left: 104px;
+  }
+
+  &__text {
+    display: block;
+    color: $c-font-white;
+    &::before {
+      content: "";
+      width: 160px;
+      height: 1.5px;
+      background-color: $c-font-white;
+      position: absolute;
+      top: 26px;
+      left: 0;
+
+      @include mq(sp) {
+        width: 80px;
+      }
+    }
+
+    &--main {
+      font-size: $section-title;
+      font-family: $f-mincho;
+    }
+
+    &--sub {
+      font-size: $section-subtitle;
+    }
+  }
+}
+
+/* --------------------------------------------------
+ コンテンツラベルの定義
+-------------------------------------------------- */
+.label{
   font-family: $f-mincho;
+  font-size: $f-large;
+  margin-bottom: 48px;
+  text-align: center;
+  color: $c-accent;
+  font-weight: 300;
+
+  &--menu {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 0;
+  }
 }

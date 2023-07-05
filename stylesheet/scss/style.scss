@@ -18,6 +18,7 @@
 -------------------------------------------------- */ 
 @use "mixin/animation";
 @use "mixin/mixin";
+@use "mixin/keyframe";
 
 /* --------------------------------------------------
  moduleファイル 
@@ -27,6 +28,7 @@
 @use "module/link";
 @use "module/pagination";
 @use "module/tab";
+@use "module/catch-copy";
 
 /* --------------------------------------------------
  commonファイル
@@ -34,6 +36,7 @@
 @use "common/header";
 @use "common/footer";
 @use "common/nav";
+@use "common/visual";
 
 /* --------------------------------------------------
  pageファイル
