@@ -8,3 +8,44 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ タブメニューのスタイリング
+-------------------------------------------------- */
+.tab-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  &__item {
+    flex-grow: 1;
+    padding-bottom: 4px;
+    list-style: none;
+    border-bottom: solid 1px $c-border;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $c-no-active;
+    font-size: $f-default;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 16px;
+    filter: invert(69%) sepia(4%) saturate(6%) hue-rotate(353deg) brightness(99%) contrast(89%);
+
+    @include mq(sp) {
+      margin-right: 8px;
+    }
+  }
+
+  & .is-active {
+    color: $c-accent;
+    font-weight: 600;
+    transition: all 0.2s ease-out;
+    border-bottom: 2px solid $c-accent;
+    filter: invert(28%) sepia(51%) saturate(324%) hue-rotate(40deg) brightness(96%) contrast(90%);
+  }
+}

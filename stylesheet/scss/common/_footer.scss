@@ -8,3 +8,60 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+.footer {
+  background-color: $c-main;
+  
+  &__wrapper {
+    max-width: 400px;
+    padding: 40px 0;
+    margin: 0 auto;
+
+    @include mq(tab) {
+      padding: 0 48px;
+    }
+
+    @include mq(sp) {
+      padding: 40px 16px;
+    }
+  }
+
+  &__logo {
+    width: 178px;
+    height: 60px;
+    margin: 0 auto 40px auto;
+  }
+
+  &__address {
+    margin-bottom: 24px;
+  }
+
+  &__address-text {
+    margin-bottom: 8px;
+  }
+
+  &__business-hours {
+    margin-bottom: 40px;
+  }
+
+  &__bh-label {
+    font-weight: 600;
+  }
+
+  &__sns {
+    display: flex;
+    justify-content: center;
+    gap: 0 32px;
+    margin-bottom: 32px;
+  }
+
+  &__sns-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__copyright {
+    text-align: center;
+    color: $c-font-black;
+  }
+}

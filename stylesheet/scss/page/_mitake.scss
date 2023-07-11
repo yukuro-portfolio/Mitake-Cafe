@@ -2,6 +2,12 @@
  mitake.scss
  御岳ページの定義
 ================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
 
 /* --------------------------------------------------
  mitakeコンテンツの定義
@@ -9,12 +15,28 @@
 .mitake {
   &__wrapper {
     display: flex;
+    align-items: center;
     gap: 0px 64px;
     margin-bottom: 80px;
+
+    @include mq(sp) {
+      flex-direction: column;
+      margin-bottom: 48px;
+
+
+    &--col-reverse {
+      flex-direction: column-reverse;
+    }
+    }
+
   }
 
   &__capture {
     max-width: 560px;
+
+    @include mq(sp) {
+      margin-bottom: 16px;
+    }
   }
 
   &__desc {

@@ -29,6 +29,9 @@
 @use "module/pagination";
 @use "module/tab";
 @use "module/catch-copy";
+@use "module/slider";
+@use "module/desc-card";
+@use "module/form";
 
 /* --------------------------------------------------
  commonファイル
@@ -45,3 +48,7 @@
 @use "page/top";
 @use "page/menu";
 @use "page/mitake";
+@use "page/blog";
+
+
+

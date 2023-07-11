@@ -10,13 +10,13 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 /* --------------------------------------------------
- セクション見出しの定義
+ キャプチャ用見出しの定義
 -------------------------------------------------- */
-.section-heading {
-  height: 100vh;
+.visual-heading {
   position: absolute;
   top: 50%;
   padding-left: 192px;
+  
 
   @include mq(sp) {
     padding-left: 104px;
@@ -51,15 +51,64 @@
 }
 
 /* --------------------------------------------------
+ キャプチャ背景なし見出しの定義
+-------------------------------------------------- */
+.section-heading {
+  margin-bottom: 40px;
+  @include mq(tab) {
+    margin-bottom: 32px;
+  }
+  
+  &__text {
+    display: block;
+    color: $c-accent;
+    padding-left: 192px;
+
+    @include mq(sp) {
+      padding-left: 104px;
+    }
+
+    &--main {
+      font-size: $section-title;
+      font-family: $f-mincho;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 160px;
+        height: 1.5px;
+        background-color: $c-accent;
+        position: absolute;
+        top: 26px;
+        left: 0;
+  
+        @include mq(sp) {
+          width: 80px;
+        }
+      }
+    }
+
+    &--sub {
+      font-size: $section-subtitle;
+    }
+  }
+}
+
+
+/* --------------------------------------------------
  コンテンツラベルの定義
 -------------------------------------------------- */
 .label{
   font-family: $f-mincho;
   font-size: $f-large;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   text-align: center;
   color: $c-accent;
   font-weight: 300;
+
+  @include mq(tab) {
+    margin-bottom: 32px;
+  }
 
   &--menu {
     position: absolute;
@@ -67,5 +116,48 @@
     left: 50%;
     transform: translate(-50%, -50%);
     margin-bottom: 0;
+
+    @include mq(tab) {
+      position: static;
+      transform: none;
+      margin-bottom: 24px;
+    }
   }
 }
+
+/* --------------------------------------------------
+ タイトルラベルの定義
+-------------------------------------------------- */
+.title-label {
+  position: relative;
+  padding-left: 136px;
+  font-size: $f-large;
+  font-family: $f-mincho;
+  font-weight: 300;
+  color: $c-accent;
+  margin-bottom: 32px;
+
+  @include mq(sp) {
+    padding-left: 64px;  
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 112px;
+    height: 1px;
+    background-color: $c-border;
+
+    @include mq(sp) {
+      width: 48px;
+    }
+  }
+
+  &__sub {
+    font-size: rem(16);
+    margin-left: 16px;
+  }
+}
+

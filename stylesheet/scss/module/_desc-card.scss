@@ -1,0 +1,66 @@
+/*===================================================
+ desc-card.scss
+ トップページのスタイリング
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/animation" as *;
+@use "../mixin/mixin" as *;
+@use "../mixin/keyframe" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ index.html / mitake.html テキストボックスの定義
+-------------------------------------------------- */
+.desc-card {
+  display: flex;
+
+  @include mq(tab) {
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 8px;
+    background-color: $c-main;
+    margin-right: 16px;
+    position: relative;
+    &:nth-child(n + 2)::before {
+      content: "";
+      width: 16px;
+      height: 2px;
+      background-color: $c-border;
+      position: absolute;
+      top: 50%;
+      left: -16px;
+    }
+
+    @include mq(tab) {
+      width: 100%;
+      margin-bottom: 16px;
+      text-align: center;
+
+      &:nth-child(n + 2)::before {
+        content: "";
+        width: 2px;
+        height: 16px;
+        background-color: $c-border;
+        position: absolute;
+        top: -16px;
+        left: 50%;
+      }
+    }
+  }
+
+  &__text {
+    font-size: rem(16);
+    letter-spacing: 0;
+    font-weight: 600;
+
+    &--f-small {
+      font-size: $f-small;
+      font-weight: 300;
+    }
+  }
+}

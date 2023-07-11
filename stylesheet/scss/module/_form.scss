@@ -1,0 +1,62 @@
+/*===================================================
+ contact.scss
+ お問い合わせのスタイリング
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ 入力フォームのスタイリング
+-------------------------------------------------- */
+.form {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__label {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  &__required-text {
+    margin-left: 16px;
+    font-size: $f-sm-small;
+    padding: 2px 8px;
+    line-height: 2.0;
+    background-color: $c-note;
+    color: $c-font-white;
+  }
+
+  & input[type="text"] {
+    padding: 16px;
+    font-size: $f-small;
+    border: 1px solid $c-border;
+    background-color: inherit;
+  }
+
+  & textarea {
+    padding: 16px;
+    font-size: $f-small;
+    border: 1px solid $c-border;
+    background-color: inherit;
+  }
+
+  &__check-item {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  &__btn {
+    text-align: center;
+  }
+}

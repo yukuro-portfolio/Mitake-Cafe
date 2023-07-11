@@ -18,9 +18,9 @@ $breakpoints: (
 }
 
 /* ⬇︎ PC / SP指定の非表示 ====================== */
-// スマホ画面 767px以下の場合に非表示
+// 画面 768px以上の場合に非表示
 .is-pc {
-  @include mq(sp) {
+  @include mq(pc) {
     display: none;
   }
 }
@@ -32,9 +32,9 @@ $breakpoints: (
   }
 }
 
-// 画面 768px以上の場合に非表示
+// スマホ画面 767px以下の場合に非表示
 .is-sp {
-  @include mq(pc) {
+  @include mq(sp) {
     display: none;
   }
 }

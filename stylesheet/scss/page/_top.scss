@@ -26,7 +26,7 @@
     flex: 1;
 
     @include mq(sp) {
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
   }
 
@@ -39,6 +39,10 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include mq(tab) {
+      margin-bottom: 24px;
+    }
   }
 
   &__desc-list {
@@ -47,40 +51,144 @@
 
   &__desc-item {
     margin-bottom: 24px;
+    @include mq(tab) {
+      margin-bottom: 16px;
+    }
   }
 }
-
 
 /* --------------------------------------------------
  menuコンテンツの定義
 -------------------------------------------------- */
-.menu {
-
+.menu-top {
   &__wrapper {
     margin-bottom: 80px;
+    @include mq(tab) {
+      margin-bottom: 64px;
+    }
   }
 
   &__column {
     display: flex;
     align-items: center;
     gap: 0 64px;
+
+    @include mq(tab) {
+      gap: 0 48px;
+    }
+
+    @include mq(sp) {
+      flex-direction: column;
+    }
   }
 
   &__capture {
     position: relative;
-    &--position {
-      top: -18px;
+    @include mq(tab) {
+      width: 70%;
     }
+    @include mq(sp) {
+      width: 95%;
+    }
+    &--position {
+      top: -12px;
+      box-shadow: $box-shadow;
+      @include mq(sp) {
+        width: 70%;
+        margin-right: auto;
+      }
+    }
+
   }
 
   &__label {
     flex: 1;
     position: relative;
+
+    @include mq(sp) {
+      position: static;
+    }
   }
 
   &__desc {
     width: 528px;
-  }
 
+    @include mq(tab) {
+      width: 100%;
+    }
+  }
 }
 
+/* --------------------------------------------------
+ Accessコンテンツの定義
+-------------------------------------------------- */
+.access {
+  display: flex;
+  gap: 0 64px;
+
+  @include mq(tab) {
+    flex-direction: column-reverse;
+  }
+
+  &__googlemap {
+    width: 560px;
+    height: 437px;
+
+    @include mq(tab) {
+      width: 100%;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__shopname {
+    font-size: $f-medium;
+    margin-bottom: 16px;
+
+    @include mq(sp) {
+      font-size: rem(16);
+    }
+  }
+
+  &__address {
+    margin-bottom: 16px;
+  }
+
+  &__shopdesc {
+    margin-bottom: 16px;
+
+    @include mq(tab) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__business-hours {
+    font-weight: 600;
+  }
+
+  &__traffic {
+    margin-bottom: 16px;
+  }
+
+  &__traffic-label {
+    font-size: $f-medium;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+}
+
+/* --------------------------------------------------
+ Contactコンテンツの定義
+-------------------------------------------------- */
+.contact {
+  @include textWidth;
+  
+  &__desc {
+    margin-bottom: 56px;
+  }
+
+  &__tel {
+    font-size: $f-medium;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+}

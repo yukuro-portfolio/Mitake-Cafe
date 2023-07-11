@@ -18,6 +18,10 @@
   background-image: url("../../images/img/img_hero-capture.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
+  &--menu {
+    background-image: url("../../images/img/img_menu-capture.jpg");
+  }
 }
 
 /* --------------------------------------------------
@@ -51,4 +55,11 @@
   &--mitake {
     background-image: url("../../images/img/img_mitake-capture.jpg");
   }
+  &--blog {
+    background-image: url("../../images/img/img_blog-capture.jpg");
+  }
+}
+
+.visual-title {
+  @include maxWidth;
 }

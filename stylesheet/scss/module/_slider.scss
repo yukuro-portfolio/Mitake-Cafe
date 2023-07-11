@@ -1,6 +1,6 @@
 /*===================================================
- header.scss
- ヘッダーの定義
+ slider.scss
+ カルーセルスライダーの定義
 ================================================== */
 /* //////////// 変数読み込み ここから //////////// */
 @use "../mixin/mixin" as *;
@@ -10,22 +10,24 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 /* --------------------------------------------------
- visual-headerの指定
+ スライドパーツ カスタマイズ
 -------------------------------------------------- */ 
-.visual-header {
-  @include maxWidth;
-  
+.slick-next {
+  right: 0!important;
 
-  &__inner {
-    display: flex;
-    padding-top: 24px;
+  &::before {
+    color: $c-accent !important;
   }
+}
 
-  &__logo {
-    width: 124px;
-    height: 40px;
-    margin-right: 132px;
-    filter: invert(89%) sepia(64%) saturate(198%) hue-rotate(298deg) brightness(110%) contrast(102%);
-  }
+.slick-prev {
+  left: 0!important;
   
+  &::before {
+    color: $c-accent !important;
+  }
+}
+
+.slick-arrow{ 
+  z-index:2!important; 
 }

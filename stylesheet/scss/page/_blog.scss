@@ -1,0 +1,81 @@
+/*===================================================
+ blog.scss
+ ブログページ・パーツの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ ブログ一覧リストの定義
+-------------------------------------------------- */
+.blog {
+  &__wrapper {
+    margin-bottom: 64px;
+  }
+
+  &__list {
+    display: flex;
+    margin-bottom: 24px;
+    padding-left: 0;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding-right: 48px;
+    @include mq(tab) {
+      padding-right: 24px;
+    }
+  }
+
+  &__desc {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+  }
+
+  &__time-year {
+    font-size: $f-small;
+    margin-right: 8px;
+  }
+
+  &__time-date {
+    font-size: $f-medium;
+  }
+
+  &__category {
+    margin-left: auto;
+  }
+
+  &__category-link {
+    font-size: $f-small;
+    color: $c-font-black;
+  }
+
+  &__thumb {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  
+  &__img {
+    width: 384px;
+    margin: 0 auto;
+  }
+
+  &__title-text {
+    font-size: clamp(0.75rem, 0.705rem + 0.23vw, 0.875rem);
+    font-weight: 300;
+    letter-spacing: 0.06rem;
+  }
+}
+
+.slick-list {
+  @include mq(sp) {
+    padding: 0px 7% !important;
+  }
+
+}

@@ -1,0 +1,129 @@
+/*===================================================
+ menu.scss
+ メニューコンテンツの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ メニュー内容の定義
+-------------------------------------------------- */
+.menu-contents {
+
+  &__panel {
+    display: none;
+  }
+
+  & .is-show {
+    display: block;
+    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes displayAnime{
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &__desc {
+    @include textWidth;
+    margin-bottom: 48px;
+  }
+}
+
+.menu-list {
+  display: flex;
+  gap: 80px 80px;
+  flex-wrap: wrap;
+  @include mq(sp) {
+    gap: normal;
+    flex-direction: column;
+  }
+
+  &--mb {
+    margin-bottom: 80px;
+
+    @include mq(tab) {
+      margin-bottom: 64px;
+    }
+
+    @include mq(sp) {
+      margin-bottom: 48px;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 2 - 40px);
+    @include mq(sp) {
+      width: 100%;
+      margin-bottom: 48px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__capture {
+    width: 440px;
+    margin-left: auto;
+    margin-bottom: 24px;
+
+    @include mq(tab) {
+      width: 100%;
+    }
+  }
+
+  &__name-price {
+    display: flex;
+    font-size: $f-default;
+    margin-top: 16px;
+    @include mq(tab) {
+      flex-wrap: wrap;
+    }
+
+    &--drink {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    
+    @include mq(tab) {
+      width: 100%;
+    }
+
+    &--drink {
+      font-weight: 300;
+    }
+  }
+
+  &__price {
+    width: 72px;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  &__desc {
+    font-size: $f-small;
+  }
+
+  &__drink-price {
+    display: flex;
+  }
+}
+

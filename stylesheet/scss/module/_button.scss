@@ -25,3 +25,15 @@
     text-align: center;
   }
 }
+
+/* --------------------------------------------------
+ お問い合わせフォームボタンのスタイリング
+-------------------------------------------------- */ 
+.form-btn {
+  width: 240px;
+  height: 56px;
+  background-color: $c-accent;
+  cursor: pointer;
+  color: $c-font-white;
+  border: none;
+}
