@@ -14,8 +14,10 @@
 -------------------------------------------------- */ 
 .primary-btn {
   width: 240px;
+  height: 56px;
   margin: 0 auto;
   background-color: $c-accent;
+
 
   &__link {
     width: 100%;
@@ -23,6 +25,16 @@
     padding: 16px 0;
     color: $c-font-white;
     text-align: center;
+    transition: 0.5s;
+
+    &:hover {
+      color: $c-accent;
+    }
+  }
+
+  &:hover {
+    border: solid 1px $c-accent;
+    background-color: $c-font-white;
   }
 }
 
@@ -36,4 +48,11 @@
   cursor: pointer;
   color: $c-font-white;
   border: none;
+  transition: 0.5s;
+
+  &:hover {
+    color: $c-accent;
+    border: solid 1px $c-accent;
+    background-color: $c-font-white;
+  }
 }

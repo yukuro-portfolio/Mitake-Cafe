@@ -10,22 +10,43 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 /* --------------------------------------------------
- visual-headerの指定
--------------------------------------------------- */ 
-.visual-header {
-  @include maxWidth;
+ ヘッダーの指定
+-------------------------------------------------- */
+.header{
   
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 
   &__inner {
+    width: 1152px;
+    margin: 0 auto;
     display: flex;
-    padding-top: 24px;
+    justify-content: space-between;
+    align-items: center;
+    @include mq(tab) {
+      padding: 0 32px;
+    }
+  
+    @include mq(sp) {
+      padding: 16px 16px 0 16px;
+      flex-direction: column;
+    }
+    
   }
 
-  &__logo {
-    width: 124px;
-    height: 40px;
-    margin-right: 132px;
-    filter: invert(89%) sepia(64%) saturate(198%) hue-rotate(298deg) brightness(110%) contrast(102%);
+  &__logo-link {
+   z-index: 1;
   }
-  
+
+  & .dnone {
+    opacity: 0;/*透過0にして非表示に*/
+
+    & .panelactive {
+      opacity: 1;/*不透明にして出現*/
+    }
+  }
 }
+

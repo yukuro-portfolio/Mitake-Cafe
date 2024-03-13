@@ -13,6 +13,7 @@ body {
   width: 100%;
   box-sizing: border-box;
   background-color: $c-base;
+  overflow-x: hidden;
 }
 
 ul {
@@ -38,6 +39,18 @@ p {
   color: $c-font-black;
 }
 
+ol {
+  margin: 0
+}
+
+.container {
+  position: relative;
+
+  &__wrapper {
+    position: relative;
+  }
+}
+
 .contents {
   @include maxWidth;
   padding: 80px 0;
@@ -46,7 +59,22 @@ p {
     padding: 64px 32px;
   }
 
-  @include mq(tab) {
+  @include mq(sp) {
     padding: 48px 16px;
+  }
+
+  &--padding-bt {
+    padding-bottom: 60px;
+  }
+
+  &--padding {
+    padding: 60px 0;
+    @include mq(tab) {
+      padding: 48px 16px;
+    }
+  }
+
+  &__wrapper {
+    @include textWidth;
   }
 }

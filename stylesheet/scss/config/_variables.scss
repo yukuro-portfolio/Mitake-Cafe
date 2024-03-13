@@ -1,6 +1,6 @@
 /*===================================================
  _variables.scss
- 共通使用変数 定義ファイル
+ 共通使用変数
 ================================================== */
 @use "../config/function" as *;
 
@@ -62,7 +62,7 @@ $f-mincho: YuMincho , "游ゴシック体", YuGothic, "游ゴシック", "Yu Got
 $catch-copy: clamp(1.5rem, 1.136rem + 1.82vw, 2.5rem);
 $section-title: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);
 $section-subtitle: rem(18);
-$blog-title: 2.0rem;
+$blog-title: rem(20);
 
 /* --------------------------------------------------
  base-size 基本フォントサイズ

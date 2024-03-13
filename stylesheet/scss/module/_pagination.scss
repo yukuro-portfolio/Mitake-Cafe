@@ -8,3 +8,35 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+
+.pagination {
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link, .pagination__item--prev, .pagination__item--active {
+    padding: 12px 20px;
+    border: 1px solid $c-border;
+
+    @include mq(sp) {
+      padding: 6px 14px;
+    }
+  }
+
+  &__item {
+    &--prev {
+      color: $c-no-active;
+    }
+
+    &--active {
+      background-color: $c-accent;
+      color: $c-font-white;
+    }
+  }
+
+  &__link {
+    color: $c-accent;
+  }
+  
+}

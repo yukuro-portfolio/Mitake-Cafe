@@ -32,6 +32,9 @@
 @use "module/slider";
 @use "module/desc-card";
 @use "module/form";
+@use "module/pkz";
+@use "module/prev-next";
+@use "module/fade";
 
 /* --------------------------------------------------
  commonファイル
@@ -49,6 +52,7 @@
 @use "page/menu";
 @use "page/mitake";
 @use "page/blog";
+@use "page/article";
 
 
 

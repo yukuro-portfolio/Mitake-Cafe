@@ -1,0 +1,71 @@
+/*===================================================
+ pkz.scss
+ パンくずリストの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+.pkz {
+  margin-bottom: 40px;
+
+  @include mq(tab) {
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+
+    @include mq(tab) {
+      overflow-x: scroll;
+      word-break: keep-all;
+      white-space: nowrap;
+      padding-bottom: 4px;
+
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        border: 1px solid $c-border;
+        border-radius: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $c-border;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: $f-small;
+    &::after {
+      content: ">";
+      display: inline-block;
+      padding: 0 24px;
+
+      @include mq(sp) {
+        padding: 0 16px;
+      }
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  &__link {
+    color: $c-accent;
+    border-bottom: 1px solid $c-border;
+  }
+}

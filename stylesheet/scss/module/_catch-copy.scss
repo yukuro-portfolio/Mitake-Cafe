@@ -15,13 +15,21 @@
   @include maxWidth;
   height: 70%;
   position: relative;
+
   &__catch-text {
     font-size: $catch-copy;
     font-family: $f-mincho;
     color: $c-font-white;
     position: absolute;
-    top: 40%;
+    top: 50%;
     right: 0;
+    @include mq(tab) {
+      padding: 0 32px;
+    }
+    
+    @include mq(sp) {
+      padding: 0 16px;
+    }
   }
 
   &__text-top {
@@ -29,6 +37,10 @@
     margin-right: 256px;
     @include mq(tab) {
       margin-right: 112px;
+    }
+
+    @include mq(sp) {
+      margin-right: 48px;
     }
   }
 

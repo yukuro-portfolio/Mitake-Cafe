@@ -12,7 +12,29 @@
 .link {
   font-size: $f-small;
   text-align: right;
+
+  &--mitake {
+    text-align: left;
+    margin-bottom: 24px;
+    @include mq(sp) {
+      flex-direction: column
+    }
+  }
+
   &__text {
     @include LinkArrow;
+    margin-right: 40px;
+    font-weight: 600;
+
+    &--mitake {
+      padding: 0;
+
+      @include mq(sp) {
+        margin-bottom: 16px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

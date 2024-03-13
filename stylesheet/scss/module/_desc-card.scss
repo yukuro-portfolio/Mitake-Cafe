@@ -62,5 +62,9 @@
       font-size: $f-small;
       font-weight: 300;
     }
+
+    &--single-text {
+      line-height: 56px;
+    }
   }
 }

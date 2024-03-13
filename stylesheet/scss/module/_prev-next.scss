@@ -1,0 +1,102 @@
+/*===================================================
+ prev-next.scss
+ 前後記事パーツのデザイン
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+.prev-next {
+  margin-bottom: 64px;
+  @include mq(tab) {
+    margin-bottom: 48px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    color: $c-font-black;
+
+    &--next {
+      flex-direction: row-reverse;
+      margin-bottom: 0;
+    }
+
+    @include mq(sp) {
+      flex-direction: column;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    &--next {
+      flex-direction: row-reverse;
+      @include mq(sp) {
+        justify-content: space-between;
+      }
+    }
+
+    @include mq(sp) {
+      justify-content: space-between;
+    }
+  }
+
+  &__arrow-icon {
+    width: 14px;
+    height: 24px;
+    margin-right: 24px;
+
+    &--next {
+      transform: rotate(180deg);
+      @include mq(sp) {
+        margin-left: 24px;
+      }
+    }
+
+    @include mq(sp) {
+      margin-right: 24px;
+    }
+  }
+
+  &__thumb {
+    width: 264px;
+    height: 162px;
+    margin-right: 32px;
+    @include mq(sp) {
+      margin-right: 0;
+    }
+
+    @include mq(sp) {}
+  }
+
+  &__title {
+    width: 424px;
+    letter-spacing: 0;
+
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__title-text {
+    margin-bottom: 8px;
+
+    @include mq(sp) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__time {
+    font-size: $f-small;
+    @include mq(sp) {
+      font-size: $f-sm-small;
+    }
+  }
+}

@@ -23,12 +23,10 @@
       flex-direction: column;
       margin-bottom: 48px;
 
-
-    &--col-reverse {
-      flex-direction: column-reverse;
+      &--col-reverse {
+        flex-direction: column-reverse;
+      }
     }
-    }
-
   }
 
   &__capture {
@@ -42,4 +40,124 @@
   &__desc {
     max-width: 528px;
   }
+}
+
+/* --------------------------------------------------
+ 御嶽渓谷 コンテンツの定義
+-------------------------------------------------- */
+.mitake-valley {
+  &__desc {
+    @include textWidth;
+    margin-bottom: 64px;
+  }
+
+  &__text {
+    margin-bottom: 8px;
+  }
+
+  &__capture {
+    display: none;
+    position: relative;
+  }
+
+  & .is-show-mitake {
+    display: block;
+    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $c-font-white;
+    font-size: rem(20);
+    font-family: $f-mincho;
+
+    @include mq(sp) {
+      font-size: rem(14);
+    }
+  }
+}
+
+/* --------------------------------------------------
+ 御岳山 コンテンツの定義
+-------------------------------------------------- */
+.mt-mitake {
+  &__desc {
+    @include textWidth;
+    margin-bottom: 64px;
+  }
+
+  &__text {
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__box {
+    margin-bottom: 80px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(tab) {
+      margin-bottom: 64px;
+    }
+    
+    @include mq(sp) {
+      margin-bottom: 48px;
+    }
+  }
+  
+  &__item {
+    display: flex;
+    gap: 0 64px;
+    @include mq(tab) {
+      flex-direction: column;
+    }
+
+    &--row-reverse {
+      flex-direction: row-reverse;
+
+      @include mq(tab) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__capture {
+    flex: 1;
+
+    @include mq(tab) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text-box {
+    flex: 1;
+  }
+
+  &__label {
+    font-size: rem(18);
+    margin-bottom: 8px;
+    color: $c-accent;
+    @include mq(tab) {
+      margin-bottom: 16px;
+    }
+  }
+
+
+  & .desc-card {
+    margin-bottom: 24px;
+    
+    @include mq(tab) {
+      margin-bottom: 0;
+    }
+  }
+
 }

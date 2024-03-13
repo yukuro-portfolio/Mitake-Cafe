@@ -19,8 +19,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+
   &--menu {
     background-image: url("../../images/img/img_menu-capture.jpg");
+  }
+
+  &--mitake {
+    background-image: url("../../images/img/img_mitake-capture.jpg");
+  }
+
+  &--blog {
+    background-image: url("../../images/img/img_blog-capture.jpg");
+  }
+
+  &--article {
+    background-image: url("../../images/img/img_blog-capture.jpg");
+    height: 320px;
   }
 }
 
@@ -33,6 +47,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  z-index: -1;
 
   &__inner {
     @include maxWidth;
@@ -62,4 +77,10 @@
 
 .visual-title {
   @include maxWidth;
+  @include mq(tab) {
+    padding: 0 32px;
+  }
+  @include mq(sp) {
+    padding: 0 16px;
+  }
 }

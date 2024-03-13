@@ -16,8 +16,14 @@
   position: absolute;
   top: 50%;
   padding-left: 192px;
-  
 
+  &--article {
+    top: 40%;
+
+    @include mq(tab) {
+      top: 40%;
+    }
+  }  
   @include mq(sp) {
     padding-left: 104px;
   }
@@ -139,6 +145,7 @@
 
   @include mq(sp) {
     padding-left: 64px;  
+    margin-bottom: 24px;
   }
   
   &::before {

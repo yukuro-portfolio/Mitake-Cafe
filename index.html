@@ -1,14 +1,749 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cafe Mitake | Top</title>
+
+  <!-- ⬇︎ ===== style.css 読み込み ===== ⬇︎ -->
   <link rel="stylesheet" href="stylesheet/css/style.css">
-  
+  <!-- ⬇︎ ===== slick.css slickカルーセル読み込み ===== ⬇︎ -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+  <!-- ⬇︎ ===== フェードインアニメーション AOSの読み込み ===== ⬇︎ -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
-  
+  <div class="container">
+    <div class="container__wrapper">
+
+
+      <!-- ⬇︎ ######################## グローバルメニュー Start ######################## ⬇︎ -->
+      <header class="header js-header">
+        <div class="header__inner">
+          <a class="header__logo-link" href="index.html">
+            <h1 class="header__logo"><img class="header_logo-img" src="/images/icon/ico_cafemitake-logo_white.svg"
+                alt="Cafe Mitake"></h1>
+          </a>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__menu"><a class="nav__link" href="index.html#about">About</a></li>
+              <li class="nav__menu"><a class="nav__link" href="menu.html">Menu</a></li>
+              <li class="nav__menu"><a class="nav__link" href="mitake.html">Mitake</a></li>
+              <li class="nav__menu"><a class="nav__link" href="blog.html">Blog</a></li>
+              <li class="nav__menu"><a class="nav__link" href="index.html#access">Access</a></li>
+              <li class="nav__menu"><a class="nav__link" href="index.html#contact">Contact</a></li>
+            </ul>
+
+          </nav>
+
+
+        </div>
+      </header>
+      <div class="is-open">
+        <span class="is-open__border"></span>
+        <span class="is-open__border"></span>
+        <span class="is-open__border"></span>
+        <p class="is-open__text">Menu</p>
+      </div>
+      <!-- ⬆︎ ######################## グローバルメニュー End ######################## ⬆︎ -->
+
+
+      <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
+      <div class="visual-capture">
+
+        <div class="catch-copy">
+          <p class="catch-copy__catch-text">
+            <span class="catch-copy__text-top js-textanime">季節の移ろいと共に、</span>
+            <span class="catch-copy__text-bottom js-textanime">心地よいカフェ空間を</span>
+          </p>
+        </div>
+      </div>
+      <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
+
+
+      <!-- ------------------------------------------------------------------------------- -->
+
+
+      <!-- ⬇︎ ######################## Aboutコンテンツ Start ######################## ⬇︎ -->
+      <div id="about" class="visual-fixed visual-fixed--about">
+
+        <!-- ===== セクション見出し共通パーツ Start ===== -->
+        <div class="visual-fixed__inner">
+          <h2 class="visual-heading" data-aos="fade-right">
+            <div class="visual-heading__inner">
+              <span class="visual-heading__text visual-heading__text--main">About</span>
+              <span class="visual-heading__text visual-heading__text--sub">Cafe Mitakeについて</span>
+            </div>
+          </h2>
+        </div>
+        <!-- ===== セクション見出し共通パーツ End ===== -->
+
+      </div>
+
+      <section class="contents" data-aos="fade-in">
+        <h3 class="label">
+          御岳の四季と調和した至福のカフェ
+        </h3>
+
+        <div class="about">
+          <div class="about__capture">
+            <img class="about__img" src="/images/img/img_about-descimg.jpg" alt="御岳の四季と調和した至福のカフェ">
+          </div>
+
+          <div class="about__desc fade-in js-fade-in-left">
+            <p class="about__desc-text">多摩川が生み出した景勝地「御岳渓谷」にあるカフェ</p>
+            <div class="about__desc-list">
+              <p class="about__desc-item">季節限定のスイーツ</p>
+              <p class="about__desc-item">地元の食材を使ったこだわりの料理</p>
+              <p class="about__desc-item">コロンビア産の豆を焙煎したコーヒー</p>
+            </div>
+            <p class="about__desc-text">テラス席で四季を感じながら至福のひとときをお過ごしください。</p>
+          </div>
+        </div>
+      </section>
+      <!-- ⬆︎ ######################## Aboutコンテンツ End ######################## ⬆︎ -->
+
+
+      <!-- ------------------------------------------------------------------------------- -->
+
+
+      <!-- ⬇︎ ######################## Menuコンテンツ Start ######################## ⬇︎ -->
+      <div class="visual-fixed visual-fixed--menu">
+
+        <!-- ===== セクション見出し共通パーツ Start ===== -->
+        <div class="visual-fixed__inner">
+          <h2 class="visual-heading" data-aos="fade-right">
+            <div class="visual-heading__inner">
+              <span class="visual-heading__text visual-heading__text--main">Menu</span>
+              <span class="visual-heading__text visual-heading__text--sub">メニュー</span>
+            </div>
+          </h2>
+        </div>
+        <!-- ===== セクション見出し共通パーツ End ===== -->
+
+      </div>
+
+      <section class="contents">
+        <div class="menu-top">
+
+          <!-- ===== Sweetsコンテンツ Start ===== -->
+          <div class="menu-top__wrapper">
+
+            <div class="menu-top__column menu-top__column--tab">
+
+              <div class="menu-top__label" data-aos="fade">
+                <h3 class="label label--menu">
+                  Sweets
+                  <span class="label__sub">スイーツ</span>
+                </h3>
+              </div>
+
+              <div class="menu-top__capture" data-aos="fade-left">
+                <img class="menu-top__img" src="/images/img/img_menu-sweets_01.jpg" alt="メニュー スイーツ">
+              </div>
+            </div>
+
+            <div class="menu-top__column">
+
+              <div class="menu-top__capture menu-top__capture--position" data-aos="fade-right">
+                <img class="menu-top__img" src="/images/img/img_menu-sweets_02.jpg" alt="メニューのりんごパイ">
+              </div>
+
+              <div class="menu-top__desc" data-aos="fade">
+                <p class="menu__text">
+                  四季折々の限定スイーツでおもてなしいたします。
+                </p>
+                <p class="menu-top__text">
+                  季節に合わせたフルーツを使ったケーキや和菓子などをご堪能ください。
+                </p>
+
+                <div class="link">
+                  <a class="link__text" href="#">Sweets Menu</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- ===== Sweetsコンテンツ End ===== -->
+
+          <!-- ===== Dishコンテンツ Start ===== -->
+          <div class="menu-top__wrapper">
+
+            <div class="menu-top__column">
+              <div class="menu-top__label" data-aos="fade">
+                <h3 class="label label--menu">
+                  Dish
+                  <span class="label__sub">料理</span>
+                </h3>
+              </div>
+
+              <div class="menu-top__capture" data-aos="fade-left">
+                <img class="menu-top__img" src="/images/img/img_menu-dish_01.jpg" alt="メニュー 料理">
+              </div>
+
+            </div>
+
+            <div class="menu-top__column">
+
+              <div class="menu-top__capture menu-top__capture--position" data-aos="fade-right">
+                <img class="menu-top__img" src="/images/img/img_menu-dish_02.jpg" alt="メニューの洋風ハンバーグ">
+              </div>
+
+              <div class="menu-top__desc" data-aos="fade">
+                <p class="menu-top__text">
+                  シェフ歴10年の料理人がつくる地元の新鮮な食材を使用した、
+                  こだわりの料理を提供します。
+                </p>
+                <div class="link">
+                  <a class="link__text" href="#">Dish Menu</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- ===== Dishコンテンツ End ===== -->
+
+          <!-- ===== Drinkコンテンツ Start ===== -->
+          <div class="menu-top__wrapper">
+
+            <div class="menu-top__column">
+              <div class="menu-top__label" data-aos="fade">
+                <h3 class="label label--menu">
+                  Drink
+                  <span class="label__sub">飲み物</span>
+                </h3>
+              </div>
+
+              <div class="menu-top__capture" data-aos="fade-left">
+                <img class="menu-top__img" src="/images/img/img_menu-drink_01.jpg" alt="メニュー 飲み物">
+              </div>
+
+            </div>
+
+            <div class="menu-top__column">
+
+              <div class="menu-top__capture menu-top__capture--position" data-aos="fade-right">
+                <img class="menu-top__img" src="/images/img/img_menu-drink_02.jpg" alt="メニューのブレンドコーヒー">
+              </div>
+
+              <div class="menu-top__desc" data-aos="fade">
+                <p class="menu-top__text">
+                  当店のコーヒーはコロンビア産の豆を挽いております。
+                </p>
+                <p class="menu-top__text">
+                  フルーティーで酸味があり、甘い香りが特徴のコーヒーでゆっくりとおくつろぎください。
+                </p>
+                <div class="link">
+                  <a class="link__text" href="#">Dish Menu</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- ===== Drinkコンテンツ End ===== -->
+
+          <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
+          <div class="primary-btn" data-aos="fade">
+            <a class="primary-btn__link" href="menu.html">
+              Menu more
+            </a>
+          </div>
+          <!-- ⬆︎ //////// ボタン End //////// ⬆︎ -->
+        </div>
+
+      </section>
+      <!-- ⬆︎ ######################## Menuコンテンツ End ######################## ⬆︎ -->
+
+      <!-- ------------------------------------------------------------------------------- -->
+
+      <!-- ⬇︎ ######################## Mitakeコンテンツ Start ######################## ⬇︎ -->
+      <div class="visual-fixed visual-fixed--mitake">
+
+        <!-- ===== セクション見出し共通パーツ Start ===== -->
+        <div class="visual-fixed__inner">
+          <h2 class="visual-heading" data-aos="fade-right">
+            <div class="visual-heading__inner">
+              <span class="visual-heading__text visual-heading__text--main">Mitake</span>
+              <span class="visual-heading__text visual-heading__text--sub">御岳</span>
+            </div>
+          </h2>
+        </div>
+        <!-- ===== セクション見出し共通パーツ End ===== -->
+
+      </div>
+
+      <section class="contents">
+        <div class="mitake">
+
+          <!-- ===== 御岳渓谷 Start ===== -->
+          <div class="menu-top__label" data-aos="fade">
+            <h3 class="label">
+              Mitake Valley
+              <span class="label__sub">御岳渓谷</span>
+            </h3>
+          </div>
+          <div class="mitake__wrapper">
+
+            <div class="mitake__capture" data-aos="fade-right">
+              <img class="mitake__img" src="/images/img/img_mitake-keikoku.jpg" alt="御岳渓谷">
+            </div>
+
+            <div class="mitake__desc" data-aos="fade">
+              <p class="mitake__text">
+                御岳渓谷周辺には、自然豊かでハイキングやトレッキングを楽しめる遊歩道が整備されています。
+              </p>
+              <p class="mitake__text">
+                美しい景色を眺めながらの散策は、日頃の疲れを癒すリフレッシュなひとときとなるでしょう。
+              </p>
+            </div>
+          </div>
+          <!-- ===== 御岳渓谷 End ===== -->
+
+
+          <!-- ===== 御岳山 Start ===== -->
+          <div class="menu__label" data-aos="fade">
+            <h3 class="label">
+              Mt.Mitake
+              <span class="label__sub">御岳山</span>
+            </h3>
+          </div>
+          <div class="mitake__wrapper mitake__wrapper--col-reverse">
+            <div class="mitake__desc" data-aos="fade">
+              <p class="mitake__text">
+                紀元前からの歴史をもち山岳信仰の対象とされてきた御岳山
+              </p>
+              <p class="mitake__text">
+                標高929mの頂上には「武蔵御嶽神社」が建立されており、その先には「七代の滝」「ロックガーデン」「綾広の滝」などの自然が作り出した神秘的なスポットが多く存在しています。
+              </p>
+            </div>
+
+            <div class="mitake__capture" data-aos="fade-left">
+              <img class="mitake__img" src="/images/img/img_mitake-mt.mitake.jpg" alt="御岳渓谷">
+            </div>
+
+          </div>
+          <!-- ===== 御岳山 End ===== -->
+        </div>
+
+        <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
+        <div class="primary-btn" data-aos="fade">
+          <a class="primary-btn__link" href="#">
+            Mitake more
+          </a>
+        </div>
+        <!-- ⬆︎ //////// ボタン End //////// ⬆︎ -->
+    </div>
+    </section>
+    <!-- ⬆︎ ######################## Mitakeコンテンツ End ######################## ⬆︎ -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- ⬇︎ ######################## Blogコンテンツ Start ######################## ⬇︎ -->
+    <div class="visual-fixed visual-fixed--blog">
+
+      <!-- ===== セクション見出し共通パーツ Start ===== -->
+      <div class="visual-fixed__inner">
+        <h2 class="visual-heading" data-aos="fade-right">
+          <div class="visual-heading__inner">
+            <span class="visual-heading__text visual-heading__text--main">Blog</span>
+            <span class="visual-heading__text visual-heading__text--sub">ブログ</span>
+          </div>
+        </h2>
+      </div>
+      <!-- ===== セクション見出し共通パーツ End ===== -->
+
+    </div>
+
+    <section class="contents contents--padding-bt">
+      <div class="blog">
+
+        <!-- ===== ブログ/ニュース一覧 最大件数6件 Start ===== -->
+        <div class="blog__wrapper" data-aos="fade">
+          <ul class="blog__list js-slide">
+
+            <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
+            <li class="blog__item">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog__desc">
+                <time class="blog__time">
+                  <span class="blog__time-year">2023</span>
+                  <span class="blog__time-date">04 | 25</span>
+                </time>
+                <div class="blog__category">
+                  <a class="blog__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="#" class="blog__thumb">
+                <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事01">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <div class="blog__title">
+                <h3 class="blog__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </div>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
+            <li class="blog__item">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog__desc">
+                <time class="blog__time">
+                  <span class="blog__time-year">2023</span>
+                  <span class="blog__time-date">04 | 28</span>
+                </time>
+                <div class="blog__category">
+                  <a class="blog__category-link" href="#">News</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="#" class="blog__thumb">
+                <img class="blog__img" src="images/img/img_news-thumb.jpg" alt="ブログ記事02">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <div class="blog__title">
+                <h3 class="blog__title-text">
+                  臨時休業のお知らせ
+                </h3>
+              </div>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
+            <li class="blog__item">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog__desc">
+                <time class="blog__time">
+                  <span class="blog__time-year">2023</span>
+                  <span class="blog__time-date">05 | 04</span>
+                </time>
+                <div class="blog__category">
+                  <a class="blog__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="#" class="blog__thumb">
+                <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <div class="blog__title">
+                <h3 class="blog__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </div>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
+            <li class="blog__item">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog__desc">
+                <time class="blog__time">
+                  <span class="blog__time-year">2023</span>
+                  <span class="blog__time-date">05 | 04</span>
+                </time>
+                <div class="blog__category">
+                  <a class="blog__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="#" class="blog__thumb">
+                <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <div class="blog__title">
+                <h3 class="blog__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </div>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事05 Start ##### -->
+            <li class="blog__item">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog__desc">
+                <time class="blog__time">
+                  <span class="blog__time-year">2023</span>
+                  <span class="blog__time-date">05 | 04</span>
+                </time>
+                <div class="blog__category">
+                  <a class="blog__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="#" class="blog__thumb">
+                <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <div class="blog__title">
+                <h3 class="blog__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </div>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事05 End ##### -->
+
+          </ul>
+        </div>
+        <!-- ===== ブログ/ニュース一覧 最大件数6件 End ===== -->
+
+      </div>
+
+      <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
+      <div class="primary-btn" data-aos="fade">
+        <a class="primary-btn__link" href="#">
+          Blog more
+        </a>
+      </div>
+      <!-- ⬆︎ //////// ボタン End //////// ⬆︎ -->
+  </div>
+  </section>
+  <!-- ⬆︎ ######################## Blogコンテンツ End ######################## ⬆︎ -->
+
+  <!-- ------------------------------------------------------------------------------- -->
+
+  <!-- ⬇︎ ######################## Accessコンテンツ Start ######################## ⬇︎ -->
+  <section id="access" class="contents contents--padding">
+    <!-- ===== セクション見出し共通パーツ Start ===== -->
+    <h2 class="section-heading" data-aos="fade-right">
+      <div class="section-heading__inner">
+        <span class="section-heading__text section-heading__text--main">Access</span>
+        <span class="section-heading__text section-heading__text--sub">アクセス</span>
+      </div>
+    </h2>
+    <!-- ===== セクション見出し共通パーツ End ===== -->
+
+    <div class="access">
+      <div class="access__map" data-aos="fade-right">
+        <iframe class="access__googlemap"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d414200.42467643064!2d138.57295989990234!3d35.80138620111087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60193abe0293e1c1%3A0xa1be4990cfac0715!2z5b6h5ba96aeF!5e0!3m2!1sja!2sjp!4v1688607319602!5m2!1sja!2sjp"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <section class="access__desc" data-aos="fade">
+        <h3 class="access__shopname">
+          Cafe Mitake
+        </h3>
+
+        <div class="access__shopdesc">
+          <p class="access__address">〒198-0000 東京都青梅市御岳本町0000-00</p>
+
+          <p class="access__business-hours">【営業時間】</p>
+          <p class="access__bh-text">平日：10:00 ~ 18:00（水・木 定休日）</p>
+          <p class="access__bh-text">土日・祝日：9:00 ~ 17:00</p>
+        </div>
+
+        <div class="access__traffic">
+          <p class="access__traffic-label">
+            電車でお越しの場合
+          </p>
+
+          <div class="desc-card">
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">JR中央本線</p>
+              <p class="desc-card__text">新宿駅</p>
+            </div>
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">JR中央本線</p>
+              <p class="desc-card__text">立川駅 又は 青梅駅 乗り換え</p>
+            </div>
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">JR青梅線</p>
+              <p class="desc-card__text">御嶽駅 下車 徒歩5分</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="access__traffic">
+          <p class="access__traffic-label">
+            車でお越しの場合
+          </p>
+
+          <div class="desc-card">
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">圏央道</p>
+              <p class="desc-card__text">青梅IC</p>
+            </div>
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">国道411号</p>
+              <p class="desc-card__text">約40分</p>
+            </div>
+
+            <div class="desc-card__item">
+              <p class="desc-card__text desc-card__text--f-small">Cafe Mitake</p>
+              <p class="desc-card__text">到着 駐車場完備</p>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </section>
+  <!-- ⬆︎ ######################## Accessコンテンツ End ######################## ⬆︎ -->
+
+  <!-- ------------------------------------------------------------------------------- -->
+
+  <!-- ⬇︎ ######################## Contactコンテンツ Start ######################## ⬇︎ -->
+  <section id="contact" class="contents contents--padding">
+    <!-- ===== セクション見出し共通パーツ Start ===== -->
+    <h2 class="section-heading" data-aos="fade-right">
+      <div class="section-heading__inner">
+        <span class="section-heading__text section-heading__text--main">Contact</span>
+        <span class="section-heading__text section-heading__text--sub">お問い合わせ</span>
+      </div>
+    </h2>
+    <!-- ===== セクション見出し共通パーツ End ===== -->
+
+    <div class="contact" data-aos="fade">
+
+      <div class="contact__desc">
+        <p class="contact__tel">
+          ℡. 000-0000-0000
+        </p>
+
+        <p class="contact__desc-text">
+          お電話でのお問い合わせも受け付けております。<br>
+          時間帯によっては電話をお取りすることができませんので、ご了承ください。
+        </p>
+      </div>
+
+      <!-- ===== 入力フォームパーツ Start ===== -->
+      <div class="contact__form">
+        <form action="" method="get" class="form">
+
+          <div class="form__item">
+            <div class="form__label">
+              <label for="name">お名前</label>
+              <p class="form__required-text">必須</p>
+            </div>
+            <input type="text" name="name" id="name" placeholder="山田　太郎" required>
+          </div>
+
+          <div class="form__item">
+            <div class="form__label">
+              <label for="name">メールアドレス</label>
+              <p class="form__required-text">必須</p>
+            </div>
+            <input type="text" name="email" id="email" placeholder="sample@sample.com" required>
+          </div>
+
+          <div class="form__item">
+            <div class="form__label">
+              <label for="name">メッセージ本文</label>
+              <p class="form__required-text">必須</p>
+            </div>
+            <textarea id="message" rows="7" cols="40" placeholder="お問い合わせ内容を入力してください。"></textarea>
+          </div>
+
+          <div class="form__check-item">
+            <label for="c-agree">
+              <input type="checkbox" id="c-agree" name="agree">
+              上記内容で送信します
+            </label>
+          </div>
+
+          <div class="form__btn">
+            <input class="form-btn" type="submit" value="送信">
+          </div>
+        </form>
+      </div>
+      <!-- ===== 入力フォームパーツ End ===== -->
+    </div>
+  </section>
+  <!-- ⬆︎ ######################## Contactコンテンツ End ######################## ⬆︎ -->
+
+  <!-- ------------------------------------------------------------------------------- -->
+
+  <!-- ⬇︎ ######################## フッター Start ######################## ⬇︎ -->
+  <footer class="footer">
+    <div class="footer__wrapper">
+      <div class="footer__logo">
+        <img class="footer__logo-img" src="/images/icon/ico_logo.svg" alt="Cafe Mitake">
+      </div>
+
+      <div class="footer__address">
+        <p class="footer__address-text">
+          〒198-0000 東京都青梅市御岳本町0000-00
+        </p>
+        <p class="footer__address-text">
+          Tel. 000 - 0000 - 0000
+        </p>
+      </div>
+
+      <div class="footer__business-hours">
+        <p class="footer__bh-label">
+          【営業時間】
+        </p>
+        <p class="footer__bh-text">
+          平日：10:00 ~ 18:00（水・木 定休日）
+        </p>
+        <p class="footer__bh-text">
+          土日・祝日：9:00 ~ 17:00
+        </p>
+      </div>
+
+      <!-- ===== SNSアイコン Start ===== -->
+      <div class="footer__sns">
+        <a href="#" class="footer__sns-icon">
+          <img class="footer__icon" src="/images/icon/ico_instagram.svg" alt="インスタグラム">
+        </a>
+        <a href="#" class="footer__sns-icon">
+          <img class="footer__icon" src="/images/icon/ico_twitter.svg" alt="Twitter">
+        </a>
+        <a href="#" class="footer__sns-icon">
+          <img class="footer__icon" src="/images/icon/ico_line.svg" alt="Line">
+        </a>
+      </div>
+      <!-- ===== SNSアイコン End ===== -->
+
+      <div class="footer__copyright">
+        <small class="footer__copyright-text">
+          &copy; Cafe Mitake 2023 <br>Yukuro CreateFolio All Rights Reserved.
+        </small>
+      </div>
+    </div>
+  </footer>
+  <!-- ⬆︎ ######################## フッター End ######################## ⬆︎ -->
+  </div>
+
+  <!-- ------------------------------------------------------------------------------- -->
+
+  </div>
+
+  <!-- ⬇︎ ===== JavaScript / JQuery 読み込み ===== ⬇︎ -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="javascript/common.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
 </body>
+
 </html>

@@ -11,22 +11,228 @@
 
 /* --------------------------------------------------
  visual-navの指定
--------------------------------------------------- */ 
-.visual-nav {
-
-  &__nav-list {
+-------------------------------------------------- */
+.nav {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  
+  &__list {
     display: flex;
   }
 
-  &__nav-menu {
+  &__menu {
     margin-right: 64px;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include mq(tab) {
+      margin-right: 48px;
+    }
+
+    @include mq(sp) {
+      margin-right: 16px;
+    }
+  }
+
+  &__link {
+    font-family: $f-mincho;
+    font-weight: 600;
+    font-size: $f-default;
+    color: $c-font-white;
+
+    @include mq(sp) {
+      font-size: $f-sm-small;
+    }
+  }
+}
+
+
+.sns {
+  &__list {
+    display: flex;
+  }
+  &__item {
+    margin-right: 32px;
+  
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &__nav-link {
-    font-family: $f-mincho;
-    color: $c-font-white;
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+.nav ul li.current a,
+.nav ul li a:hover {
+  color: #fff;
+}
+
+/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
+.header.dnone .nav {
+  /*固定位置にして最背面に*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /*高さと幅*/
+  width: 100%;
+  height: 100vh;
+  /*天地中央＆テキスト中央揃え*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /*はじめは透過0に*/
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
+.header.dnone.panelactive .nav {
+  opacity: 1; /*不透明に*/
+  z-index: 3; /*最前面に*/
+  background: $c-base;
+}
+
+.header.dnone.panelactive .nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header.dnone.panelactive .nav ul li {
+  margin-bottom: 48px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*リストの形状*/
+.header.dnone.panelactive .nav li a {
+  font-size: $f-small;
+  color: $c-accent;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.is-open {
+  z-index: 10000;
+  /*はじめは非表示に*/
+  display: none;
+  /*ボタンの位置*/
+  position: fixed;
+  top: 10px;
+  right: 64px;
+  z-index: 999;
+  /*ボタンの形状*/
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+
+  @include mq(tab) {
+    background-color: $c-accent;
+    right: 32px;
+  }
+
+  @include mq(sp) {
+    background-color: $c-accent;
+    right: 16px;
+  }
+}
+
+/*ボタンのアイコン設定*/
+.is-open {
+  &__border {
+    display: inline-block;
+    transition: all 0.4s;
+    position: absolute;
+    left: 11px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: $c-accent;
+    width: 55%;
+
+    &:nth-of-type(1) {
+      top: 10px;
+    }
+
+    &:nth-of-type(2) {
+      top: 18px;
+    }
+
+    &:nth-of-type(3) {
+      top: 26px;
+    }
+
+    @include mq(tab) {
+      background-color: $c-font-white;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    top: 28px;
+    left: 15%;
+    font-size: $f-sm-small;
+    color: $c-accent;
+
+    @include mq(tab) {
+      color: $c-font-white;
+    }
+  }
+
+}
+
+/*activeクラスが付与された後のボタンのアイコン設定*/
+.is-open.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+  
+  @include mq(tab) {
+    top: 10px;
+  }
+}
+
+.is-open.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.is-open.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+
+  @include mq(tab) {
+    top: 22px;
+  }
+}
+
+/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
+.fadeDown {
+  animation-name: fadeDownAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  display: block;
+}
+@keyframes fadeDownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
