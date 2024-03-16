@@ -1864,12 +1864,16 @@ button {
   display: flex;
   gap: 64px;
 }
-.g-nav__link {
+.g-nav__item {
   color: #4a5733;
   transition: 0.3s;
 }
-.g-nav__link:hover {
+.g-nav__item:hover {
   opacity: 0.6;
+}
+.g-nav__item a {
+  font-size: 0.875rem;
+  color: #4a5733;
 }
 @media screen and (max-width: 767px) {
   .g-nav {
@@ -1897,10 +1901,8 @@ button {
     gap: 24px;
     text-align: center;
   }
-  .g-nav__link {
+  .g-nav__item a {
     margin-bottom: 24px;
-    font-size: 0.875rem;
-    color: #4a5733;
   }
 }
 
@@ -1976,18 +1978,16 @@ button {
 /* //////////// 変数読み込み ここから //////////// */
 /* //////////// 変数読み込み ここまで //////////// */
 /* --------------------------------------------------
- トップページキャプチャの定義
+ ビジュアルの定義
 -------------------------------------------------- */
 .visual-capture {
   width: 100%;
   height: 0;
   padding-top: 45%;
-  background-image: url("../../images/img/img_hero-capture.jpg");
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  z-index: -1;
 }
 .visual-capture--menu {
   background-image: url("../../images/img/img_menu-capture.jpg");
@@ -2011,6 +2011,13 @@ button {
   .visual-capture {
     height: 320px;
   }
+}
+.visual-capture .attachment-post-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* --------------------------------------------------
@@ -2160,6 +2167,10 @@ ol {
   }
 }
 
+.contents-top {
+  padding-top: 64px;
+}
+
 /* --------------------------------------------------
  mixinファイル 
 -------------------------------------------------- */
@@ -2197,7 +2208,7 @@ ol {
 .top-mv #wp-custom-header-video .bg-img {
   width: 100%;
   height: 0;
-  background-image: url("/images/img/img_hero-capture.jpg");
+  background-image: url("/assets/images/img/img_hero-capture.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 45%;
@@ -2296,17 +2307,17 @@ ol {
   box-shadow: 3px 3px 6px rgba(65, 65, 65, 0.2);
 }
 .top-visual--about {
-  background-image: url("/images/img/img_about-capture.jpg");
+  background-image: url("../../../assets/images/img/img_about-capture.jpg");
 }
 .top-visual--menu {
-  background-image: url("/images/img/img_menu-capture.jpg");
+  background-image: url("../../../assets/images/img/img_menu-capture.jpg");
   margin-left: 144px;
 }
 .top-visual--mitake {
-  background-image: url("/images/img/img_mitake-capture.jpg");
+  background-image: url("../../../assets/images/img/img_mitake-capture.jpg");
 }
 .top-visual--blog {
-  background-image: url("/images/img/img_blog-capture.jpg");
+  background-image: url("../../../assets/images/img/img_blog-capture.jpg");
   margin-left: 144px;
 }
 @media screen and (max-width: 1024px) {
@@ -2957,6 +2968,42 @@ ol {
     padding: 0 24px;
     margin: 0;
   }
+}
+
+/* --------------------------------------------------
+ 記事件数の定義
+-------------------------------------------------- */
+.blog-number {
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 767px) {
+  .blog-number {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+.blog-number__label {
+  font-weight: 600;
+  font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
+}
+.blog-number__box {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+@media screen and (max-width: 767px) {
+  .blog-number__box {
+    width: 100%;
+  }
+}
+.blog-number__items--value {
+  font-weight: 600;
+  font-size: clamp(1rem, 0.955rem + 0.23vw, 1.125rem);
+  margin: 0 8px;
 }
 
 /* --------------------------------------------------

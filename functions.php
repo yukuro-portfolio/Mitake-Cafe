@@ -25,6 +25,10 @@ add_action('after_setup_theme', 'my_setup');
 -------------------------------------------------- */
 function my_script_init()
 {
+
+  // Googleフォントの読み込み
+  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap', array(), null);
+
   // wordpress内のJQueryを読み込まない
   wp_deregister_script('jquery');
 
@@ -58,3 +62,70 @@ add_theme_support( 'custom-header', array(
   'header-text'   => true,
   'video'         => true
 ) );
+
+/* メニューからロゴを出力できるように指定 */
+add_action( 'after_setup_theme', function(){
+  add_theme_support( 'custom-logo' );
+} );
+
+/* --------------------------------------------------
+ ナビゲーション
+-------------------------------------------------- */
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => ( 'ヘッダーメニュー' ),
+      'footer-menu' => ( 'フッターメニュー' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
+
+/* グローバルメニューのliのid,classを削除 */
+add_filter('nav_menu_item_id', 'wp_navtag_remove', 100, 1); //liのidを強制的に削除
+add_filter('page_css_class', 'wp_navtag_remove', 100, 1);
+function wp_navtag_remove($var) {
+return is_array($var) ? array_intersect($var, array('current-menu-item')) : '';
+}
+
+/* --------------------------------------------------
+ headタグ内の不要な記述を削除
+-------------------------------------------------- */
+/* WordPressのバージョン出力を排除する */
+remove_action('wp_head','wp_generator');
+
+/* JS, CSS要素のバージョン出力を排除する */
+function remove_cssjs_ver2( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+add_filter( 'style_loader_src', 'remove_cssjs_ver2', 9999 );
+add_filter( 'script_loader_src', 'remove_cssjs_ver2', 9999 );
+
+/* テキストエディタの絵文字に対応する為の各種出力を排除する */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+/* wlwmanifestの出力を排除する */
+remove_action('wp_head', 'wlwmanifest_link');
+
+/* 外部ブログツールからの投稿を行う為の出力を排除する */
+remove_action('wp_head', 'rsd_link');
+
+/* 短縮URLの出力を排除する */
+remove_action('wp_head', 'wp_shortlink_wp_head');
+
+/* DNS Prefetchingの出力を排除する */
+remove_action('wp_head', 'wp_resource_hints', 2);
+
+/* RSSフィードの出力を排除する */
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+
+/* ブロックエディタ（Gutenberg）用CSSの出力を排除する */
+function remove_editor_style() {
+wp_dequeue_style('wp-block-library');
+}

@@ -5,7 +5,7 @@
  <footer class="footer">
    <div class="footer__wrapper">
      <div class="footer__logo">
-       <img class="footer__logo-img" src="/images/icon/ico_cafemitake-logo_white.svg" alt="Cafe Mitake">
+       <?php the_custom_logo(); ?>
      </div>
 
      <div class="footer__address">
@@ -56,4 +56,4 @@
  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
  </body>
 
-</html>
+ </html>

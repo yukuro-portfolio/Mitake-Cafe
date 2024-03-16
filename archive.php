@@ -42,63 +42,125 @@
     <div class="contents contents--col">
 
       <!-- ⬇︎ ######################## ブログリスト Start ######################## ⬇︎ -->
-
       <!-- ===== ブログ/ニュース一覧 最大件数4件 Start ===== -->
       <div class="blog">
         <div class="blog__wrapper">
+          <div class="blog__number">
 
-          <!-- ##### 記事件数表示 ##### -->
-          <div class="blog-number">
-            <p class="blog-number__label">ALL</p>
-            <div class="blog-number__box">
-              <p class="blog-number__items">全 <span class="blog-number__items blog-number__items--value">5</span>件</p>
-              <p class="blog__number__display">1 ~ 4 件を表示しています。</p>
-            </div>
           </div>
-
           <ul class="blog-list">
+            <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
+            <li class="blog-card">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog-card__info">
+                <time class="blog-card__time">
+                  <span class="blog-card__time-year">2023</span>
+                  <span class="blog-card__time-date">05 | 04</span>
+                </time>
+                <div class="blog-card__category">
+                  <a class="blog-card__category-link" href="#">Blog</a>
+                </div>
+              </div>
 
-          <?php query_posts('posts_per_page=4'); ?>
-            <?php if (have_posts()) : while (have_posts()) : the_post();?>
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="/" class="blog-card__thumb">
+                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
 
-                <!-- ##### ブログ/ニュース 投稿記事 Start ##### -->
-                <li class="blog-card">
-                  <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-                  <div class="blog-card__info">
-                    <time class="blog-card__time" datetime="<?php the_time('Y.n.j'); ?>">
-                      <span class="blog-card__time-year"><?php the_time('Y'); ?></span>
-                      <span class="blog-card__time-date"><?php the_time('m | d'); ?></span>
-                    </time>
-                    <div class="blog-card__category">
-                      <a class="blog-card__category-link" href="#">Blog</a>
-                    </div>
-                  </div>
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <a href="/article.html" class="blog-card__title">
+                <h3 class="blog-card__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </a>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
 
-                  <!-- ##### ブログ/ニュース サムネイル ##### -->
-                  <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
-                    <img class="blog-card__img" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="">
-                  </a>
+            <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
+            <li class="blog-card">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog-card__info">
+                <time class="blog-card__time">
+                  <span class="blog-card__time-year">2023</span>
+                  <span class="blog-card__time-date">05 | 04</span>
+                </time>
+                <div class="blog-card__category">
+                  <a class="blog-card__category-link" href="#">Blog</a>
+                </div>
+              </div>
 
-                  <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-                  <a href="<?php the_permalink(); ?>" class="blog-card__title">
-                    <h3 class="blog-card__title-text">
-                      <?php the_title(); ?>
-                    </h3>
-                  </a>
-                </li>
-                <!-- ##### ブログ/ニュース 投稿記事 End ##### -->
-              <?php endwhile;
-            else : ?>
-              <p>まだ記事がありません</p>
-            <?php endif ?>
-            <?php wp_reset_postdata(); ?>
-            <!-- 記事のループ処理終了 -->
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="/" class="blog-card__thumb">
+                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <a href="/article.html" class="blog-card__title">
+                <h3 class="blog-card__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </a>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
+            <li class="blog-card">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog-card__info">
+                <time class="blog-card__time">
+                  <span class="blog-card__time-year">2023</span>
+                  <span class="blog-card__time-date">05 | 04</span>
+                </time>
+                <div class="blog-card__category">
+                  <a class="blog-card__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="/" class="blog-card__thumb">
+                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <a href="/article.html" class="blog-card__title">
+                <h3 class="blog-card__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </a>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
+
+            <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
+            <li class="blog-card">
+              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+              <div class="blog-card__info">
+                <time class="blog-card__time">
+                  <span class="blog-card__time-year">2023</span>
+                  <span class="blog-card__time-date">05 | 04</span>
+                </time>
+                <div class="blog-card__category">
+                  <a class="blog-card__category-link" href="#">Blog</a>
+                </div>
+              </div>
+
+              <!-- ##### ブログ/ニュース サムネイル ##### -->
+              <a href="/" class="blog-card__thumb">
+                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+              </a>
+
+              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+              <a href="/article.html" class="blog-card__title">
+                <h3 class="blog-card__title-text">
+                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                </h3>
+              </a>
+            </li>
+            <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
 
           </ul>
         </div>
-        <!-- ===== ブログ/ニュース一覧 最大件数4件 End ===== -->
+        <!-- ===== ブログ/ニュース一覧 最大件数6件 End ===== -->
 
-        <!-- ===== ページネーション Start ===== -->
         <div class="pagination">
           <ul class="pagination__list">
             <li class="pagination__item pagination__item--prev">Prev</li>
@@ -108,8 +170,6 @@
             <li class="pagination__item pagination__item--next"><a class="pagination__link" href="#">Next</a></li>
           </ul>
         </div>
-        <!-- ===== ページネーション End ===== -->
-
       </div>
       <!-- ⬆︎ ######################## ブログリスト End ######################## ⬆︎ -->
 

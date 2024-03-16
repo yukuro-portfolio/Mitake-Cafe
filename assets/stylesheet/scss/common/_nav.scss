@@ -18,12 +18,17 @@
     gap: 64px;
   }
 
-  &__link {
+  &__item {
     color: $c-accent;
     transition: 0.3s;
 
     &:hover {
       opacity: 0.6;
+    }
+
+    & a {
+      font-size: $f-small;
+      color: $c_accent;
     }
   }
 
@@ -54,10 +59,8 @@
       text-align: center;
     }
 
-    &__link {
+    &__item a {
       margin-bottom: 24px;
-      font-size: $f-small;
-      color: $c_accent;
     }
   }
 }

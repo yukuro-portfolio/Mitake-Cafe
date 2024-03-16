@@ -29,6 +29,45 @@
 }
 
 /* --------------------------------------------------
+ 記事件数の定義
+-------------------------------------------------- */
+.blog-number {
+  display: flex;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $c_border;
+  margin-bottom: 32px;
+
+  @include mq(sp) {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: $f-medium;
+  }
+
+  &__box {
+    margin-left: auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  &__items {
+    &--value {
+      font-weight: 600;
+      font-size: $f-medium;
+      margin: 0 8px;
+    }
+  }
+}
+
+/* --------------------------------------------------
  ブログ一覧リストの定義
 -------------------------------------------------- */
 .top-blog {

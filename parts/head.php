@@ -37,11 +37,6 @@
 
    <!-- ⬇︎ ===== フェードインアニメーション AOSの読み込み ===== ⬇︎ -->
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-   <!-- ⬇︎ ===== Googleフォント「Source Serif」 ===== ⬇︎ -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
  </head>
  <?php wp_head(); ?>
 
