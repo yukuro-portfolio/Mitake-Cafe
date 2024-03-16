@@ -1,0 +1,35 @@
+/*===================================================
+ tag-list.scss
+ ブログ記事タグ一覧の定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  &__link {
+    padding-left: 16px;
+    position: relative;
+    font-size: $f-small;
+    color: $c-accent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-image: url("/images/icon/ico_tag.svg");
+    }
+  }
+}
+

@@ -14,28 +14,87 @@
 -------------------------------------------------- */ 
 .primary-btn {
   width: 240px;
-  height: 56px;
+  height: 64px;
+  line-height: 64px;
   margin: 0 auto;
-  background-color: $c-accent;
+  position: relative;
+  font-family: $font-source-serif;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 2px;
+    background-color: $c-accent;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 240px;
+    height: 2px;
+    background-color: $c-accent;
+  }
+
+  &:hover::after {
+    opacity: 0.6;
+  }
+
+  &:hover::before {
+    opacity: 0.6;
+  }
 
 
   &__link {
-    width: 100%;
-    height: 100%;
-    padding: 16px 0;
-    color: $c-font-white;
+    padding-right: 0;
+    position: relative;
+    color: $c-accent;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: $f-default;
     text-align: center;
-    transition: 0.5s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 16px;
+      transform: rotate(30deg);
+      width: 12px;
+      height: 1px;
+      background-color: $c-accent;
+      transition: 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 1px;
+      background-color: $c-accent;
+      transition: 0.3s;
+    }
 
     &:hover {
-      color: $c-accent;
+      opacity: 0.6;
+    }
+
+    &:hover::before {
+      right: 8px;
+    }
+
+    &:hover::after {
+      right: 8px;
     }
   }
 
-  &:hover {
-    border: solid 1px $c-accent;
-    background-color: $c-font-white;
-  }
 }
 
 /* --------------------------------------------------
@@ -48,11 +107,9 @@
   cursor: pointer;
   color: $c-font-white;
   border: none;
-  transition: 0.5s;
+  transition: 0.3s;
 
   &:hover {
-    color: $c-accent;
-    border: solid 1px $c-accent;
-    background-color: $c-font-white;
+    opacity: 0.6;
   }
 }

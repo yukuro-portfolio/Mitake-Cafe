@@ -4,14 +4,23 @@
 ================================================== */
 
 /* --------------------------------------------------
- index.html キャッチコピーの一文字アニメーション
+ グローバルナビゲーション 固定ヘッダー
 -------------------------------------------------- */
-// js-textanimeにappeartextというクラス名を付ける定義
+$(function () {
+	$('.mobile-btn').on("click", function () {
+		$('.g-nav').toggleClass('open');  // メニューにopenクラスをつけ外しする
+	});
+});
+
+/* --------------------------------------------------
+ ビジュアルテキストアニメーション
+-------------------------------------------------- */
+// eachTextAnimeにappeartextというクラス名を付ける定義
 function EachTextAnimeControl() {
-  $('.js-textanime').each(function () {
-    let elemPos = $(this).offset().top - 50;
-    let scroll = $(window).scrollTop();
-    let windowHeight = $(window).height();
+  $('.eachTextAnime').each(function () {
+    var elemPos = $(this).offset().top - 50;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
     if (scroll >= elemPos - windowHeight) {
       $(this).addClass("appeartext");
 
@@ -21,19 +30,24 @@ function EachTextAnimeControl() {
   });
 }
 
-// 画面が読み込まれたらすぎに動かす記述
-addEventListener('load', function () {
+// 画面をスクロールをしたら動かしたい場合の記述
+$(window).scroll(function () {
+  EachTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
+});// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+// 画面が読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load', function () {
   //spanタグを追加する
-  let element = $(".js-textanime");
+  var element = $(".eachTextAnime");
   element.each(function () {
-    let text = $(this).text();
-    let textbox = "";
+    var text = $(this).text();
+    var textbox = "";
     text.split('').forEach(function (t, i) {
       if (t !== " ") {
         if (i < 10) {
           textbox += '<span style="animation-delay:.' + i + 's;">' + t + '</span>';
         } else {
-          let n = i / 10;
+          var n = i / 10;
           textbox += '<span style="animation-delay:' + n + 's;">' + t + '</span>';
         }
 
@@ -45,8 +59,7 @@ addEventListener('load', function () {
   });
 
   EachTextAnimeControl();/* アニメーション用の関数を呼ぶ*/
-});
-
+});// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
 /* --------------------------------------------------
  slick.js カルーセルの指定
 -------------------------------------------------- */
@@ -56,25 +69,28 @@ window.onload = function () {
     arrows: true,
     lazyLoad: 'ondemand',
     autoplaySpeed: 2000,
-    dots: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     speed: 400,
     infinite: false,
+    centerPadding: '50%',
+    dots: true,
+    dotsClass: 'dots-class',
+    variableWidth: true,
 
     responsive: [{
       breakpoint: 768, // ブレイクポイントを指定
       settings: {
         slidesToShow: 2,
         speed: 400,
+        centerPadding: '25%',
       },
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        centerMode: true,
-        centerPadding: '20%',
+        centerMode: true, 
       },
     },
     ]
@@ -107,25 +123,33 @@ document.addEventListener('DOMContentLoaded', function () {
 /* --------------------------------------------------
  タブメニュー mitake.html
 -------------------------------------------------- */
-document.addEventListener('DOMContentLoaded', function () {
-  // タブに対してクリックイベントを適用
-  const tabs = document.getElementsByClassName('tab-menu__item');
-  for (let i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener('click', tabSwitch, false);
+$(function() {
+  // パラメータ取得
+  function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
-
-  // タブをクリックすると実行する関数
-  function tabSwitch() {
-    // タブのclassの値を変更
-    document.getElementsByClassName('is-active-mitake')[0].classList.remove('is-active-mitake');
-    this.classList.add('is-active-mitake');
-    // コンテンツのclassの値を変更
-    document.getElementsByClassName('is-show-mitake')[0].classList.remove('is-show-mitake');
-    const arrayTabs = Array.prototype.slice.call(tabs);
-    const index = arrayTabs.indexOf(this);
-    document.getElementsByClassName('mitake-valley__capture')[index].classList.add('is-show-mitake');
-  };
-}, false);
+ 
+  // ページ読み込み時のタブ切り替え
+  let tabPram = ['is-dish', 'is-sweets', 'is-drink', 'is-spring', 'is-summer', 'is-autumn', 'is-winter'];
+  let pram = getParam('active-tab');
+  if (pram && $.inArray(pram, tabPram) !== -1) {
+    $('.js-tab-cts,.js-tab-switch').removeClass('is-active');
+    $('[data-tab="' + pram + '"]').addClass('is-active');
+  }
+ 
+  // ロード後のタブ切り替え
+  $('.js-tab-switch').on('click', function() {
+    let dataPram = $(this).data('tab');
+    $('.js-tab-cts,.js-tab-switch').removeClass('is-active');
+    $('[data-tab="' + dataPram + '"]').addClass('is-active');
+  });
+});
 
 /* --------------------------------------------------
  フェードインアニメーション
@@ -139,53 +163,61 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
-
-
 /* --------------------------------------------------
- ハンバーガーメニュー
+ アコーディオン開閉アニメーション blog.html
 -------------------------------------------------- */
-//スクロールをするとハンバーガーメニューに変化するための設定を関数でまとめる
-function FixedAnime() {
-  //ヘッダーの高さを取得
-  var headerH = $('.js-header').outerHeight(true);
-  var scroll = $(window).scrollTop();
-  if (scroll >= headerH){//ヘッダーの高さ以上までスクロールしたら
-      $('.is-open').addClass('fadeDown');//.openbtnにfadeDownというクラス名を付与して
-      $('.js-header').addClass('dnone');//.js-headerにdnoneというクラス名を付与
-    }else{//それ以外は
-      $('.is-open').removeClass('fadeDown');//fadeDownというクラス名を除き
-      $('.js-header').removeClass('dnone');//dnoneというクラス名を除く
-    }
-}
+// アニメーションの時間とイージング
+const animTiming = {
+  duration: 300,
+  easing: "ease-in-out",
+};
 
-// 画面をスクロールをしたら動かしたい場合の記述
-$(window).scroll(function () {
-  FixedAnime();//スクロールをするとハンバーガーメニューに変化するための関数を呼ぶ
-});
+// アコーディオンを閉じるときのキーフレーム
+const closingAnimation = (answer) => [
+  {
+    height: answer.offsetHeight + "px",
+    opacity: 1,
+  },
+  {
+    height: 0,
+    opacity: 0,
+  },
+];
 
-// ページが読み込まれたらすぐに動かしたい場合の記述
-$(window).on('load', function () {
-  FixedAnime();//スクロールをするとハンバーガーメニューに変化するための関数を呼ぶ
-});
+// アコーディオンを開くときのキーフレーム
+const openingAnimation = (answer) => [
+  {
+    height: 0,
+    opacity: 0,
+ },
+ {
+    height: answer.offsetHeight + "px",
+    opacity: 1,
+  },
+];
 
-
-//ボタンをクリックした際のアニメーションの設定
-$(".is-open").click(function () {//ボタンがクリックされたら
-  $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-    $(".js-header").toggleClass('panelactive');//ヘッダーにpanelactiveクラスを付与
-});
-$(".nav li a").click(function () {//ナビゲーションのリンクがクリックされたら
-    $(".is-open").removeClass('active');//ボタンの activeクラスを除去し
-    $(".js-header").removeClass('panelactive');//ヘッダーのpanelactiveクラスも除去
-});
-
-
-//リンク先のidまでスムーススクロール
-//※ページ内リンクを行わない場合は不必要なので削除してください
-    $('.nav li a').click(function () {
-  var elmHash = $(this).attr('href');
-  var pos = $(elmHash).offset().top-0;
-  $('body,html').animate({scrollTop: pos}, 1000);
-  return false;
-});
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".is-datails").forEach(function (el) {
+      const summary = el.querySelector(".is-summary");
+      const answer = el.querySelector(".blog-aside__archive-menu");
+      summary.addEventListener("click", (event) => {
+        // デフォルトの挙動を無効化
+        event.preventDefault();
+        // detailsのopen属性を判定
+        if (el.getAttribute("open") !== null) {
+          // アコーディオンを閉じるときの処理
+          const closingAnim = answer.animate(closingAnimation(answer), animTiming);
+  
+          closingAnim.onfinish = () => {
+            // アニメーションの完了後にopen属性を取り除く
+            el.removeAttribute("open");
+          };
+        } else {
+          // open属性を付与
+          el.setAttribute("open", "true");
+          // アコーディオンを開くときの処理
+          const openingAnim = answer.animate(openingAnimation(answer), animTiming);
+        }
+      });
+    });
+  });

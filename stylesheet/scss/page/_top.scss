@@ -11,110 +11,329 @@
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
 
-/* --------------------------------------------------
- aboutコンテンツの定義
--------------------------------------------------- */
-.about {
-  display: flex;
-  align-items: center;
-  gap: 0 64px;
-  @include mq(sp) {
-    flex-direction: column;
+.top-mv {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 99%;
+    background-color: rgba(142, 159, 114, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  &__capture {
-    flex: 1;
+  &__video {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: relative;
+
+
+    .bg-img {
+      width: 100%;
+      height: 0;
+      background-image: url("/images/img/img_hero-capture.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding-top: 45%;
+    }
+  }
+
+  .heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    gap: 16px;
+
+    &__logo {
+      width: 228px;
+
+      @include mq(tab) {
+        width: 140px;
+        padding-left: 0;
+      }
+    }
+
+    &__catch {
+      display: flex;
+      flex-direction: column;
+      font-family: $font-source-serif;
+      color: $c-white;
+      font-size: $contents-title;
+
+      @include mq(tab) {
+        font-size: $f-default;
+      }
+    }
+
+    &__bottom {
+      margin-left: 96px;
+    }
+  }
+}
+
+.eachTextAnime span {
+  opacity: 0;
+}
+
+.eachTextAnime.appeartext span {
+  animation: text_anime_on 1s ease-out forwards;
+}
+@keyframes text_anime_on {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------
+ トップページ 背景ビジュアルの指定
+-------------------------------------------------- */
+.top-contents {
+  margin: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+
+  &--block {
+    @include InnerWidth;
+    margin-bottom: 120px;
+
+    @include mq(tab) {
+      padding: 0 32px;
+    }
 
     @include mq(sp) {
-      margin-bottom: 24px;
+      padding: 0 16px;
     }
   }
 
-  &__desc {
-    flex: 1;
+  @include mq(tab) {
+    margin-bottom: 80px;
+  }
+}
+
+.top-visual {
+  position: relative;
+  width: calc(100% - 144px);
+  height: 0;
+  padding-top: 34%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 2;
+  box-shadow: $box-shadow;
+
+  &--about {
+    background-image: url("/images/img/img_about-capture.jpg");
   }
 
-  &__desc-text {
-    margin-bottom: 32px;
-    &:last-child {
-      margin-bottom: 0;
+  &--menu {
+    background-image: url("/images/img/img_menu-capture.jpg");
+    margin-left: 144px;
+  }
+
+  &--mitake {
+    background-image: url("/images/img/img_mitake-capture.jpg");
+  }
+
+  &--blog {
+    background-image: url("/images/img/img_blog-capture.jpg");
+    margin-left: 144px;
+  }
+
+  @include mq(tab) {
+    width: calc(100% - 104px);
+
+    &--about {
+      margin-right: 84px;
     }
 
-    @include mq(tab) {
-      margin-bottom: 24px;
+    &--menu {
+      width: 100%;
+      margin-left: 84px;
+    }
+
+    &--blog {
+      width: 100%;
+      margin-left: 84px;
     }
   }
 
-  &__desc-list {
-    margin-bottom: 32px;
+  @include mq(sp) {
+    width: calc(100% - 32px);
+    height: 240px;
+
+    &--menu {
+      width: 100%;
+      margin-left: 32px;
+    }
+
+    &--blog {
+      width: 100%;
+      margin-left: 32px;
+    }
+  }
+}
+
+.top-info {
+  background-color: $c_main;
+  margin: -80px 64px 0 64px;
+  padding: 160px 80px 80px 80px;
+
+  &--pad-top {
+    padding-top: 80px;
   }
 
-  &__desc-item {
-    margin-bottom: 24px;
-    @include mq(tab) {
-      margin-bottom: 16px;
+  &--block {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  &__inner {
+    @include InnerWidth;
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+  }
+
+  & .mitake {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  & .desc {
+    width: 488px;
+  }
+
+  & .contents-title {
+    justify-content: center;
+    margin: 0 auto 32px auto;
+    text-align: center;
+  }
+
+  @include mq(tab) {
+    margin: -64px 32px 0 32px;
+    padding: 120px 32px 64px 32px;
+
+    &--pad-top {
+      padding-top: 64px;
+    }
+
+    &--block {
+      margin: 0 32px;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    &__col {
+      gap: 32px;
+    }
+  }
+
+  @include mq(sp) {
+    margin: -64px 12px 0 12px;
+    padding: 120px 16px 64px 16px;
+
+    &--pad-top {
+      padding-top: 64px;
+    }
+
+    &--block {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__col {
+      flex-wrap: wrap;
+      gap: 32px;
     }
   }
 }
 
 /* --------------------------------------------------
+ aboutコンテンツの定義 特になし
+-------------------------------------------------- */
+
+/* --------------------------------------------------
  menuコンテンツの定義
 -------------------------------------------------- */
-.menu-top {
-  &__wrapper {
-    margin-bottom: 80px;
-    @include mq(tab) {
-      margin-bottom: 64px;
+.top-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  &__figure {
+    &--overlap {
+      margin-top: -24px;
+      box-shadow: $box-shadow;
     }
   }
 
-  &__column {
+  &__col {
     display: flex;
     align-items: center;
-    gap: 0 64px;
+    gap: 64px;
+    position: relative;
 
-    @include mq(tab) {
-      gap: 0 48px;
+    & .contents-title {
+      width: 352px;
     }
 
-    @include mq(sp) {
-      flex-direction: column;
+    & .text-link {
+      text-align: right;
+      margin-top: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
   }
 
-  &__capture {
-    position: relative;
-    @include mq(tab) {
-      width: 70%;
+  @include mq(tab) {
+    gap: 56px;
+
+    &__col {
+      flex-wrap: wrap;
+      gap: 32px;
     }
-    @include mq(sp) {
-      width: 95%;
+
+    & .contents-title {
+      width: 100%;
+      margin-bottom: 0;
     }
-    &--position {
-      top: -12px;
-      box-shadow: $box-shadow;
-      @include mq(sp) {
-        width: 70%;
-        margin-right: auto;
+
+    &__figure {
+      width: 80%;
+      margin-left: auto;
+
+      &--overlap {
+        width: 50%;
+        margin-left: 0;
       }
     }
 
-  }
-
-  &__label {
-    flex: 1;
-    position: relative;
-
-    @include mq(sp) {
-      position: static;
-    }
-  }
-
-  &__desc {
-    width: 528px;
-
-    @include mq(tab) {
+    & .desc {
       width: 100%;
+    }
+
+    & .text-link {
+      position: sticky;
+      display: inline-block;
+      margin: 8px auto 0 auto;
     }
   }
 }
@@ -123,41 +342,42 @@
  Accessコンテンツの定義
 -------------------------------------------------- */
 .access {
-  display: flex;
-  gap: 0 64px;
-
-  @include mq(tab) {
-    flex-direction: column-reverse;
-  }
-
-  &__googlemap {
-    width: 560px;
-    height: 437px;
+  &__info {
+    margin-bottom: 64px;
 
     @include mq(tab) {
+      margin-bottom: 0;
+    }
+  }
+
+  & .desc {
+    margin-bottom: 32px;
+
+    @include mq(sp) {
       width: 100%;
-      margin-bottom: 32px;
     }
   }
 
   &__shopname {
+    font-family: $font-source-serif;
     font-size: $f-medium;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 
     @include mq(sp) {
       font-size: rem(16);
     }
   }
 
-  &__address {
-    margin-bottom: 16px;
+  &__map {
+    margin-top: 64px;
   }
 
-  &__shopdesc {
-    margin-bottom: 16px;
+  &__googlemap {
+    width: 100%;
+    height: 400px;
 
     @include mq(tab) {
-      margin-bottom: 16px;
+      width: 100%;
     }
   }
 
@@ -166,11 +386,13 @@
   }
 
   &__traffic {
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   &__traffic-label {
-    font-size: $f-medium;
+    font-size: $f-default;
     font-weight: 600;
     margin-bottom: 8px;
   }
@@ -180,15 +402,79 @@
  Contactコンテンツの定義
 -------------------------------------------------- */
 .contact {
-  @include textWidth;
-  
-  &__desc {
-    margin-bottom: 56px;
+  @include InnerWidth;
+
+  & .desc {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+/* --------------------------------------------------
+ 季節のメニュー
+-------------------------------------------------- */
+.season-menu {
+  @include InnerWidth;
+  margin: -40px auto 0 auto;
+  padding: 40px;
+  background-color: rgba(237, 234, 229, 0.8);
+  position: relative;
+  z-index: 100;
+
+  @include mq(tab) {
+    margin: -48px 32px;
+    padding: 32px 16px;
   }
 
-  &__tel {
-    font-size: $f-medium;
+  @include mq(sp) {
+    margin: 0 16px;
+    padding: 32px 16px;
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+
+    @include mq(tab) {
+      gap: 40px;
+    }
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+  }
+
+  &__figure {
+    width: 296px;
+  }
+
+  &__caption {
+    font-size: $f-small;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .title-label {
+    @include mq(sp) {
+      margin-bottom: 64px;
+    }
+  }
+
+  & .text-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    text-align: center;
+    @include mq(sp) {
+      top: 32px;
+    }
   }
 }

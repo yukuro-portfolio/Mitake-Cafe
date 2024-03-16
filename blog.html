@@ -3,322 +3,438 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cafe Mitake | Blog</title>
+  <title>Blog | Cafe Mitake</title>
+  <meta name="description" content="新商品のご案内やお知らせなどを掲載しております。" />
+  <meta name="robots" content="noindex,nofollow" /> <!--検索エンジンに掲載しない場合は記載-->
+
+  <!-- ブラウザによる電話番号・メールの自動リンクを無効化 -->
+    <!-- <meta name="format-detection" content="email=no,telephone=no,address=no" /> -->
+
+  <!-- ##### ⬇︎ OGPタグ ⬇︎ ##### -->
+  <meta property="og:url" content="ページのURL" />
+  <meta property="og:title" content="Blog | Cafe Mitake" />
+  <meta property="og:type" content="ページのタイプ">
+  <meta property="og:description" content="新商品のご案内やお知らせなどを掲載しております。" />
+  <meta property="og:image" content="画像のURL" />
+  <meta name="twitter:card" content="カード種類" />
+  <meta name="twitter:site" content="@Twitterユーザー名" />
+  <meta property="og:site_name" content="サイト名" />
+  <meta property="og:locale" content="ja_JP" />
+  <!-- ##### ⬆︎ OGPタグ ⬆︎ ##### -->
+
+  <!-- ##### ⬇︎ サイトアイコン ⬇︎ ##### -->
+  <link rel="icon" href="/images/icon/ico_favicon.svg" sizes="16x16" type="image/svg" />
+  <!-- ##### ⬆︎ サイトアイコン ⬆︎ ##### -->
 
   <!-- ⬇︎ ===== style.css 読み込み ===== ⬇︎ -->
   <link rel="stylesheet" href="stylesheet/css/style.css">
+
+  <!-- ⬇︎ ===== slick.css slickカルーセル読み込み ===== ⬇︎ -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+  <!-- ⬇︎ ===== フェードインアニメーション AOSの読み込み ===== ⬇︎ -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- ⬇︎ ===== Googleフォント「Source Serif」 ===== ⬇︎ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
-    <div class="container__wrapper">
 
-      <!-- ⬇︎ ######################## グローバルメニュー Start ######################## ⬇︎ -->
-      <header class="header js-header">
-        <div class="header__inner">
-          <a class="header__logo-link" href="index.html">
-            <h1 class="header__logo"><img class="header_logo-img" src="/images/icon/ico_cafemitake-logo_white.svg"
-                alt="Cafe Mitake"></h1>
-          </a>
-          <nav class="nav">
-            <ul class="nav__list">
-              <li class="nav__menu"><a class="nav__link" href="index.html#about">About</a></li>
-              <li class="nav__menu"><a class="nav__link" href="menu.html">Menu</a></li>
-              <li class="nav__menu"><a class="nav__link" href="mitake.html">Mitake</a></li>
-              <li class="nav__menu"><a class="nav__link" href="blog.html">Blog</a></li>
-              <li class="nav__menu"><a class="nav__link" href="index.html#access">Access</a></li>
-              <li class="nav__menu"><a class="nav__link" href="index.html#contact">Contact</a></li>
-            </ul>
+    <!-- ⬇︎ ######################## グローバルメニュー Start ######################## ⬇︎ -->
+    <header class="header" id="head_wrap">
+      <div class="header__inner">
+        <a href="/" class="header__logo">
+          <h1>
+            <img src="/images/icon/ico_logo.svg" alt="Cafe Miatake">
+          </h1>
+        </a>
 
-          </nav>
-
-
+        <div class="mobile-btn">
+          <span class="mobile-btn__border"></span>
+          <span class="mobile-btn__border"></span>
+          <span class="mobile-btn__border"></span>
+          <span class="mobile-btn__text">menu</span>
         </div>
-      </header>
-      <div class="is-open">
-        <span class="is-open__border"></span>
-        <span class="is-open__border"></span>
-        <span class="is-open__border"></span>
-        <p class="is-open__text">Menu</p>
+
+        <nav class="g-nav">
+          <ul class="g-nav__menu">
+            <li class="g-nav__item">
+              <a class="g-nav__link" href="/menu.html">Menu</a>
+            </li>
+            <li class="g-nav__item">
+              <a class="g-nav__link" href="/mitake.html">Mitake</a>
+            </li>
+            <li class="g-nav__item">
+              <a class="g-nav__link" href="/blog.html">Blog</a>
+            </li>
+            <li class="g-nav__item">
+              <a class="g-nav__link" href="/index.html#access">Access</a>
+            </li>
+            <li class="g-nav__item">
+              <a class="g-nav__link" href="/index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <!-- ⬆︎ ######################## グローバルメニュー End ######################## ⬆︎ -->
+    </header>
+    <!-- ⬆︎ ######################## グローバルメニュー End ######################## ⬆︎ -->
+
+    <div class="container__wrapper">
 
       <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
       <div class="visual-capture visual-capture--blog">
-        <div class="visual-title">
-          <h1 class="visual-heading">
-            <div class="visual-heading__inner">
-              <span class="visual-heading__text visual-heading__text--main">Blog</span>
-              <span class="visual-heading__text visual-heading__text--sub">ブログ</span>
+        <h1 class="visual-heading visual-heading--page">
+          <span class="visual-heading__border"></span>
+          <div class="visual-heading__inner">
+            <span class="visual-heading__main">Blog</span>
+            <span class="visual-heading__sub">ブログ</span>
+          </div>
+        </h1>
+      </div>
+
+      <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
+
+      <!-- ------------------------------------------------------------------------------- -->
+
+      <!-- ⬇︎ ######################## パンくずリスト Start ######################## ⬇︎ -->
+      <nav class="pkz">
+        <ol class="pkz__list">
+          <li class="pkz__item">
+            <a class="pkz__link" href="index.html">
+              Home
+            </a>
+          </li>
+          <li class="pkz__item">
+            Blog
+          </li>
+        </ol>
+      </nav>
+      <!-- ⬆︎ ######################## パンくずリスト End ######################## ⬆︎ -->
+
+
+      <div class="contents contents--col">
+
+        <!-- ⬇︎ ######################## ブログリスト Start ######################## ⬇︎ -->
+        <!-- ===== ブログ/ニュース一覧 最大件数4件 Start ===== -->
+        <div class="blog">
+          <div class="blog__wrapper">
+            <div class="blog__number">
+
             </div>
-          </h1>
+            <ul class="blog-list">
+              <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
+              <li class="blog-card">
+                <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                <div class="blog-card__info">
+                  <time class="blog-card__time">
+                    <span class="blog-card__time-year">2023</span>
+                    <span class="blog-card__time-date">05 | 04</span>
+                  </time>
+                  <div class="blog-card__category">
+                    <a class="blog-card__category-link" href="#">Blog</a>
+                  </div>
+                </div>
+
+                <!-- ##### ブログ/ニュース サムネイル ##### -->
+                <a href="/" class="blog-card__thumb">
+                  <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+                </a>
+
+                <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                <a href="/article.html" class="blog-card__title">
+                  <h3 class="blog-card__title-text">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </h3>
+                </a>
+              </li>
+              <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
+
+              <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
+              <li class="blog-card">
+                <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                <div class="blog-card__info">
+                  <time class="blog-card__time">
+                    <span class="blog-card__time-year">2023</span>
+                    <span class="blog-card__time-date">05 | 04</span>
+                  </time>
+                  <div class="blog-card__category">
+                    <a class="blog-card__category-link" href="#">Blog</a>
+                  </div>
+                </div>
+
+                <!-- ##### ブログ/ニュース サムネイル ##### -->
+                <a href="/" class="blog-card__thumb">
+                  <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+                </a>
+
+                <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                <a href="/article.html" class="blog-card__title">
+                  <h3 class="blog-card__title-text">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </h3>
+                </a>
+              </li>
+              <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
+
+              <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
+              <li class="blog-card">
+                <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                <div class="blog-card__info">
+                  <time class="blog-card__time">
+                    <span class="blog-card__time-year">2023</span>
+                    <span class="blog-card__time-date">05 | 04</span>
+                  </time>
+                  <div class="blog-card__category">
+                    <a class="blog-card__category-link" href="#">Blog</a>
+                  </div>
+                </div>
+
+                <!-- ##### ブログ/ニュース サムネイル ##### -->
+                <a href="/" class="blog-card__thumb">
+                  <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+                </a>
+
+                <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                <a href="/article.html" class="blog-card__title">
+                  <h3 class="blog-card__title-text">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </h3>
+                </a>
+              </li>
+              <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
+
+              <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
+              <li class="blog-card">
+                <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                <div class="blog-card__info">
+                  <time class="blog-card__time">
+                    <span class="blog-card__time-year">2023</span>
+                    <span class="blog-card__time-date">05 | 04</span>
+                  </time>
+                  <div class="blog-card__category">
+                    <a class="blog-card__category-link" href="#">Blog</a>
+                  </div>
+                </div>
+
+                <!-- ##### ブログ/ニュース サムネイル ##### -->
+                <a href="/" class="blog-card__thumb">
+                  <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
+                </a>
+
+                <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                <a href="/article.html" class="blog-card__title">
+                  <h3 class="blog-card__title-text">
+                    記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
+                  </h3>
+                </a>
+              </li>
+              <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
+
+            </ul>
+          </div>
+          <!-- ===== ブログ/ニュース一覧 最大件数6件 End ===== -->
+
+          <div class="pagination">
+            <ul class="pagination__list">
+              <li class="pagination__item pagination__item--prev">Prev</li>
+              <li class="pagination__item pagination__item--active">1</li>
+              <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
+              <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
+              <li class="pagination__item pagination__item--next"><a class="pagination__link" href="#">Next</a></li>
+            </ul>
+          </div>
         </div>
+        <!-- ⬆︎ ######################## ブログリスト End ######################## ⬆︎ -->
 
+        <aside class="blog-aside">
+          <!-- ##### カテゴリー ##### -->
+          <section class="blog-aside__box">
+            <h3 class="blog-aside__title">カテゴリー</h3>
+            <ul class="blog-aside__menu">
+              <li class="blog-aside__menu-item">
+                <a class="blog-aside__menu-link" href="">Blog</a>
+              </li>
+              <li class="blog-aside__menu-item">
+                <a class="blog-aside__menu-link" href="">News</a>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ##### アーカイブ ##### -->
+          <section class="blog-aside__box">
+            <h3 class="blog-aside__title">アーカイブ</h3>
+            <ul class="blog-aside__menu">
+              <li class="blog-aside__menu-item">
+                <details class="blog-aside__details is-datails">
+                  <summary class="blog-aside__summary is-summary">
+                    2023年
+                  </summary>
+                  <ul class="blog-aside__archive-menu">
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 12月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 11月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 10月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 09月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 08月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 07月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 06月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 05月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 04月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 03月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 02月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2023年 01月</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+
+              <li class="blog-aside__menu-item">
+                <details class="blog-aside__details">
+                  <summary class="blog-aside__summary">
+                    2022年
+                  </summary>
+                  <ul class="blog-aside__archive-menu">
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 12月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 11月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 10月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 09月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 08月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 07月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 06月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 05月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 04月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 03月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 02月</a>
+                    </li>
+                    <li class="blog-aside__archive-item">
+                      <a class="blog-aside__archive-link" href="">2022年 01月</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ##### タグ ##### -->
+          <section class="blog-aside__box">
+            <h3 class="blog-aside__title">タグ</h3>
+            <ul class="tag-list">
+              <li class="tag-list__item">
+                <a class="tag-list__link" href="">コーヒー</a>
+              </li>
+              <li class="tag-list__item">
+                <a class="tag-list__link" href="">料理</a>
+              </li>
+              <li class="tag-list__item">
+                <a class="tag-list__link" href="">御岳</a>
+              </li>
+            </ul>
+          </section>
+        </aside>
       </div>
+
+      <!-- ------------------------------------------------------------------------------- -->
+
+      <!-- ⬇︎ ######################## フッター Start ######################## ⬇︎ -->
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <div class="footer__logo">
+            <img class="footer__logo-img" src="/images/icon/ico_cafemitake-logo_white.svg" alt="Cafe Mitake">
+          </div>
+
+          <div class="footer__address">
+            <p class="footer__address-text">
+              〒198-0000 東京都青梅市御岳本町0000-00
+            </p>
+            <p class="footer__address-text">
+              Tel. 000 - 0000 - 0000
+            </p>
+          </div>
+
+          <div class="footer__business-hours">
+            <p class="footer__bh-label">
+              【営業時間】
+            </p>
+            <p class="footer__bh-text">
+              平日：10:00 ~ 18:00（水・木 定休日）
+            </p>
+            <p class="footer__bh-text">
+              土日・祝日：9:00 ~ 17:00
+            </p>
+          </div>
+
+          <!-- ===== SNSアイコン Start ===== -->
+          <div class="footer__sns">
+            <a href="#" class="footer__sns-icon">
+              <img class="footer__icon" src="/images/icon/ico_instagram_white.svg" alt="インスタグラム">
+            </a>
+            <a href="#" class="footer__sns-icon">
+              <img class="footer__icon" src="/images/icon/ico_line-share.svg" alt="Line">
+            </a>
+          </div>
+          <!-- ===== SNSアイコン End ===== -->
+
+          <div class="footer__copyright">
+            <small class="footer__copyright-text">
+              &copy; Cafe Mitake 2023 <br>Yukuro CreateFolio All Rights Reserved.
+            </small>
+          </div>
+        </div>
+      </footer>
+      <!-- ⬆︎ ######################## フッター End ######################## ⬆︎ -->
     </div>
-  </div>
-  <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
-
-  <!-- ------------------------------------------------------------------------------- -->
-
-  <section class="contents contents--padding">
-    <!-- ⬇︎ ######################## パンくずリスト Start ######################## ⬇︎ -->
-    <nav class="pkz">
-      <ol class="pkz__list">
-        <li class="pkz__item">
-          <a class="pkz__link" href="index.html">
-            Home
-          </a>
-        </li>
-        <li class="pkz__item">
-          Blog
-        </li>
-      </ol>
-    </nav>
-    <!-- ⬆︎ ######################## パンくずリスト End ######################## ⬆︎ -->
-
-    <!-- ===== ブログ/ニュース一覧 最大件数6件 Start ===== -->
-    <div class="blog-list">
-      <div class="blog-list__wrapper">
-
-        <ul class="blog-list__list">
-
-          <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">04 | 25</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">Blog</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事01">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
-
-          <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">04 | 28</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">News</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_news-thumb.jpg" alt="ブログ記事02">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                臨時休業のお知らせ
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
-
-          <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">05 | 04</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">Blog</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
-
-          <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">05 | 04</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">Blog</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
-
-          <!-- ##### ブログ/ニュース 投稿記事05 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">05 | 04</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">Blog</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事05 End ##### -->
-
-          <!-- ##### ブログ/ニュース 投稿記事06 Start ##### -->
-          <li class="blog__item">
-            <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-            <div class="blog__desc">
-              <time class="blog__time">
-                <span class="blog__time-year">2023</span>
-                <span class="blog__time-date">05 | 04</span>
-              </time>
-              <div class="blog__category">
-                <a class="blog__category-link" href="#">Blog</a>
-              </div>
-            </div>
-
-            <!-- ##### ブログ/ニュース サムネイル ##### -->
-            <a href="article.html" class="blog__thumb">
-              <img class="blog__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-            </a>
-
-            <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-            <a href="article.html" class="blog__title">
-              <h3 class="blog__title-text">
-                記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-              </h3>
-            </a>
-          </li>
-          <!-- ##### ブログ/ニュース 投稿記事06 End ##### -->
-
-        </ul>
-      </div>
-      <!-- ===== ブログ/ニュース一覧 最大件数6件 End ===== -->
-    </div>
-
-    <div class="pagination">
-      <ul class="pagination__list">
-        <li class="pagination__item pagination__item--prev">Prev</li>
-        <li class="pagination__item pagination__item--active">1</li>
-        <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
-        <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
-        <li class="pagination__item pagination__item--next"><a class="pagination__link" href="#">Next</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ------------------------------------------------------------------------------- -->
-
-
-  <!-- ------------------------------------------------------------------------------- -->
-
-  <!-- ⬇︎ ######################## フッター Start ######################## ⬇︎ -->
-  <footer class="footer">
-    <div class="footer__wrapper">
-      <div class="footer__logo">
-        <img class="footer__logo-img" src="/images/icon/ico_logo.svg" alt="Cafe Mitake">
-      </div>
-
-      <div class="footer__address">
-        <p class="footer__address-text">
-          〒198-0000 東京都青梅市御岳本町0000-00
-        </p>
-        <p class="footer__address-text">
-          Tel. 000 - 0000 - 0000
-        </p>
-      </div>
-
-      <div class="footer__business-hours">
-        <p class="footer__bh-label">
-          【営業時間】
-        </p>
-        <p class="footer__bh-text">
-          平日：10:00 ~ 18:00（水・木 定休日）
-        </p>
-        <p class="footer__bh-text">
-          土日・祝日：9:00 ~ 17:00
-        </p>
-      </div>
-
-      <!-- ===== SNSアイコン Start ===== -->
-      <div class="footer__sns">
-        <a href="#" class="footer__sns-icon">
-          <img class="footer__icon" src="/images/icon/ico_instagram.svg" alt="インスタグラム">
-        </a>
-        <a href="#" class="footer__sns-icon">
-          <img class="footer__icon" src="/images/icon/ico_twitter.svg" alt="Twitter">
-        </a>
-        <a href="#" class="footer__sns-icon">
-          <img class="footer__icon" src="/images/icon/ico_line.svg" alt="Line">
-        </a>
-      </div>
-      <!-- ===== SNSアイコン End ===== -->
-
-      <div class="footer__copyright">
-        <small class="footer__copyright-text">
-          &copy; Cafe Mitake 2023 <br>Yukuro CreateFolio All Rights Reserved.
-        </small>
-      </div>
-    </div>
-  </footer>
-  <!-- ⬆︎ ######################## フッター End ######################## ⬆︎ -->
-  </div>
   </div>
 
   <!-- ⬇︎ ===== JavaScript / JQuery 読み込み ===== ⬇︎ -->

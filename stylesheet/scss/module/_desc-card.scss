@@ -22,10 +22,12 @@
   }
 
   &__item {
-    padding: 8px;
+    padding: 12px 12px;
     background-color: $c-main;
     margin-right: 16px;
     position: relative;
+    border-radius: 2px;
+    
     &:nth-child(n + 2)::before {
       content: "";
       width: 16px;
@@ -38,6 +40,7 @@
 
     @include mq(tab) {
       width: 100%;
+      margin-right: 0;
       margin-bottom: 16px;
       text-align: center;
 
@@ -50,21 +53,24 @@
         top: -16px;
         left: 50%;
       }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
   &__text {
-    font-size: rem(16);
+    font-size: $f-small;
     letter-spacing: 0;
     font-weight: 600;
 
     &--f-small {
-      font-size: $f-small;
       font-weight: 300;
     }
 
     &--single-text {
-      line-height: 56px;
+      line-height: 42px;
     }
   }
 }

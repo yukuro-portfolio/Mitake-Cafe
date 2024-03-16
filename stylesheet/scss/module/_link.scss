@@ -16,8 +16,9 @@
   &--mitake {
     text-align: left;
     margin-bottom: 24px;
+
     @include mq(sp) {
-      flex-direction: column
+      flex-direction: column;
     }
   }
 
@@ -31,10 +32,120 @@
 
       @include mq(sp) {
         margin-bottom: 16px;
+
         &:last-child {
           margin-bottom: 0;
         }
       }
     }
   }
+}
+
+.text-link {
+  padding-bottom: 2px;
+  border-bottom: 1px solid $c-accent;
+  font-size: $f-small;
+  font-weight: 600;
+  font-family: $font-source-serif;
+
+  &__link-text {
+    padding-right: 48px;
+    position: relative;
+    color: $c-accent;
+    display: inline-block;
+    transition: 0.3s;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: 0;
+      transform: rotate(30deg);
+      width: 12px;
+      height: 1px;
+      background-color: $c-accent;
+      transition: 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 1px;
+      background-color: $c-accent;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:hover::before {
+      right: -8px;
+    }
+
+    &:hover::after {
+      right: -8px;
+    }
+  }
+
+
+  &__pdf {
+    position: relative;
+    padding-right: 24px;
+    color: $c-accent;
+    transition: 0.3s;
+    display: block;
+
+    &::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 25%;
+      right: 0;
+      background-image: url("/images/icon/ico_pdf.svg");
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:hover::before {
+      opacity: 0.6;
+    }
+  }
+
+  &__external-link {
+    position: relative;
+    padding-right: 24px;
+    color: $c-accent;
+    transition: 0.3s;
+    display: block;
+
+    &::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 30%;
+      right: 0;
+      background-image: url("/images/icon/ico_external-link.svg");
+      background-repeat: no-repeat;
+      background-size: 12px;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:hover::before {
+      opacity: 0.6;
+    }
+  }
+
 }

@@ -12,41 +12,35 @@
 /* --------------------------------------------------
  ヘッダーの指定
 -------------------------------------------------- */
-.header{
-  
-  position: absolute;
-  height: 70px;
+.header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  height: 72px;
+  background-color: $c-main;
+  position: relative;
 
   &__inner {
-    width: 1152px;
-    margin: 0 auto;
+    @include InnerWidth;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
     @include mq(tab) {
       padding: 0 32px;
     }
-  
+
     @include mq(sp) {
-      padding: 16px 16px 0 16px;
-      flex-direction: column;
+      padding: 0 16px;
     }
-    
   }
 
-  &__logo-link {
-   z-index: 1;
-  }
-
-  & .dnone {
-    opacity: 0;/*透過0にして非表示に*/
-
-    & .panelactive {
-      opacity: 1;/*不透明にして出現*/
-    }
+  &__logo {
+    width: 124px;
+    height: 40px;
   }
 }
-

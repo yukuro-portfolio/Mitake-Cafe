@@ -8,6 +8,9 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   width: 100%;
@@ -27,6 +30,8 @@ li {
 img {
   width: 100%;
   height: auto;
+  vertical-align: bottom;
+  object-fit: cover;
 }
 
 a {
@@ -40,18 +45,34 @@ p {
 }
 
 ol {
-  margin: 0
-}
-
-.container {
-  position: relative;
-
-  &__wrapper {
-    position: relative;
-  }
+  margin: 0;
 }
 
 .contents {
+  &--col {
+    @include InnerWidth;
+    display: flex;
+    gap: 64px;
+
+    @include mq(tab) {
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+  }
+
+  &--article {
+    max-width: 768px;
+  }
+
+  & .contents-title {
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .desc {
+    @include InnerWidth;
+  }
+
   @include maxWidth;
   padding: 80px 0;
 
@@ -60,21 +81,6 @@ ol {
   }
 
   @include mq(sp) {
-    padding: 48px 16px;
-  }
-
-  &--padding-bt {
-    padding-bottom: 60px;
-  }
-
-  &--padding {
-    padding: 60px 0;
-    @include mq(tab) {
-      padding: 48px 16px;
-    }
-  }
-
-  &__wrapper {
-    @include textWidth;
+    padding: 64px 16px 64px 16px;
   }
 }

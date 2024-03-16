@@ -11,21 +11,23 @@
 
 /* --------------------------------------------------
  記事コンテンツパーツ
--------------------------------------------------- */ 
-.blog-article {
+-------------------------------------------------- */
+.article {
   padding-bottom: 64px;
   border-bottom: 1px solid $c-border;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto;
 
   @include mq(tab) {
     padding-bottom: 48px;
   }
 
+  &__time {
+    display: block;
+    margin-bottom: 8px;
+  }
+
   &__heading {
-    margin-bottom: 32px;
-    @include mq(tab) {
-      margin-bottom: 24px;
-    }
+    margin-bottom: 16px;
   }
 
   &__title-h1 {
@@ -43,8 +45,8 @@
   }
 
   &__title-h2 {
-    margin-bottom: 32px;
-    padding: 8px 0;
+    margin-bottom: 24px;
+    padding: 16px 0;
     border-top: 1px solid $c-border;
     border-bottom: 1px solid $c-border;
     position: relative;
@@ -83,7 +85,7 @@
   }
 
   &__text {
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     @include mq(tab) {
       margin-bottom: 32px;
     }
@@ -94,7 +96,7 @@
     color: $c-accent;
     padding-bottom: 8px;
     border-bottom: 1px solid $c-border;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     @include mq(tab) {
       font-size: rem(16);
     }
@@ -116,7 +118,7 @@
     width: 100%;
     font-size: $f-sm-small;
     letter-spacing: 0;
-    background-color: #B5B5B5;
+    background-color: #b5b5b5;
     padding: 5px 0;
   }
 
@@ -140,13 +142,41 @@
   }
 }
 
+.article-menu {
+  margin-bottom: 48px;
+
+  &__category-link {
+    font-size: $f-small;
+    color: $c-font-black;
+    position: relative;
+    padding-left: 24px;
+    transition: 0.3s;
+    &::after {
+      content: "";
+      width: 17px;
+      height: 14px;
+      position: absolute;
+      top: 15%;
+      left: 0;
+      background-image: url("/images/icon/ico_folder.svg");
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+    &:hover::after {
+      opacity: 0.6;
+    }
+  }
+}
+
 /* --------------------------------------------------
  関連記事パーツ
--------------------------------------------------- */ 
+-------------------------------------------------- */
 .related-article {
   &__title {
     font-size: $f-large;
-    font-family: $f-mincho;
+    font-family: $font-source-serif;
     text-align: center;
     margin-bottom: 32px;
     color: $c-accent;
@@ -155,34 +185,10 @@
   &__box {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px 24px;
-
+    justify-content: center;
   }
 
-  &__card {
-    width: calc(100% / 3 - 16px);
-    color: $c-font-black;
-
-    @include mq(tab) {
-      width: calc(100% / 2 - 12px);
-    }
-  }
-
-  &__thumb {
-    margin-bottom: 8px;
-  }
-
-  &__label {
-    font-size: $f-small;
-    letter-spacing: 0;
-
-    @include mq(tab) {
-      font-size: $f-sm-small;
-    }
-  }
-
-  &__time {
-    font-size: $f-sm-small;
-    letter-spacing: 0;
+  & .blog-card {
+    width: calc(100% / 2 - 24px);
   }
 }

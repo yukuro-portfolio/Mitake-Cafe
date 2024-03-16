@@ -1,0 +1,90 @@
+/*===================================================
+ blog-card.scss
+ ブログカードの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  width: 336px;
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+  }
+
+  &__time {
+    color: $c-font-black;
+  }
+
+  &__time-year {
+    font-size: $f-small;
+    margin-right: 8px;
+  }
+
+  &__time-date {
+    font-size: $f-medium;
+  }
+
+  &__category {
+    margin-left: auto;
+  }
+
+  &__category-link {
+    font-size: $f-small;
+    color: $c-font-black;
+    position: relative;
+    padding-left: 24px;
+    transition: 0.3s;
+    &::after {
+      content: "";
+      width: 17px;
+      height: 14px;
+      position: absolute;
+      top: 15%;
+      left: 0;
+      background-image: url("/images/icon/ico_folder.svg");
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+    &:hover::after {
+      opacity: 0.6;
+    }
+  }
+
+  &__thumb {
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  &__title-text {
+    font-size: $f-small;
+    font-weight: 300;
+    color: $c-font-black;
+    line-height: 1.125;
+  }
+
+  @include mq(tab) {
+    width: 240px;
+    margin: 0 32px 16px 0;
+  }
+
+  @include mq(sp) {
+    width: 240px;
+    margin: 0 32px 16px 0;
+  }
+}

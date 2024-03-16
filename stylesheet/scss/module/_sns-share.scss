@@ -1,0 +1,100 @@
+/*===================================================
+ tag-list.scss
+ ブログ記事タグ一覧の定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.sns-share {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+
+  @include mq(sp) {
+    flex-wrap: wrap;
+  }
+}
+
+.share-button {
+  width: 160px;
+  height: 48px;
+  line-height: 48px;
+  color: $c-white;
+  font-size: $f-small;
+  transition: 0.3s;
+
+  @include mq(sp) {
+    width: calc(100% / 2 - 16px);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--x {
+    background-color: #000000;
+  }
+
+  &--facebook {
+    background-color: #3975ea;
+  }
+
+  &--pinterest {
+    background-color: #ce2c2e;
+  }
+
+  &--line {
+    background-color: #50af46;
+  }
+
+  &__inner {
+    position: relative;
+    padding-left: 16px;
+    background-size: 14px 14px;
+
+    &--x {
+      background-color: #000000;
+      background-image: url("/images/icon/ico_x.svg");
+      background-repeat: no-repeat;
+    }
+
+    &--facebook {
+      background-color: #3975ea;
+      background-image: url("/images/icon/ico_facebook.svg");
+      background-repeat: no-repeat;
+    }
+
+    &--pinterest {
+      background-color: #ce2c2e;
+      background-image: url("/images/icon/ico_pinterest.svg");
+      background-repeat: no-repeat;
+    }
+
+    &--line {
+      background-color: #50af46;
+      background-size: 14px 14px;
+      background-image: url("/images/icon/ico_line-share.svg");
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-repeat: no-repeat;
+    }
+  }
+}

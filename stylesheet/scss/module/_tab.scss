@@ -12,14 +12,14 @@
 /* --------------------------------------------------
  タブメニューのスタイリング
 -------------------------------------------------- */
-.tab-menu {
+.tab {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
 
   &__item {
     flex-grow: 1;
-    padding-bottom: 4px;
+    padding-bottom: 5px;
     list-style: none;
     border-bottom: solid 1px $c-border;
     cursor: pointer;
@@ -28,6 +28,15 @@
     justify-content: center;
     color: $c-no-active;
     font-size: $f-default;
+
+    &.is-active {
+      padding-bottom: 4px;
+      color: $c-accent;
+      font-weight: 600;
+      border-bottom: 2px solid $c-accent;
+      filter: invert(28%) sepia(51%) saturate(324%) hue-rotate(40deg) brightness(96%) contrast(90%);
+      cursor: default;
+    }
   }
 
   &__icon {
@@ -41,19 +50,15 @@
     }
   }
 
-  & .is-active {
-    color: $c-accent;
-    font-weight: 600;
-    transition: all 0.2s ease-out;
-    border-bottom: 2px solid $c-accent;
-    filter: invert(28%) sepia(51%) saturate(324%) hue-rotate(40deg) brightness(96%) contrast(90%);
-  }
 
-  & .is-active-mitake {
-    color: $c-accent;
-    font-weight: 600;
-    transition: all 0.2s ease-out;
-    border-bottom: 2px solid $c-accent;
-    filter: invert(28%) sepia(51%) saturate(324%) hue-rotate(40deg) brightness(96%) contrast(90%);
+  &__panel {
+    display: none;
+    &.is-active {
+      display: block;
+      animation-name: displayAnime;
+      /*ふわっと表示させるためのアニメーション*/
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+    }
   }
 }

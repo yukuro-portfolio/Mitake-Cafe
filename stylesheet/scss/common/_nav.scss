@@ -10,229 +10,130 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 /* --------------------------------------------------
- visual-navの指定
+ グローバルナビゲーション
 -------------------------------------------------- */
-.nav {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  
-  &__list {
-    display: flex;
-  }
-
+.g-nav {
   &__menu {
-    margin-right: 64px;
-    &:last-child {
-      margin-right: 0;
-    }
-
-    @include mq(tab) {
-      margin-right: 48px;
-    }
-
-    @include mq(sp) {
-      margin-right: 16px;
-    }
+    display: flex;
+    gap: 64px;
   }
 
   &__link {
-    font-family: $f-mincho;
-    font-weight: 600;
-    font-size: $f-default;
-    color: $c-font-white;
+    color: $c-accent;
+    transition: 0.3s;
 
-    @include mq(sp) {
-      font-size: $f-sm-small;
+    &:hover {
+      opacity: 0.6;
     }
-  }
-}
-
-
-.sns {
-  &__list {
-    display: flex;
-  }
-  &__item {
-    margin-right: 32px;
-  
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__icon {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-
-.nav ul li.current a,
-.nav ul li a:hover {
-  color: #fff;
-}
-
-/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
-.header.dnone .nav {
-  /*固定位置にして最背面に*/
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  /*高さと幅*/
-  width: 100%;
-  height: 100vh;
-  /*天地中央＆テキスト中央揃え*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  /*はじめは透過0に*/
-  opacity: 0;
-  transition: all 0.4s;
-}
-
-/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
-.header.dnone.panelactive .nav {
-  opacity: 1; /*不透明に*/
-  z-index: 3; /*最前面に*/
-  background: $c-base;
-}
-
-.header.dnone.panelactive .nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.header.dnone.panelactive .nav ul li {
-  margin-bottom: 48px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-/*リストの形状*/
-.header.dnone.panelactive .nav li a {
-  font-size: $f-small;
-  color: $c-accent;
-  font-weight: bold;
-  transition: all 0.3s;
-}
-
-.is-open {
-  z-index: 10000;
-  /*はじめは非表示に*/
-  display: none;
-  /*ボタンの位置*/
-  position: fixed;
-  top: 10px;
-  right: 64px;
-  z-index: 999;
-  /*ボタンの形状*/
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-
-  @include mq(tab) {
-    background-color: $c-accent;
-    right: 32px;
   }
 
   @include mq(sp) {
-    background-color: $c-accent;
-    right: 16px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(237, 234, 229, 0.9);
+    font-size: $f-small;
+    box-sizing: border-box;
+    z-index: 3;
+    padding-top: 64px;
+    transition: 0.6s;
+
+    &.open {
+      right: 0;
+    }
+
+    &__menu {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      flex-direction: column;
+      gap: 24px;
+      text-align: center;
+    }
+
+    &__link {
+      margin-bottom: 24px;
+      font-size: $f-small;
+      color: $c_accent;
+    }
   }
 }
 
-/*ボタンのアイコン設定*/
-.is-open {
-  &__border {
-    display: inline-block;
-    transition: all 0.4s;
-    position: absolute;
-    left: 11px;
-    height: 3px;
-    border-radius: 2px;
-    background-color: $c-accent;
-    width: 55%;
+/* --------------------------------------------------
+ モバイルボタン
+-------------------------------------------------- */
+.mobile-btn {
+  display: none;
 
-    &:nth-of-type(1) {
+  @include mq(sp) {
+    display: block;
+  }
+}
+
+
+.mobile-btn {
+  position: fixed;
+  top: 20px;
+  right: 16px;
+  width: 48px;
+  height: 48px;
+  z-index: 10;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+
+  &__border {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $c-accent;
+    border-radius: 4px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+
+    &:nth-child(1) {
+      width: 100%;
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      width: 80%;
       top: 10px;
     }
 
-    &:nth-of-type(2) {
-      top: 18px;
+    &:nth-child(3) {
+      width: 60%;
+      top: 20px;
     }
+  }
 
-    &:nth-of-type(3) {
-      top: 26px;
+  .open span {
+    &:nth-child(1) {
+      background-color: $c-white;
+      top: 6px;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg);
     }
-
-    @include mq(tab) {
-      background-color: $c-font-white;
+  
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 6px;
+      background: $c-white;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      transform: rotate(45deg);
     }
   }
 
   &__text {
     position: absolute;
-    top: 28px;
-    left: 15%;
-    font-size: $f-sm-small;
+    top: 24px;
+    font-size: $f-small;
     color: $c-accent;
-
-    @include mq(tab) {
-      color: $c-font-white;
-    }
-  }
-
-}
-
-/*activeクラスが付与された後のボタンのアイコン設定*/
-.is-open.active span:nth-of-type(1) {
-  top: 18px;
-  left: 18px;
-  transform: translateY(6px) rotate(-45deg);
-  width: 30%;
-  
-  @include mq(tab) {
-    top: 10px;
-  }
-}
-
-.is-open.active span:nth-of-type(2) {
-  opacity: 0;
-}
-
-.is-open.active span:nth-of-type(3) {
-  top: 30px;
-  left: 18px;
-  transform: translateY(-6px) rotate(45deg);
-  width: 30%;
-
-  @include mq(tab) {
-    top: 22px;
-  }
-}
-
-/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
-.fadeDown {
-  animation-name: fadeDownAnime;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  display: block;
-}
-@keyframes fadeDownAnime {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

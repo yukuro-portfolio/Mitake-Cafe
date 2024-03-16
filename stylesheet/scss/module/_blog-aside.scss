@@ -1,0 +1,93 @@
+/*===================================================
+ blog-aside.scss
+ ベースCSSの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+/* --------------------------------------------------
+ ブログサイドナビ 共通
+-------------------------------------------------- */
+.blog-aside {
+  width: 432px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include mq(tab) {
+    width: 100%;
+    gap: 24px;
+  }
+
+  &__title {
+    font-size: $f-default;
+    font-weight: 300;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: $f-small;
+  }
+
+  &__menu-link {
+    color: $c-accent;
+    padding: 0 8px 8px 8px;
+    border-bottom: 1px solid $c_accent;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__details {
+    color: $c-accent;
+    padding: 0 8px 8px 8px;
+    border-bottom: 1px solid $c_accent;
+  }
+
+  &__summary {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      right: 8px;
+      width: 14px;
+      height: 14px;
+      background-image: url("/images/icon/ico_plus.svg");
+    }
+  }
+
+  &__archive-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  &__archive-link {
+    color: $c-accent;
+  }
+
+  &__archive-link {
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

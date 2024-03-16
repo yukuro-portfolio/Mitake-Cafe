@@ -12,10 +12,33 @@
 /* --------------------------------------------------
  キャプチャ用見出しの定義
 -------------------------------------------------- */
-.visual-heading {
-  position: absolute;
-  top: 50%;
-  padding-left: 192px;
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  &__border {
+    width: 160px;
+    height: 1px;
+    background-color: $c_white;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__text {
+    font-family: $font-source-serif;
+    font-size: $section-title;
+    color: $c_white;
+
+    &--sub {
+      font-weight: 300;
+      font-size: $f-default;
+    }
+  }
 
   &--article {
     top: 40%;
@@ -23,35 +46,76 @@
     @include mq(tab) {
       top: 40%;
     }
-  }  
-  @include mq(sp) {
-    padding-left: 104px;
   }
 
-  &__text {
-    display: block;
-    color: $c-font-white;
-    &::before {
-      content: "";
-      width: 160px;
-      height: 1.5px;
-      background-color: $c-font-white;
-      position: absolute;
-      top: 26px;
-      left: 0;
+  @include mq(tab) {
+    width: 100%;
+    padding-left: 32px;
 
-      @include mq(sp) {
-        width: 80px;
+    &__border {
+      width: 80px;
+    }
+
+    &__text {
+      font-size: 20px;
+
+      &--sub {
+        font-weight: 300;
+        font-size: $f-small;
       }
     }
+  }
+}
 
-    &--main {
-      font-size: $section-title;
-      font-family: $f-mincho;
+/* --------------------------------------------------
+ ビジュアル用見出し
+-------------------------------------------------- */
+.top-visual,.visual-capture {
+  position: relative;
+
+  & .visual-heading {
+    position: absolute;
+    width: 240px;
+    top: 50%;
+    left: 56%;
+    transform: translate(-56%, -50%);
+    height: 100%;
+    background-color: rgba(253, 255, 252, 0.25);
+    display: table;
+    font-family: $font-source-serif;
+
+    &--center {
+      left: 43%;
+      transform: translate(-43%, -50%);
     }
 
-    &--sub {
+    &--page {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__inner {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    &__main {
+      font-size: $section-title;
+      display: block;
+      color: $c-font-white;
+      border-top: 1px solid $c-white;
+      padding-top: 16px;
+    }
+
+    &__sub {
       font-size: $section-subtitle;
+      font-weight: 300;
+      display: block;
+      color: $c-font-white;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $c-white;
     }
   }
 }
@@ -60,57 +124,67 @@
  キャプチャ背景なし見出しの定義
 -------------------------------------------------- */
 .section-heading {
-  margin-bottom: 40px;
-  @include mq(tab) {
-    margin-bottom: 32px;
-  }
-  
-  &__text {
-    display: block;
+  width: 240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid $c_accent;
+  border-bottom: 1px solid $c_accent;
+  margin-bottom: 32px;
+
+  &__main {
+    font-size: $section-title;
     color: $c-accent;
-    padding-left: 192px;
+  }
+  &__sub {
+    font-weight: 300;
+    color: $c-accent;
+    font-size: $section-subtitle;
+  }
 
-    @include mq(sp) {
-      padding-left: 104px;
-    }
-
-    &--main {
-      font-size: $section-title;
-      font-family: $f-mincho;
-      position: relative;
-
-      &::before {
-        content: "";
-        width: 160px;
-        height: 1.5px;
-        background-color: $c-accent;
-        position: absolute;
-        top: 26px;
-        left: 0;
-  
-        @include mq(sp) {
-          width: 80px;
-        }
-      }
-    }
-
-    &--sub {
-      font-size: $section-subtitle;
+  @include mq(tab) {
+    &__border {
+      width: 80px;
     }
   }
 }
 
-
 /* --------------------------------------------------
  コンテンツラベルの定義
 -------------------------------------------------- */
-.label{
-  font-family: $f-mincho;
-  font-size: $f-large;
-  margin-bottom: 32px;
-  text-align: center;
+.contents-title {
+  display: flex;
+  align-items: center;
   color: $c-accent;
-  font-weight: 300;
+  font-family: $font-source-serif;
+
+  &__main {
+    font-size: $contents-title;
+    font-weight: 900;
+    text-align: center;
+    padding-right: 8px;
+    position: relative;
+  }
+
+  &__sub {
+    font-size: $f-default;
+    font-weight: 300;
+    padding-left: 24px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      transform: rotate(-45deg);
+      background-color: $c-accent;
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+  }
 
   @include mq(tab) {
     margin-bottom: 32px;
@@ -136,24 +210,24 @@
 -------------------------------------------------- */
 .title-label {
   position: relative;
-  padding-left: 136px;
+  padding-left: 80px;
   font-size: $f-large;
-  font-family: $f-mincho;
-  font-weight: 300;
+  font-family: $font-source-serif;
+  font-weight: 600;
   color: $c-accent;
   margin-bottom: 32px;
 
   @include mq(sp) {
-    padding-left: 64px;  
+    padding-left: 64px;
     margin-bottom: 24px;
   }
-  
+
   &::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 0;
-    width: 112px;
+    width: 56px;
     height: 1px;
     background-color: $c-border;
 
@@ -165,6 +239,6 @@
   &__sub {
     font-size: rem(16);
     margin-left: 16px;
+    font-weight: 300;
   }
 }
-

@@ -10,23 +10,27 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 .pkz {
-  margin-bottom: 40px;
+  padding: 16px 0;
+  background-color: $c-main;
 
   @include mq(tab) {
-    margin-bottom: 24px;
+    padding: 16px 32px;
+  }
+  @include mq(sp) {
+    padding: 16px;
   }
 
   &__list {
+    @include InnerWidth;
     display: flex;
     align-items: center;
     padding-left: 0;
 
     @include mq(tab) {
-      overflow-x: scroll;
+      overflow-x: auto;
       word-break: keep-all;
       white-space: nowrap;
       padding-bottom: 4px;
-
 
       &::-webkit-scrollbar {
         width: 8px;
@@ -67,5 +71,10 @@
   &__link {
     color: $c-accent;
     border-bottom: 1px solid $c-border;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 }

@@ -10,7 +10,7 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 .footer {
-  background-color: $c-main;
+  background-color: $c-green;
   
   &__wrapper {
     max-width: 400px;
@@ -18,7 +18,7 @@
     margin: 0 auto;
 
     @include mq(tab) {
-      padding: 0 48px;
+      padding: 40px 48px;
     }
 
     @include mq(sp) {
@@ -38,6 +38,7 @@
 
   &__address-text {
     margin-bottom: 8px;
+    color: $c-white;
   }
 
   &__business-hours {
@@ -45,9 +46,14 @@
   }
 
   &__bh-label {
+    color: $c-white;
     font-weight: 600;
   }
 
+  &__bh-text {
+    color: $c-white;
+  }
+  
   &__sns {
     display: flex;
     justify-content: center;
@@ -56,12 +62,18 @@
   }
 
   &__sns-icon {
-    width: 32px;
-    height: 32px;
+    padding: 12px;
+    background-color: $c-accent;
+    border-radius: 50px;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
   }
 
   &__copyright {
     text-align: center;
-    color: $c-font-black;
+    color: $c-white;
   }
 }

@@ -1,0 +1,33 @@
+/*===================================================
+ desc.scss
+ 説明文・テキストの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+
+.desc {
+  &__text {
+    font-size: $f-default;
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--bold {
+      font-size: $f-default;
+      font-weight: 600;
+    }
+
+    &--large {
+      font-size: $f-large;
+      font-family: $font-source-serif;
+      font-weight: 600;
+    }
+  }
+  
+}
