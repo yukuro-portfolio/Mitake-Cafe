@@ -2188,13 +2188,13 @@ ol {
   top: 0;
   left: 0;
 }
-.top-mv__video {
+.top-mv #wp-custom-header-video {
   width: 100%;
   height: 100%;
   z-index: 0;
   position: relative;
 }
-.top-mv__video .bg-img {
+.top-mv #wp-custom-header-video .bg-img {
   width: 100%;
   height: 0;
   background-image: url("/images/img/img_hero-capture.jpg");
@@ -2235,6 +2235,9 @@ ol {
 }
 .top-mv .heading__bottom {
   margin-left: 96px;
+}
+.top-mv button {
+  display: none;
 }
 
 .eachTextAnime span {
