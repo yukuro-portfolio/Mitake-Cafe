@@ -425,7 +425,7 @@
   padding: 40px;
   background-color: rgba(237, 234, 229, 0.8);
   position: relative;
-  z-index: 100;
+  z-index: 0;
 
   @include mq(tab) {
     margin: -48px 32px;

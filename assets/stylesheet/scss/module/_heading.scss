@@ -84,6 +84,10 @@
     display: table;
     font-family: $font-source-serif;
 
+    @include mq(sp) {
+      width: 200px;
+    }
+
     &--center {
       left: 43%;
       transform: translate(-43%, -50%);
@@ -99,6 +103,7 @@
       vertical-align: middle;
       text-align: center;
       padding: 0 16px;
+
     }
 
     &__main {
@@ -107,6 +112,10 @@
       color: $c-font-white;
       border-top: 1px solid $c-white;
       padding-top: 16px;
+
+      @include mq(sp) {
+        padding-top: 8px;
+      }
     }
 
     &__sub {
@@ -116,6 +125,9 @@
       color: $c-font-white;
       padding-bottom: 16px;
       border-bottom: 1px solid $c-white;
+      @include mq(sp) {
+        padding-bottom: 8px;
+      }
     }
   }
 }

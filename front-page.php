@@ -1,6 +1,6 @@
  <!-- =================================================== 
   index.php
-  基本ページ
+  トップページ
 ================================================== -->
  <!-- ⬇︎ ######################## head要素 読み込み ######################## ⬇︎ -->
  <?php get_template_part('/parts/head'); ?>
@@ -15,12 +15,12 @@
      <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
      <div class="top-mv">
 
-      <!-- ##### カスタムヘッダーの読み込む ##### -->
+       <!-- ##### カスタムヘッダーの読み込む ##### -->
        <?php the_custom_header_markup(); ?>
 
        <section class="heading">
          <h1 class="heading__logo" data-aos="fade-in">
-           <img class="heading__logo-img" src="<?php echo get_theme_file_uri( '/assets/images/icon/ico_cafemitake-logo_white.svg'); ?>" alt="Cafe Mitake">
+           <img class="heading__logo-img" src="<?php echo get_theme_file_uri('/assets/images/icon/ico_cafemitake-logo_white.svg'); ?>" alt="Cafe Mitake">
          </h1>
          <p class="heading__catch">
            <span class="heading__top eachTextAnime">御岳の自然美で、</span>
@@ -41,11 +41,11 @@
 
          <div class="season-menu__list">
            <figure class="season-menu__figure">
-             <img class="season-menu__img" src="/images/Menu_img/img_sakura-cake.jpg" alt="桜のタルトケーキ">
+             <img class="season-menu__img" src="<?php echo get_theme_file_uri('/assets/images/Menu_img/img_sakura-cake.jpg'); ?>" alt="桜のタルトケーキ">
              <figcaption class="season-menu__caption">桜のタルトケーキ</figcaption>
            </figure>
            <figure class="season-menu__figure">
-             <img class="season-menu__img" src="/images/Menu_img/img_sakuramochi.jpg" alt="桜餅（お茶付き）">
+             <img class="season-menu__img" src="<?php echo get_theme_file_uri('/assets/images/Menu_img/img_sakuramochi.jpg'); ?>" alt="桜餅（お茶付き）">
              <figcaption class="season-menu__caption">桜餅（お茶付き）</figcaption>
            </figure>
          </div>
@@ -78,7 +78,7 @@
            <div class="top-info__inner">
              <div class="top-info__col">
                <div class="about__capture">
-                 <img class="about__img" src="<?php echo get_theme_file_uri( '/assets//images/img/img_about-descimg.png'); ?>" alt="御岳の四季と調和した至福のカフェ">
+                 <img class="about__img" src="<?php echo get_theme_file_uri('/assets//images/img/img_about-descimg.png'); ?>" alt="御岳の四季と調和した至福のカフェ">
                </div>
 
                <div class="desc fade-in">
@@ -126,13 +126,13 @@
                    </h3>
 
                    <figure class="top-menu__figure" data-aos="fade-left">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets//images/img/img_menu-sweets_01.jpg'); ?>" alt="メニュー スイーツ">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets//images/img/img_menu-sweets_01.jpg'); ?>" alt="メニュー スイーツ">
                    </figure>
                  </section>
 
                  <div class="top-menu__col top-menu__col--overlap">
                    <figure class="top-menu__figure top-menu__figure--overlap" data-aos="fade-right">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets//images/img/img_menu-sweets_02.jpg'); ?>" alt="メニューのりんごパイ">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets//images/img/img_menu-sweets_02.jpg'); ?>" alt="メニューのりんごパイ">
                    </figure>
                    <div class="desc fade-in js-fade-in-left">
                      <p class="desc__text">
@@ -157,13 +157,13 @@
                    </h3>
 
                    <figure class="top-menu__figure" data-aos="fade-left">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_menu-dish_01.jpg'); ?>" alt="メニュー 料理">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_menu-dish_01.jpg'); ?>" alt="メニュー 料理">
                    </figure>
                  </section>
 
                  <div class="top-menu__col">
                    <figure class="top-menu__figure top-menu__figure--overlap" data-aos="fade-right">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_menu-dish_01.jpg'); ?>" alt="メニューの洋風ハンバーグ">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_menu-dish_01.jpg'); ?>" alt="メニューの洋風ハンバーグ">
                    </figure>
 
                    <div class="desc fade-in js-fade-in-left">
@@ -188,14 +188,14 @@
                    </h3>
 
                    <figure class="top-menu__figure" data-aos="fade-left">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_menu-drink_01.jpg'); ?>" alt="メニュー 飲み物">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_menu-drink_01.jpg'); ?>" alt="メニュー 飲み物">
                    </figure>
 
                  </section>
 
                  <div class="top-menu__col">
                    <figure class="top-menu__figure top-menu__figure--overlap" data-aos="fade-right">
-                     <img class="top-menu__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_menu-drink_02.jpg'); ?>" alt="メニューのブレンドコーヒー">
+                     <img class="top-menu__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_menu-drink_02.jpg'); ?>" alt="メニューのブレンドコーヒー">
                    </figure>
                    <div class="desc">
                      <p class="desc__text">
@@ -251,7 +251,7 @@
 
                  <div class="mitake__wrapper">
                    <figure class="mitake__figure" data-aos="fade-right">
-                     <img class="mitake__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_mitake-keikoku.jpg'); ?>" alt="御岳渓谷">
+                     <img class="mitake__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_mitake-keikoku.jpg'); ?>" alt="御岳渓谷">
                    </figure>
                    <div class="desc fade-in js-fade-in-left">
                      <p class="desc__text">
@@ -277,7 +277,7 @@
                      </p>
                    </div>
                    <figure class="mitake__figure" data-aos="fade-left">
-                     <img class="mitake__img" src="<?php echo get_theme_file_uri( '/assets/images/img/img_mitake-mt.mitake.jpg'); ?>" alt="御岳渓谷">
+                     <img class="mitake__img" src="<?php echo get_theme_file_uri('/assets/images/img/img_mitake-mt.mitake.jpg'); ?>" alt="御岳渓谷">
                    </figure>
                  </div>
                </section>
@@ -320,121 +320,52 @@
            </h3>
 
            <div class="top-info__inner">
+
              <section class="top-blog">
                <!-- ===== ブログ/ニュース一覧 最大件数5件 Start ===== -->
                <div class="top-blog__wrapper" data-aos="fade">
+
                  <ul class="blog-list blog-list--slide js-slide">
-                   <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
-                   <li class="blog-card">
-                     <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-                     <div class="blog-card__info">
-                       <time class="blog-card__time">
-                         <span class="blog-card__time-year">2023</span>
-                         <span class="blog-card__time-date">04 | 25</span>
-                       </time>
-                       <div class="blog-card__category">
-                         <a class="blog-card__category-link" href="#">Blog</a>
-                       </div>
-                     </div>
 
-                     <!-- ##### ブログ/ニュース サムネイル ##### -->
-                     <a href="#" class="blog-card__thumb">
-                       <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事01">
-                     </a>
 
-                     <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-                     <a class="blog-card__title">
-                       <h3 class="blog-card__title-text">
-                         記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                       </h3>
-                     </a>
-                   </li>
-                   <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
+                       <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
+                       <li class="blog-card">
+                         <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                         <div class="blog-card__info">
+                           <time class="blog-card__time" datetime="<?php the_time('Y.n.j'); ?>">
+                             <span class="blog-card__time-year"><?php the_time('Y'); ?></span>
+                             <span class="blog-card__time-date"><?php the_time('m | d'); ?></span>
+                           </time>
+                           <div class="blog-card__category">
+                             <?php the_category(''); ?>
+                           </div>
+                         </div>
 
-                   <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
-                   <li class="blog-card">
-                     <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-                     <div class="blog-card__info">
-                       <time class="blog-card__time">
-                         <span class="blog-card__time-year">2023</span>
-                         <span class="blog-card__time-date">04 | 28</span>
-                       </time>
-                       <div class="blog-card__category">
-                         <a class="blog-card__category-link" href="#">News</a>
-                       </div>
-                     </div>
+                         <!-- ##### ブログ/ニュース サムネイル ##### -->
+                         <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
+                           <?php if (has_post_thumbnail()) : ?>
+                             <?php the_post_thumbnail('small-thumb'); ?>
 
-                     <!-- ##### ブログ/ニュース サムネイル ##### -->
-                     <a href="#" class="blog-card__thumb">
-                       <img class="blog-card__img" src="images/img/img_news-thumb.jpg" alt="ブログ記事02">
-                     </a>
+                           <?php elseif (in_category('news')) : ?>
+                             <img class="article__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/img/img_news-thumb.jpg" alt="<?php the_title(); ?>">
 
-                     <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-                     <a class="blog-card__title">
-                       <h3 class="blog-card__title-text">
-                         臨時休業のお知らせ
-                       </h3>
-                     </a>
-                   </li>
-                   <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
+                           <?php else : ?>
+                             <img class="blog-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/img/img_blog-thumb01.jpg" alt="<?php the_title(); ?>">
+                           <?php endif; ?>
+                         </a>
 
-                   <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
-                   <li class="blog-card">
-                     <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-                     <div class="blog-card__info">
-                       <time class="blog-card__time">
-                         <span class="blog-card__time-year">2023</span>
-                         <span class="blog-card__time-date">05 | 04</span>
-                       </time>
-                       <div class="blog-card__category">
-                         <a class="blog-card__category-link" href="#">Blog</a>
-                       </div>
-                     </div>
-
-                     <!-- ##### ブログ/ニュース サムネイル ##### -->
-                     <a href="#" class="blog-card__thumb">
-                       <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-                     </a>
-
-                     <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-                     <a class="blog-card__title">
-                       <h3 class="blog-card__title-text">
-                         記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                       </h3>
-                     </a>
-                   </li>
-                   <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
-
-                   <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
-                   <li class="blog-card">
-                     <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-                     <div class="blog-card__info">
-                       <time class="blog-card__time">
-                         <span class="blog-card__time-year">2023</span>
-                         <span class="blog-card__time-date">05 | 04</span>
-                       </time>
-                       <div class="blog-card__category">
-                         <a class="blog-card__category-link" href="#">Blog</a>
-                       </div>
-                     </div>
-
-                     <!-- ##### ブログ/ニュース サムネイル ##### -->
-                     <a href="#" class="blog-card__thumb">
-                       <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-                     </a>
-
-                     <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-                     <a class="blog-card__title">
-                       <h3 class="blog-card__title-text">
-                         記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                       </h3>
-                     </a>
-                   </li>
-                   <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
+                         <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                         <a href="<?php the_permalink(); ?>" class="blog-card__title">
+                           <h3 class="blog-card__title-text">
+                             <?php the_title(); ?>
+                           </h3>
+                         </a>
+                       </li>
+                       <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
+   
                  </ul>
                </div>
                <!-- ===== ブログ/ニュース一覧 最大件数5件 End ===== -->
-
              </section>
 
              <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
@@ -458,7 +389,7 @@
                <!-- ===== インスタグラム埋め込み アカウント情報 Start ===== -->
                <div class="instagram__label">
                  <div class="instagram__icon">
-                   <img class="instagram__icon-img" src="/images/icon/ico_instagram_white.svg" alt="インスタグラム">
+                   <img class="instagram__icon-img" src="<?php echo get_theme_file_uri('/assets/images/icon/ico_instagram_white.svg'); ?>" alt="インスタグラム">
                  </div>
 
                  <div class="instagram__info">
@@ -471,42 +402,42 @@
                <ul class="instagram-list">
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item01.jpg" alt="コーヒーにミルクを注ぐ">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item01.jpg'); ?>" alt="コーヒーにミルクを注ぐ">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item02.jpg" alt="コーヒー豆">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item02.jpg'); ?>" alt="コーヒー豆">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item03.jpg" alt="桜">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item03.jpg'); ?>" alt="桜">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item04.jpg" alt="タルトケーキ">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item04.jpg'); ?>" alt="タルトケーキ">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item01.jpg" alt="コーヒーにミルクを注ぐ">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item02.jpg'); ?>" alt="コーヒーにミルクを注ぐ">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item02.jpg" alt="コーヒー豆">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item01.jpg'); ?>" alt="コーヒー豆">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item03.jpg" alt="桜">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item04.jpg'); ?>" alt="桜">
                    </figure>
                  </li>
                  <li class="instagram-list__item">
                    <figure class="instagram-list__figure">
-                     <img class="instagram-list__img" src="/images/instagram/instagram_item04.jpg" alt="タルトケーキ">
+                     <img class="instagram-list__img" src="<?php echo get_theme_file_uri('/assets/images/instagram/instagram_item03.jpg'); ?>" alt="タルトケーキ">
                    </figure>
                  </li>
                </ul>
@@ -516,7 +447,7 @@
                  <button type="button" class="instagram-button__more">Load More…</button>
                  <button type="button" class="instagram-button__follow">
                    <span class="instagram-button__icon">
-                     <img src="/images/icon/ico_instagram_white.svg" alt="インスタグラム">
+                     <img src="<?php echo get_theme_file_uri('/assets/images/icon/ico_instagram_white.svg'); ?>" alt="インスタグラム">
                    </span>
                    Follow on Instagram
                  </button>
@@ -629,7 +560,7 @@
          <!-- ===== セクション見出し共通パーツ Start ===== -->
          <h2 class="section-heading" data-aos="fade-right">
            <span class="section-heading__main">Contact</span>
-           <span class="section-heading__sub">アクセス</span>
+           <span class="section-heading__sub">お問い合わせ</span>
          </h2>
          <!-- ===== セクション見出し共通パーツ End ===== -->
 

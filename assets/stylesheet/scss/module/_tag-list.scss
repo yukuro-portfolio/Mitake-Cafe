@@ -8,28 +8,37 @@
 @use "../config/function" as *;
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
-
-
 .tag-list {
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 
-  &__link {
+  & a {
     padding-left: 16px;
     position: relative;
     font-size: $f-small;
     color: $c-accent;
+    transition: 0.3s;
+  
 
     &::after {
       content: "";
       position: absolute;
-      top: 25%;
+      top: 20%;
       left: 0;
       width: 14px;
       height: 14px;
-      background-image: url("/images/icon/ico_tag.svg");
+      background-image: url("../../../assets/images/icon/ico_tag.svg");
+    }
+
+    &:hover {
+      opacity: 0.6;
     }
   }
+}
+
+.tag {
+  
 }
 

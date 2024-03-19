@@ -1,310 +1,135 @@
-<!-- ⬇︎ ######################## head要素 読み込み ######################## ⬇︎ -->
-<?php get_template_part('/parts/head'); ?>
+ <!-- =================================================== 
+  category.php
+  カテゴリ投稿一覧ページテンプレート
+================================================== -->
 
-<div class="container">
+ <!-- ⬇︎ ######################## head要素 読み込み ######################## ⬇︎ -->
+ <?php get_template_part('/parts/head'); ?>
 
-  <!-- ⬇︎ ######################## ヘッダー 読み込み ######################## ⬇︎ -->
-  <?php get_header(); ?>
+ <div class="container">
 
-  <div class="container__wrapper">
+   <!-- ⬇︎ ######################## ヘッダー 読み込み ######################## ⬇︎ -->
+   <?php get_header(); ?>
 
-    <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
-    <div class="visual-capture visual-capture--blog">
-      <h1 class="visual-heading visual-heading--page">
-        <span class="visual-heading__border"></span>
-        <div class="visual-heading__inner">
-          <span class="visual-heading__main">Blog</span>
-          <span class="visual-heading__sub">ブログ</span>
-        </div>
-      </h1>
-    </div>
+   <div class="container__wrapper">
 
-    <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
+     <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
+     <div class="visual-capture visual-capture--article">
+       <h1 class="visual-heading visual-heading--page">
+         <span class="visual-heading__border"></span>
+         <div class="visual-heading__inner">
+           <span class="visual-heading__main"><?php single_cat_title(); ?></span>
+           <span class="visual-heading__sub"></span>
+         </div>
+       </h1>
+     </div>
 
-    <!-- ------------------------------------------------------------------------------- -->
+     <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
 
-    <!-- ⬇︎ ######################## パンくずリスト Start ######################## ⬇︎ -->
-    <nav class="pkz">
-      <ol class="pkz__list">
-        <li class="pkz__item">
-          <a class="pkz__link" href="index.html">
-            Home
-          </a>
-        </li>
-        <li class="pkz__item">
-          Blog
-        </li>
-      </ol>
-    </nav>
-    <!-- ⬆︎ ######################## パンくずリスト End ######################## ⬆︎ -->
+     <!-- ------------------------------------------------------------------------------- -->
+
+     <!-- ⬇︎ ######################## パンくずリスト 読み込み ######################## ⬇︎ -->
+     <?php breadcrumb(); ?>
+
+     <div class="contents contents--col">
+
+       <!-- ⬇︎ ######################## ブログリスト Start ######################## ⬇︎ -->
 
 
-    <div class="contents contents--col">
+       <!-- ===== ブログ/ニュース一覧 最大件数4件 Start ===== -->
+       <div class="blog">
+         <div class="blog__wrapper">
 
-      <!-- ⬇︎ ######################## ブログリスト Start ######################## ⬇︎ -->
-      <!-- ===== ブログ/ニュース一覧 最大件数4件 Start ===== -->
-      <div class="blog">
-        <div class="blog__wrapper">
-          <div class="blog__number">
+           <?php
+            $cat_info = get_category(get_query_var('cat'));
+            $args = [
+              'post_type' => array('post'),
+              'posts_per_page' => 6,
+              'post_status' => 'publish',
+              'orderby' => 'post_date',
+              'post_status' => 'publish',  // 公開済みのみ
+              'orderby' => 'date', //新着順
+              'order' => 'DESC',    // 昇順
+              'category_name' => $cat_info->slug,
+              'paged' => $paged,
+            ];
+            $the_posts = new WP_Query($args);
+            $paged = (get_query_var('each_exrpt_post')) ? get_query_var('paged') : 1;
+            ?>
+           <!-- ##### 記事件数表示 ##### -->
+           <section class="blog-number">
+             <h2 class="blog-number__label"><?php single_cat_title(); ?></h2>
+             <div class="blog-number__box">
+               <p class="blog-number__items">全 <span class="blog-number__items blog-number__items--value"><?php echo $wp_query->post_count; ?></span>件</p>
+             </div>
+           </section>
 
-          </div>
-          <ul class="blog-list">
-            <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
-            <li class="blog-card">
-              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-              <div class="blog-card__info">
-                <time class="blog-card__time">
-                  <span class="blog-card__time-year">2023</span>
-                  <span class="blog-card__time-date">05 | 04</span>
-                </time>
-                <div class="blog-card__category">
-                  <a class="blog-card__category-link" href="#">Blog</a>
-                </div>
-              </div>
+           <ul class="blog-list">
 
-              <!-- ##### ブログ/ニュース サムネイル ##### -->
-              <a href="/" class="blog-card__thumb">
-                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-              </a>
+             <?php if ($the_posts->have_posts()) : ?>
+               <?php paginate_links(); ?>
+               <?php while ($the_posts->have_posts()) : $the_posts->the_post(); ?>
 
-              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-              <a href="/article.html" class="blog-card__title">
-                <h3 class="blog-card__title-text">
-                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                </h3>
-              </a>
-            </li>
-            <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
+                 <!-- ##### ブログ/ニュース 投稿記事 Start ##### -->
+                 <li class="blog-card">
+                   <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
+                   <div class="blog-card__info">
+                     <time class="blog-card__time" datetime="<?php the_time('Y.n.j'); ?>">
+                       <span class="blog-card__time-year"><?php the_time('Y'); ?></span>
+                       <span class="blog-card__time-date"><?php the_time('m | d'); ?></span>
+                     </time>
+                     <div class="blog-card__category">
+                       <?php the_category(''); ?>
+                     </div>
+                   </div>
 
-            <!-- ##### ブログ/ニュース 投稿記事02 Start ##### -->
-            <li class="blog-card">
-              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-              <div class="blog-card__info">
-                <time class="blog-card__time">
-                  <span class="blog-card__time-year">2023</span>
-                  <span class="blog-card__time-date">05 | 04</span>
-                </time>
-                <div class="blog-card__category">
-                  <a class="blog-card__category-link" href="#">Blog</a>
-                </div>
-              </div>
+                   <!-- ##### ブログ/ニュース サムネイル ##### -->
+                   <a href="<?php the_permalink(); ?>" class="blog-card__thumb">
+                     <?php if (has_post_thumbnail()) : ?>
+                       <?php the_post_thumbnail('small-thumb'); ?>
 
-              <!-- ##### ブログ/ニュース サムネイル ##### -->
-              <a href="/" class="blog-card__thumb">
-                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-              </a>
+                     <?php elseif (in_category('news')) : ?>
+                       <img class="article__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/img/img_news-thumb.jpg" alt="<?php the_title(); ?>">
 
-              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-              <a href="/article.html" class="blog-card__title">
-                <h3 class="blog-card__title-text">
-                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                </h3>
-              </a>
-            </li>
-            <!-- ##### ブログ/ニュース 投稿記事02 End ##### -->
+                     <?php else : ?>
+                       <img class="blog-card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/img/img_blog-thumb01.jpg" alt="<?php the_title(); ?>">
+                     <?php endif; ?>
+                   </a>
 
-            <!-- ##### ブログ/ニュース 投稿記事03 Start ##### -->
-            <li class="blog-card">
-              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-              <div class="blog-card__info">
-                <time class="blog-card__time">
-                  <span class="blog-card__time-year">2023</span>
-                  <span class="blog-card__time-date">05 | 04</span>
-                </time>
-                <div class="blog-card__category">
-                  <a class="blog-card__category-link" href="#">Blog</a>
-                </div>
-              </div>
+                   <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
+                   <a href="<?php the_permalink(); ?>" class="blog-card__title">
+                     <h3 class="blog-card__title-text">
+                       <?php the_title(); ?>
+                     </h3>
+                   </a>
+                 </li>
+                 <!-- ##### ブログ/ニュース 投稿記事 End ##### -->
 
-              <!-- ##### ブログ/ニュース サムネイル ##### -->
-              <a href="/" class="blog-card__thumb">
-                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-              </a>
+               <?php endwhile;
+                wp_reset_postdata(); ?>
+               <!-- 記事のループ処理終了 -->
 
-              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-              <a href="/article.html" class="blog-card__title">
-                <h3 class="blog-card__title-text">
-                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                </h3>
-              </a>
-            </li>
-            <!-- ##### ブログ/ニュース 投稿記事03 End ##### -->
+             <?php else : ?>
+               <p>記事が見つかりませんでした。</p>
+             <?php endif; ?>
+           </ul>
 
-            <!-- ##### ブログ/ニュース 投稿記事04 Start ##### -->
-            <li class="blog-card">
-              <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
-              <div class="blog-card__info">
-                <time class="blog-card__time">
-                  <span class="blog-card__time-year">2023</span>
-                  <span class="blog-card__time-date">05 | 04</span>
-                </time>
-                <div class="blog-card__category">
-                  <a class="blog-card__category-link" href="#">Blog</a>
-                </div>
-              </div>
+         </div>
+         <!-- ===== ブログ/ニュース一覧 最大件数4件 End ===== -->
 
-              <!-- ##### ブログ/ニュース サムネイル ##### -->
-              <a href="/" class="blog-card__thumb">
-                <img class="blog-card__img" src="images/img/img_blog-thumb01.jpg" alt="ブログ記事03">
-              </a>
+         <!-- ===== ページネーション 読み込み ===== -->
+         <?php get_template_part('parts/pagination') ?>
 
-              <!-- ##### ブログ/ニュース 記事タイトルー ##### -->
-              <a href="/article.html" class="blog-card__title">
-                <h3 class="blog-card__title-text">
-                  記事のタイトルが入ります。記事のタイトルが入ります。記事のタイトルが入ります。
-                </h3>
-              </a>
-            </li>
-            <!-- ##### ブログ/ニュース 投稿記事04 End ##### -->
+       </div>
+       <!-- ⬆︎ ######################## ブログリスト End ######################## ⬆︎ -->
 
-          </ul>
-        </div>
-        <!-- ===== ブログ/ニュース一覧 最大件数6件 End ===== -->
+       <!-- ------------------------------------------------------------------------------- -->
 
-        <div class="pagination">
-          <ul class="pagination__list">
-            <li class="pagination__item pagination__item--prev">Prev</li>
-            <li class="pagination__item pagination__item--active">1</li>
-            <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
-            <li class="pagination__item"><a class="pagination__link" href="#">3</a></li>
-            <li class="pagination__item pagination__item--next"><a class="pagination__link" href="#">Next</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- ⬆︎ ######################## ブログリスト End ######################## ⬆︎ -->
+       <!-- ⬇︎ ######################## サイドバー 読み込み ######################## ⬇︎ -->
+       <?php get_sidebar(); ?>
+     </div>
 
-      <aside class="blog-aside">
-        <!-- ##### カテゴリー ##### -->
-        <section class="blog-aside__box">
-          <h3 class="blog-aside__title">カテゴリー</h3>
-          <ul class="blog-aside__menu">
-            <li class="blog-aside__menu-item">
-              <a class="blog-aside__menu-link" href="">Blog</a>
-            </li>
-            <li class="blog-aside__menu-item">
-              <a class="blog-aside__menu-link" href="">News</a>
-            </li>
-          </ul>
-        </section>
+     <!-- ------------------------------------------------------------------------------- -->
 
-        <!-- ##### アーカイブ ##### -->
-        <section class="blog-aside__box">
-          <h3 class="blog-aside__title">アーカイブ</h3>
-          <ul class="blog-aside__menu">
-            <li class="blog-aside__menu-item">
-              <details class="blog-aside__details is-datails">
-                <summary class="blog-aside__summary is-summary">
-                  2023年
-                </summary>
-                <ul class="blog-aside__archive-menu">
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 12月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 11月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 10月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 09月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 08月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 07月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 06月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 05月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 04月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 03月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 02月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2023年 01月</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-
-            <li class="blog-aside__menu-item">
-              <details class="blog-aside__details">
-                <summary class="blog-aside__summary">
-                  2022年
-                </summary>
-                <ul class="blog-aside__archive-menu">
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 12月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 11月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 10月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 09月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 08月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 07月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 06月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 05月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 04月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 03月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 02月</a>
-                  </li>
-                  <li class="blog-aside__archive-item">
-                    <a class="blog-aside__archive-link" href="">2022年 01月</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-        </section>
-
-        <!-- ##### タグ ##### -->
-        <section class="blog-aside__box">
-          <h3 class="blog-aside__title">タグ</h3>
-          <ul class="tag-list">
-            <li class="tag-list__item">
-              <a class="tag-list__link" href="">コーヒー</a>
-            </li>
-            <li class="tag-list__item">
-              <a class="tag-list__link" href="">料理</a>
-            </li>
-            <li class="tag-list__item">
-              <a class="tag-list__link" href="">御岳</a>
-            </li>
-          </ul>
-        </section>
-      </aside>
-    </div>
-
-    <!-- ------------------------------------------------------------------------------- -->
-
-
-    <!-- ⬇︎ ######################## フッター 読み込み ######################## ⬇︎ -->
-    <?php get_footer(); ?>
+     <!-- ⬇︎ ######################## フッター 読み込み ######################## ⬇︎ -->
+     <?php get_footer(); ?>

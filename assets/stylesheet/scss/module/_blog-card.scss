@@ -14,6 +14,7 @@
   flex-direction: column;
   width: 336px;
   margin-right: 40px;
+  overflow: hidden;
 
   &:last-child {
     margin-right: 0;
@@ -40,35 +41,42 @@
 
   &__category {
     margin-left: auto;
+
+    & a {
+      font-size: $f-small;
+      color: $c-font-black;
+      position: relative;
+      padding-left: 24px;
+      transition: 0.3s;
+
+      &::after {
+        content: "";
+        width: 17px;
+        height: 14px;
+        position: absolute;
+        top: 15%;
+        left: 0;
+        background-image: url("../../../assets/images/icon/ico_folder.svg");
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &:hover::after {
+        opacity: 0.6;
+      }
+    }
   }
 
-  &__category-link {
-    font-size: $f-small;
-    color: $c-font-black;
-    position: relative;
-    padding-left: 24px;
-    transition: 0.3s;
-    &::after {
-      content: "";
-      width: 17px;
-      height: 14px;
-      position: absolute;
-      top: 15%;
-      left: 0;
-      background-image: url("/images/icon/ico_folder.svg");
-    }
-
-    &:hover {
-      opacity: 0.6;
-    }
-    &:hover::after {
-      opacity: 0.6;
-    }
-  }
 
   &__thumb {
     display: inline-block;
     margin-bottom: 16px;
+  }
+
+  &__title {
+    overflow: hidden;
   }
 
   &__title-text {
@@ -76,6 +84,9 @@
     font-weight: 300;
     color: $c-font-black;
     line-height: 1.125;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   @include mq(tab) {

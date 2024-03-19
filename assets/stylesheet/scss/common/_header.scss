@@ -18,6 +18,10 @@
   background-color: $c-main;
   position: relative;
 
+  @include mq(sp) {
+    height: 64px
+  }
+
   &__inner {
     @include InnerWidth;
     display: flex;

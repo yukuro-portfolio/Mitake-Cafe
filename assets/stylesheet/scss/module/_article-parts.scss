@@ -1,0 +1,167 @@
+/*===================================================
+ article.scss
+ 記事内容・パーツの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+
+/* //////////// 変数読み込み ここまで //////////// */
+.article-main {
+
+  /* --------------------------------------------------
+ 見出し
+-------------------------------------------------- */
+  & h2 {
+    font-size: $contents-title;
+    padding: 12px;
+    border-top: 1px solid $c-border;
+    border-bottom: 1px solid $c-border;
+    position: relative;
+    margin: 56px 0 32px 0;
+    color: $c-accent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $c-border;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $c-border;
+    }
+  }
+
+  h3 {
+    font-size: $f-large;
+    padding: 0 0 8px 8px;
+    border-bottom: 1px solid $c-border;
+    margin-bottom: 32px;
+    color: $c-accent;
+  }
+
+  h4 {
+    font-size: $f-default;
+    position: relative;
+    padding-left: 8px;
+    margin-bottom: 24px;
+    color: $c-accent;
+    border-left: 4px solid $c-accent;
+  }
+
+  /* --------------------------------------------------
+ テキスト / 引用
+-------------------------------------------------- */
+  & p {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & blockquote {
+    border-left: 2px solid $c-border;
+    padding-left: 8px;
+    margin-bottom: 24px;
+  }
+
+  & a {
+    font-weight: 300;
+  }
+
+  /* --------------------------------------------------
+ テーブル / 定義リスト
+-------------------------------------------------- */
+  .table-wrap {
+    margin-bottom: 32px;
+
+    @include mq(sp) {
+      overflow-x: scroll;
+    }
+
+    & table {
+      width: 100%;
+      -webkit-border-horizontal-spacing: 1px;
+      -webkit-border-vertical-spacing: 1px;
+      font-size: $f-small;
+
+      @include mq(sp) {
+        width: 800px;
+        overflow-x: scroll;
+      }
+
+      & th {
+        background-color: $c-main;
+      }
+
+      & tr {
+        height: 48px;
+        border-bottom: 1px solid $c_border;
+      }
+
+      & tbody {
+        @include mq(sp) {
+          overflow-x: scroll;
+        }
+
+        & th {
+          width: 160px;
+          background-color: $c-main;
+        }
+
+        & td {
+          padding: 0 8px;
+
+          &:first-of-type {
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  & dl {
+    margin-bottom: 32px;
+
+    & dt {
+      font-weight: 600;
+    }
+
+    & dd {
+      margin-bottom: 24px;
+      padding-left: 16px;
+      font-size: $f-small;
+    }
+  }
+
+  /* --------------------------------------------------
+ リスト
+-------------------------------------------------- */
+  & ul {
+    margin-bottom: 32px;
+    padding-left: 16px;
+
+    & li {
+      list-style-type: disc;
+    }
+  }
+
+  & address {
+    background-color: $c_main;
+    padding: 16px;
+    font-style:normal;
+  }
+}

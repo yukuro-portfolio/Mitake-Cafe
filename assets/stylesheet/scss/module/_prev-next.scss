@@ -10,8 +10,10 @@
 /* //////////// 変数読み込み ここまで //////////// */
 
 .prev-next {
+  width: 100%;
   margin-bottom: 64px;
   display: flex;
+  gap: 2px;
   @include mq(tab) {
     margin-bottom: 48px;
   }
@@ -20,6 +22,7 @@
   }
 
   &__item {
+    width: 50%;
     background-color: $c-main;
     padding: 16px;
     border-right: 2px solid $c-white;

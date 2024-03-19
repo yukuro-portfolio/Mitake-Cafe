@@ -23,7 +23,16 @@
 
   &__time {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  &__time-year {
+    font-size: $f-small;
+    margin-right: 8px;
+  }
+
+  &__time-date {
+    font-size: $f-medium;
   }
 
   &__heading {
@@ -31,6 +40,7 @@
   }
 
   &__title-h1 {
+    font-family: $font-source-serif;
     font-size: $blog-title;
     color: $c-accent;
 
@@ -38,10 +48,6 @@
       font-size: rem(16);
       letter-spacing: 0;
     }
-  }
-
-  &__thumb {
-    margin-bottom: 40px;
   }
 
   &__title-h2 {
@@ -145,27 +151,29 @@
 .article-menu {
   margin-bottom: 48px;
 
-  &__category-link {
-    font-size: $f-small;
-    color: $c-font-black;
-    position: relative;
-    padding-left: 24px;
-    transition: 0.3s;
-    &::after {
-      content: "";
-      width: 17px;
-      height: 14px;
-      position: absolute;
-      top: 15%;
-      left: 0;
-      background-image: url("/images/icon/ico_folder.svg");
-    }
-
-    &:hover {
-      opacity: 0.6;
-    }
-    &:hover::after {
-      opacity: 0.6;
+  &__category {
+    & a {
+      font-size: $f-small;
+      color: $c-font-black;
+      position: relative;
+      padding-left: 24px;
+      transition: 0.3s;
+      &::after {
+        content: "";
+        width: 17px;
+        height: 14px;
+        position: absolute;
+        top: 15%;
+        left: 0;
+        background-image: url("../../../assets/images/icon/ico_folder.svg");
+      }
+  
+      &:hover {
+        opacity: 0.6;
+      }
+      &:hover::after {
+        opacity: 0.6;
+      }
     }
   }
 }

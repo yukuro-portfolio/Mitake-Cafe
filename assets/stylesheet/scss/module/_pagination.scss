@@ -11,32 +11,60 @@
 
 .pagination {
   &__list {
+    margin: 0;
     display: flex;
+    gap: 8px;
     justify-content: center;
-  }
-
-  &__link, .pagination__item--prev, .pagination__item--active {
-    padding: 12px 20px;
-    border: 1px solid $c-border;
+    align-items: center;
 
     @include mq(sp) {
-      padding: 6px 14px;
-    }
-  }
-
-  &__item {
-    &--prev {
-      color: $c-no-active;
+      gap: 4px;
     }
 
-    &--active {
-      background-color: $c-accent;
-      color: $c-font-white;
+    & a {
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border: 1px solid $c-border;
+      color: $c-accent;
+      transition: 0.3s;
+      font-size: $f-small;
+      &:hover {
+        background-color: $c-accent;
+        opacity: 0.6;
+        color: $c-white;
+      }
+
+      @include mq(sp) {
+        &:nth-child(4) {
+          display: none;
+        }
+
+        &:nth-child(6) {
+          display: none;
+        }
+      }
     }
+
+    & .current {
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      background-color: $c_accent;
+      color: $c_white;
+    }
+
+    & .prev, & .next {
+      width: 80px;
+      height: 48px;
+
+      @include mq(sp) {
+        width: 64px;
+      }
+    }
+
   }
 
-  &__link {
-    color: $c-accent;
-  }
-  
 }

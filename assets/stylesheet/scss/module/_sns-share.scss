@@ -32,6 +32,7 @@ button {
   color: $c-white;
   font-size: $f-small;
   transition: 0.3s;
+  text-align: center;
 
   @include mq(sp) {
     width: calc(100% / 2 - 16px);
@@ -64,26 +65,26 @@ button {
 
     &--x {
       background-color: #000000;
-      background-image: url("/images/icon/ico_x.svg");
+      background-image: url("../../../assets/images/icon/ico_x.svg");
       background-repeat: no-repeat;
     }
 
     &--facebook {
       background-color: #3975ea;
-      background-image: url("/images/icon/ico_facebook.svg");
+      background-image: url("../../../assets/images/icon/ico_facebook.svg");
       background-repeat: no-repeat;
     }
 
     &--pinterest {
       background-color: #ce2c2e;
-      background-image: url("/images/icon/ico_pinterest.svg");
+      background-image: url("../../../assets/images/icon/ico_pinterest.svg");
       background-repeat: no-repeat;
     }
 
     &--line {
       background-color: #50af46;
       background-size: 14px 14px;
-      background-image: url("/images/icon/ico_line-share.svg");
+      background-image: url("../../../assets/images/icon/ico_line-share.svg");
       background-repeat: no-repeat;
     }
 

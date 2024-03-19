@@ -52,7 +52,6 @@ ol {
   &--col {
     @include InnerWidth;
     display: flex;
-    gap: 64px;
 
     @include mq(tab) {
       flex-wrap: wrap;

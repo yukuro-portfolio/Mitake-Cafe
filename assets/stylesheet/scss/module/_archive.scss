@@ -1,0 +1,67 @@
+/*===================================================
+ archive.scss
+ アーカイブパーツの定義
+================================================== */
+/* //////////// 変数読み込み ここから //////////// */
+@use "../mixin/mixin" as *;
+@use "../config/variables" as *;
+@use "../config/function" as *;
+@use "../config/mq" as *;
+/* //////////// 変数読み込み ここまで //////////// */
+.widgettitle {
+  font-family: $font-source-serif;
+  font-size: $f-default;
+  font-weight: 600;
+}
+
+.yearArchiveList {
+  padding-left: 5px;
+}
+
+.yearArchiveList>li {
+  border-bottom: dashed 1px #CCC;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.year:before {
+  content: url("../../../assets/images/icon/ico_folder.scss");
+  font-weight: 800;
+  padding-right: 5px;
+}
+
+.year {
+  cursor: pointer;
+}
+
+.eachYearOuter {
+  display: none;
+}
+
+.eachYear {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eachYear li {
+  width: 90px;
+  margin-bottom: 10px;
+}
+
+.yearArchiveList li {
+  list-style-type: none;
+}
+
+.singleList {
+  background-color: #E6E7EB;
+  border: dotted 1px #E6E7EB;
+  margin-right: 8px;
+}
+
+.singleList>a {
+  color: #767376 !important;
+  font-weight: bold;
+  border-radius: 3px;
+  text-decoration: none;
+  padding-left: 8px;
+}

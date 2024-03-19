@@ -38,9 +38,10 @@
 @use "module/desc";
 @use "module/blog-card";
 @use "module/instagram";
-@use "module/blog-aside";
 @use "module/tag-list";
 @use "module/sns-share";
+@use "module/archive";
+@use "module/article-parts";
 
 /* --------------------------------------------------
  commonファイル
@@ -49,6 +50,7 @@
 @use "common/footer";
 @use "common/nav";
 @use "common/visual";
+@use "common/sidebar";
 
 /* --------------------------------------------------
  pageファイル
