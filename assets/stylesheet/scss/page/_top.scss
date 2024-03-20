@@ -191,6 +191,9 @@
   }
 }
 
+/* --------------------------------------------------
+ blog / インスタ コンテンツの定義
+-------------------------------------------------- */
 .top-info {
   background-color: $c_main;
   margin: -80px 64px 0 64px;
@@ -345,6 +348,11 @@
 }
 
 /* --------------------------------------------------
+ blog / インスタ コンテンツの定義
+-------------------------------------------------- */
+
+
+/* --------------------------------------------------
  Accessコンテンツの定義
 -------------------------------------------------- */
 .access {
@@ -408,11 +416,18 @@
  Contactコンテンツの定義
 -------------------------------------------------- */
 .contact {
-  @include InnerWidth;
-
   & .desc {
     width: 100%;
     margin-bottom: 32px;
+  }
+
+  &__form {
+    width: 440px;
+    margin: 0 auto;
+
+    @include mq(sp) {
+      width: 100%;
+    }
   }
 }
 
@@ -445,15 +460,6 @@
     display: flex;
     justify-content: center;
     gap: 64px;
-
-    @include mq(tab) {
-      gap: 40px;
-    }
-
-    @include mq(sp) {
-      flex-wrap: wrap;
-      gap: 32px;
-    }
   }
 
   &__figure {
@@ -483,5 +489,72 @@
     @include mq(sp) {
       top: 32px;
     }
+  }
+
+  & .fdm-section-header {
+    display: none;
+  }
+
+  & .fdm-section {
+    display: flex;
+    gap: 48px;
+    margin: 0;
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+  }
+
+  & .fdm-item {
+    width: 100%;
+    margin-bottom: 0;
+
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  & .fdm-item-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+    @include mq(sp) {
+      gap: 8px;
+      width: 100%;
+    }
+  }
+
+
+  & .fdm-item-image {
+    width: 100%;
+    height: 344px;
+
+    @include mq(sp) {
+      height: auto;
+      margin-bottom: 8px;
+    }
+  }
+
+  & .fdm-item-has-image .fdm-item-panel p {
+    padding: 0;
+    margin: 0;
+  }
+
+  & .fdm-item-price-wrapper {
+    display: none;
+  }
+
+  & .fdm-item-content {
+    display: none;
+  }
+
+  & .fdm-item-title {
+    text-align: center;
+    font-family: $font-source-serif;
   }
 }

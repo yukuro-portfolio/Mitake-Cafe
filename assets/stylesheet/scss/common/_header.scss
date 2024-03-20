@@ -47,4 +47,9 @@
     width: 124px;
     height: 40px;
   }
+
+  & h1 {
+    font-family: $font-source-serif;
+    font-size: $contents-title;
+  }
 }

@@ -2,11 +2,30 @@
   footer.php
   フッターテンプレート
 ================================================== -->
+<p class="pagetop">
+  <a class="pagetop__link" href="#wrap">▲</a>
+</p>
+
  <footer class="footer">
    <div class="footer__wrapper">
      <div class="footer__logo">
        <?php the_custom_logo(); ?>
      </div>
+
+     <!-- ===== フッターメニュー Start ===== -->
+     <?php
+      wp_nav_menu(array(
+        'theme_location' => 'footer-menu',
+        'menu' => '',
+        'menu_id'=>'footer__menu',
+        'menu_class' => 'footer__menu',
+        'container' => 'nav',
+        'container_class' => 'footer__nav',
+        'container_id' => '',
+        'add_li_class' => 'footer__menu-item'
+      ));
+      ?>
+     <!-- ===== フッターメニュー End ===== -->
 
      <div class="footer__address">
        <p class="footer__address-text">
@@ -30,14 +49,18 @@
      </div>
 
      <!-- ===== SNSアイコン Start ===== -->
-     <div class="footer__sns">
-       <a href="#" class="footer__sns-icon">
-         <img class="footer__icon" src="/images/icon/ico_instagram_white.svg" alt="インスタグラム">
-       </a>
-       <a href="#" class="footer__sns-icon">
-         <img class="footer__icon" src="/images/icon/ico_line-share.svg" alt="Line">
-       </a>
-     </div>
+     <?php
+      wp_nav_menu(array(
+        'theme_location' => 'sns-menu',
+        'menu' => '',
+        'menu_id'=>'',
+        'menu_class' => 'footer__sns',
+        'container' => 'div',
+        'container_class' => 'sns-menu',
+        'container_id' => '',
+        'add_li_class' => 'footer__sns-icon'
+      ));
+      ?>
      <!-- ===== SNSアイコン End ===== -->
 
      <div class="footer__copyright">

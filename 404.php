@@ -13,30 +13,17 @@
 
    <div class="container__wrapper">
 
-     <?php if (have_posts()) : ?>
-
-       <?php while (have_posts()) : the_post(); ?>
-
          <!-- ⬇︎ ######################## ビジュアル画像 Start ######################## ⬇︎ -->
-         <?php if (has_post_thumbnail()) : /* アイキャッチが登録されていたら */ ?>
-           <div class="visual-capture">
-             <?php the_post_thumbnail(); ?>
+ 
+           <div class="visual-capture visual-capture--page-404">
              <h1 class="visual-heading visual-heading--page">
                <span class="visual-heading__border"></span>
                <div class="visual-heading__inner">
-                 <span class="visual-heading__main"><?php the_title(); ?></span>
-                 <span class="visual-heading__sub"><?php the_subtitle(); ?></span>
+                 <span class="visual-heading__main">404 Not Found</span>
+                 <span class="visual-heading__sub">ページが見つかりませんでした</span>
                </div>
              </h1>
            </div>
-         <?php else : /* アイキャッチ未登録 */ ?>
-           <div class="contents-top">
-             <h2 class="section-heading" data-aos="fade-right">
-               <span class="section-heading__main"><?php the_title(); ?></span>
-               <span class="section-heading__sub"><?php the_subtitle(); ?></span>
-             </h2>
-           </div>
-         <?php endif; ?>
 
 
          <!-- ⬆︎ ######################## ビジュアル画像 End ######################## ⬆︎ -->
@@ -53,22 +40,6 @@
               ?>
            </div>
          </div>
-
-         <div class="contents">
-
-           <!-- ⬇︎ ######################## ページ内容 Start ######################## ⬇︎ -->
-           <div class="page-main">
-             <?php the_content(); ?>
-           </div>
-           <!-- ⬆︎ ######################## ページ内容 End ######################## ⬆︎ -->
-
-         </div>
-
-       <?php endwhile; ?>
-
-     <?php else : ?>
-       <div>記事が存在していないです。</div>
-     <?php endif; ?>
    </div>
 
 

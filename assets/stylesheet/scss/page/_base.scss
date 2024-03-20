@@ -7,6 +7,7 @@
 @use "../config/variables" as *;
 @use "../config/function" as *;
 @use "../config/mq" as *;
+
 /* //////////// 変数読み込み ここまで //////////// */
 html {
   scroll-behavior: smooth;
@@ -49,6 +50,10 @@ ol {
 }
 
 .contents {
+
+  @include InnerWidth;
+  padding: 80px 0;
+
   &--col {
     @include InnerWidth;
     display: flex;
@@ -72,8 +77,6 @@ ol {
     @include InnerWidth;
   }
 
-  @include maxWidth;
-  padding: 80px 0;
 
   @include mq(tab) {
     padding: 64px 32px;

@@ -36,22 +36,16 @@
      <section class="season-menu">
        <div class="season-menu__inner">
          <h2 class="title-label">
-           春のスイーツメニュー
+           季節のスイーツメニュー - 秋
          </h2>
 
          <div class="season-menu__list">
-           <figure class="season-menu__figure">
-             <img class="season-menu__img" src="<?php echo get_theme_file_uri('/assets/images/Menu_img/img_sakura-cake.jpg'); ?>" alt="桜のタルトケーキ">
-             <figcaption class="season-menu__caption">桜のタルトケーキ</figcaption>
-           </figure>
-           <figure class="season-menu__figure">
-             <img class="season-menu__img" src="<?php echo get_theme_file_uri('/assets/images/Menu_img/img_sakuramochi.jpg'); ?>" alt="桜餅（お茶付き）">
-             <figcaption class="season-menu__caption">桜餅（お茶付き）</figcaption>
-           </figure>
+           <!-- ##### プラグイン「Restaurant Menu and Food Ordering」埋め込み ##### -->
+           <?php echo do_shortcode('[fdm-menu id=2190]'); ?>
          </div>
 
          <div class="text-link">
-           <a class="text-link__link-text" href="/menu.html?active-tab=is-sweets#menu">Spring Menu</a>
+           <a class="text-link__link-text" href="<?php echo home_url(); ?>/menu/?active-tab=is-sweets#autumn">Autumn-Sweets Menu</a>
          </div>
        </div>
      </section>
@@ -140,7 +134,7 @@
                        季節に合わせたフルーツを使ったケーキや和菓子などをご堪能ください。
                      </p>
                      <div class="text-link">
-                       <a class="text-link__link-text" href="/menu.html?active-tab=is-sweets#menu">Sweets Menu</a>
+                       <a class="text-link__link-text" href="<?php echo home_url(); ?>/menu/?active-tab=is-sweets#menu">Sweets Menu</a>
                      </div>
                    </div>
                  </div>
@@ -171,7 +165,7 @@
                        シェフ歴10年の料理人がつくる地元の新鮮な食材を使用した、こだわりの料理を提供します。
                      </p>
                      <div class="text-link">
-                       <a class="text-link__link-text" href="/menu.html?active-tab=is-dish#menu">Dish Menu</a>
+                       <a class="text-link__link-text" href="<?php echo home_url(); ?>/menu/?active-tab=is-dish#menu">Dish Menu</a>
                      </div>
                    </div>
                  </div>
@@ -203,7 +197,7 @@
                        フルーティーで酸味があり、甘い香りが特徴のコーヒーでゆっくりとおくつろぎください。
                      </p>
                      <div class="text-link">
-                       <a class="text-link__link-text" href="/menu.html?active-tab=is-drink#menu">Drink Menu</a>
+                       <a class="text-link__link-text" href="<?php echo home_url(); ?>/menu/?active-tab=is-drink#menu">Drink Menu</a>
                      </div>
                    </div>
                  </div>
@@ -286,7 +280,7 @@
 
              <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
              <div class="primary-btn" data-aos="fade">
-               <a class="primary-btn__link" href="/mitake.html">
+               <a class="primary-btn__link" href="<?php echo home_url(); ?>/mitake/">
                  Mitake more
                </a>
              </div>
@@ -325,9 +319,19 @@
                <!-- ===== ブログ/ニュース一覧 最大件数5件 Start ===== -->
                <div class="top-blog__wrapper" data-aos="fade">
 
-                 <ul class="blog-list blog-list--slide js-slide">
-
-
+                 <?php
+                  $query_result = new WP_Query(array(
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'posts_per_page' => 5,
+                  ));
+                  ?>
+                 <?php if ($query_result->have_posts()) : ?>
+                  
+                   <ul class="blog-list blog-list--slide js-slide">
+                     <?php while ($query_result->have_posts()) : $query_result->the_post(); ?>
                        <!-- ##### ブログ/ニュース 投稿記事01 Start ##### -->
                        <li class="blog-card">
                          <!-- ##### ブログ/ニュース 投稿時間 / カテゴリー ##### -->
@@ -362,15 +366,20 @@
                          </a>
                        </li>
                        <!-- ##### ブログ/ニュース 投稿記事01 End ##### -->
-   
-                 </ul>
+                     <?php endwhile; ?>
+                   </ul>
+                 <?php else : ?>
+                   <?php // 条件に一致する記事が無かった場合 
+                    ?>
+                   <p>現在掲載中のお知らせはありません。</p>
+                 <?php endif; ?>
                </div>
                <!-- ===== ブログ/ニュース一覧 最大件数5件 End ===== -->
              </section>
 
              <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
              <div class="primary-btn">
-               <a class="primary-btn__link" href="/blog.html">
+               <a class="primary-btn__link" href="<?php echo home_url(); ?>/blog/">
                  Blog more
                </a>
              </div>
@@ -581,43 +590,7 @@
 
                <!-- ===== 入力フォームパーツ Start ===== -->
                <div class="contact__form">
-                 <form action="" method="get" class="form">
-
-                   <div class="form__item">
-                     <div class="form__label">
-                       <label for="name">お名前</label>
-                       <span class="form__required-text">*</span>
-                     </div>
-                     <input class="form__text" type="text" name="name" id="name" placeholder="山田　太郎" required>
-                   </div>
-
-                   <div class="form__item">
-                     <div class="form__label">
-                       <label for="name">メールアドレス</label>
-                       <span class="form__required-text">*</span>
-                     </div>
-                     <input class="form__text" type="text" name="email" id="email" placeholder="sample@sample.com" required>
-                   </div>
-
-                   <div class="form__item">
-                     <div class="form__label">
-                       <label for="name">メッセージ本文</label>
-                       <span class="form__required-text">*</span>
-                     </div>
-                     <textarea class="form__textarea" id="message" rows="7" cols="40" placeholder="お問い合わせ内容を入力してください。"></textarea>
-                   </div>
-
-                   <div class="form__check-item">
-                     <label class="form__label" for="c-agree">
-                       <input class="form__checkbox" type="checkbox" id="c-agree" name="agree">
-                       プライバシーポリシーに同意の上、上記内容で送信します
-                     </label>
-                   </div>
-
-                   <div class="form__btn">
-                     <input class="form-btn" type="submit" value="送信">
-                   </div>
-                 </form>
+               <?php echo do_shortcode('[contact-form-7 id="1f10d60" title="CafeMitakeお問い合わせフォーム"]'); ?>
                </div>
                <!-- ===== 入力フォームパーツ End ===== -->
              </div>

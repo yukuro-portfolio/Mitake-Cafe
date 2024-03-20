@@ -15,10 +15,11 @@
 .blog-list {
   display: flex;
   gap: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 
   &--slide {
     padding: 0 40px;
+    margin-bottom: 0;
   }
 
   @include mq(tab) {
@@ -71,7 +72,7 @@
 -------------------------------------------------- */
 .top-blog {
   &__wrapper {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
     padding: 0 40px;
 
     @include mq(tab) {

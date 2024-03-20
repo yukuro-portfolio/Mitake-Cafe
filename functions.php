@@ -76,7 +76,8 @@ function register_my_menus()
     register_nav_menus(
         array(
             'header-menu' => ('ヘッダーメニュー'),
-            'footer-menu' => ('フッターメニュー')
+            'footer-menu' => ('フッターメニュー'),
+            'sns-menu' => ('SNSメニュー'),
         )
     );
 }
@@ -89,6 +90,12 @@ function wp_navtag_remove($var)
 {
     return is_array($var) ? array_intersect($var, array('current-menu-item')) : '';
 }
+
+function change_title_separator($sep){
+	$sep = '|';
+	return $sep;
+}
+add_filter('document_title_separator', 'change_title_separator');
 
 /* --------------------------------------------------
  headタグ内の不要な記述を削除
@@ -134,116 +141,7 @@ function remove_editor_style()
     wp_dequeue_style('wp-block-library');
 }
 
-/* --------------------------------------------------
- パンくずリスト
--------------------------------------------------- */
-function breadcrumb()
-{
-    global $post;
-?>
-    <div class="breadcrumb">
-        <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="<?php echo esc_url(home_url()); ?>">
-                    <span itemprop="name">HOME</span>
-                </a>
-                <meta itemprop="position" content="1">
-            </li>
 
-            <?php if (is_page() && $post->post_parent) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_permalink($post->post_parent); ?>">
-                        <span itemprop="name"><?php echo get_the_title($post->post_parent); ?></span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php echo get_the_title(); ?></span>
-                    <meta itemprop="position" content="3">
-                </li>
-
-            <?php elseif (is_page()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php echo get_the_title(); ?></span>
-                    <meta itemprop="position" content="2">
-                </li>
-
-            <?php elseif (is_year()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_post_type_archive_link(get_post_type()); ?>">
-                        <span itemprop="name"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php echo get_query_var('year'); ?>年</span>
-                    <meta itemprop="position" content="3">
-                </li>
-
-            <?php elseif (is_month()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_post_type_archive_link(get_post_type()); ?>">
-                        <span itemprop="name"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_year_link(get_query_var("year")); ?>?post_type=<?php echo esc_html(get_post_type_object(get_post_type())->name); ?>">
-                        <span itemprop="name"><?php echo get_query_var('year'); ?>年</span>
-                    </a>
-                    <meta itemprop="position" content="3">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php echo get_query_var('monthnum'); ?>月</span>
-                    <meta itemprop="position" content="4">
-                </li>
-
-            <?php elseif (is_tax()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_post_type_archive_link(get_post_type()); ?>">
-                        <span itemprop="name"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php single_term_title(); ?></span>
-                    <meta itemprop="position" content="3">
-                </li>
-
-            <?php elseif (is_post_type_archive()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php post_type_archive_title(); ?></span>
-                    <meta itemprop="position" content="2">
-                </li>
-
-            <?php elseif (is_single()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="<?php echo get_post_type_archive_link(get_post_type()); ?>">
-                        <span itemprop="name"><?php echo esc_html(get_post_type_object(get_post_type())->label); ?></span>
-                    </a>
-                    <meta itemprop="position" content="2">
-                </li>
-
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name"><?php single_post_title(); ?></span>
-                    <meta itemprop="position" content="3">
-                </li>
-
-            <?php elseif (is_404()) : ?>
-                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">404</span>
-                    <meta itemprop="position" content="2">
-                </li>
-            <?php endif; ?>
-        </ol>
-    </div>
-<?php
-}
 
 /* --------------------------------------------------
  アーカイブページを有効にする
@@ -290,7 +188,7 @@ function add_custom_post()
     register_post_type(
         'menu',
         array(
-            'label' => '料理メニュー',
+            'label' => 'Menu',
             'labels' => array(
                 'menu_name' => '料理メニュー'
             ),
@@ -309,7 +207,17 @@ function add_custom_post()
             )
         )
     );
-    register_taxonomy_for_object_type('category', 'menu');
+    
+    register_taxonomy(
+        'menu-cat',
+        'menu',
+        array(
+          'label' => '料理カテゴリー',
+          'hierarchical' => true,
+          'public' => true,
+          'show_in_rest' => true,
+        )
+      );
 
     register_taxonomy(
         'menu-price',
@@ -323,3 +231,28 @@ function add_custom_post()
       );
 }
 add_action('init', 'add_custom_post');
+
+
+/*	カスタム投稿のパーマリンク設定
+-----------------------------------------------------*/
+//カスタム投稿タイプのパーマリンクを投稿IDに変更する。
+add_filter('post_type_link', 'generateCustomPostLink', 1, 2);
+add_filter('rewrite_rules_array', 'addRewriteRules');
+
+function generateCustomPostLink($link, $post){
+ if($post->post_type === 'ownersblog'){
+ //投稿IDに書き換えたパーマリンク文字列を返す
+  return home_url('/ownersblog/'.$post->ID);
+ } else {
+  return $link;
+ }
+}
+
+//投稿IDに書き換えたパーマリンクに対応したクエリルールを追加
+function addRewriteRules($rules){
+ $new_rule = array(
+  'ownersblog/([0-9]+)/?$' => 'index.php?post_type=ownersblog&p=$matches[1]'
+ );
+ //ルール配列に結合
+ return $new_rule + $rules;
+}

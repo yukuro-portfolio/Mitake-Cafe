@@ -9,6 +9,7 @@
 @use "../config/mq" as *;
 /* //////////// 変数読み込み ここまで //////////// */
 
+
 /* --------------------------------------------------
  入力フォームのスタイリング
 -------------------------------------------------- */
@@ -16,6 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 32px;
 
   &__item {
@@ -29,70 +31,83 @@
   }
 
   &__label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+    & p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
   }
 
   &__required-text {
     margin-left: 16px;
     font-size: $f-small;
     color: $c-note;
-    vertical-align: bottom;
   }
 
-  &__text {
+
+  & input , & textarea{
     width: 440px;
+    outline:none;
     padding: 16px;
     font-size: $f-small;
     border: 1px solid $c-border;
     background-color: inherit;
-  }
-
-  &__textarea {
-    width: 440px;
-    padding: 16px;
-    font-size: $f-small;
-    border: 1px solid $c-border;
-    background-color: inherit;
-  }
-
-  &__check-item {
-    text-align: center;
-  }
-
-  &__checkbox {
-    position: relative;
-    margin-right: 8px;
-    min-width: 18px;
-    min-height: 18px;
-    border: 1px solid $c-accent;
-    vertical-align: -5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
-
-    &:checked:before {
-      position: absolute;
-      top: 2px;
-      left: 5px;
-      transform: rotate(50deg);
-      width: 6px;
-      height: 10px;
-      border-right: 2px solid $c-accent;
-      border-bottom: 2px solid $c-accent;
-      content: "";
+    
+    @include mq(sp) {
+      width: 100%;
     }
   }
 
-  &__btn {
-    text-align: center;
+  & .wpcf7-list-item {
+
+  & input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border: 1px solid $c-accent;
+  } 
+
+    & label {
+      display: flex;
+      align-items: center;
+    }
+
+    & a {
+      display: inline-block;
+      color: $c-accent;
+      border-bottom: 1px solid $c-accent;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
   }
 
-  input,
-  textarea {
-    outline:none;
+  & input[type=submit] {
+    display: block;
+    background-color: $c-accent;
+    color: $c-white;
+    width: 240px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  & .wpcf7-not-valid {
+    border: 1px solid $c-note;
+  }
+
+  & .wpcf7-not-valid-tip {
+    font-size: $f-small;
+  }
+
+
+  &__btn {
+    text-align: center;
   }
 
   @include mq(sp) {
@@ -106,14 +121,6 @@
       text-align: left;
       gap: 8px;
       font-size: rem(14);
-    }
-
-    &__text {
-      width: 100%;
-    }
-
-    &__textarea {
-      width: 100%;
     }
   }
 }

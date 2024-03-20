@@ -55,7 +55,6 @@
 
     .desc {
       width: 100%;
-      margin-bottom: 64px;
     }
   }
 
@@ -92,7 +91,6 @@
  御岳渓谷 
 -------------------------------------------------- */
 .mitake-valley {
-  @include InnerWidth;
 
   &__figure {
     position: relative;
@@ -146,7 +144,6 @@
  カラムアイテムの定義
 -------------------------------------------------- */
 .mitake-col {
-  @include InnerWidth;
   display: flex;
   gap: 0 64px;
 

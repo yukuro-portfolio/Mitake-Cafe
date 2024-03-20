@@ -24,7 +24,15 @@
     <!-- ------------------------------------------------------------------------------- -->
 
     <!-- ⬇︎ ######################## パンくずリスト 読み込み ######################## ⬇︎ -->
-    <?php breadcrumb(); ?>
+    <div class="breadcrumb">
+      <div class="breadcrumb__list">
+        <?php
+        if (function_exists('bcn_display')) {
+          bcn_display();
+        }
+        ?>
+      </div>
+    </div>
 
     <div class="contents">
 
@@ -66,7 +74,7 @@
 
             <!-- ===== 春の御岳 Start ===== -->
             <figure class="mitake-valley__figure tab__panel js-tab-cts is-active" data-tab="is-spring">
-              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-spring.jpg'); ?>" alt="春の御岳渓谷">
+              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-spring.jpg'); ?>" alt="春の御岳渓谷">
               <figcaption class="mitake-valley__caption">
                 春は桜が沿道を彩ります
               </figcaption>
@@ -75,7 +83,7 @@
 
             <!-- ===== 夏の御岳 Start ===== -->
             <figure class="mitake-valley__figure tab__panel js-tab-cts" data-tab="is-summer">
-              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-summer.jpg'); ?>" alt="夏の御岳渓谷">
+              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-summer.jpg'); ?>" alt="夏の御岳渓谷">
               <figcaption class="mitake-valley__caption">
                 夏は新縁とアウトドアで賑わいます
               </figcaption>
@@ -84,7 +92,7 @@
 
             <!-- ===== 秋の御岳 Start ===== -->
             <figure class="mitake-valley__figure tab__panel js-tab-cts" data-tab="is-autumn">
-              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-autumn.jpg'); ?>" alt="秋の御岳渓谷">
+              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-autumn.jpg'); ?>" alt="秋の御岳渓谷">
               <figcaption class="mitake-valley__caption">
                 秋は美しい紅葉とライトアップが魅力です
               </figcaption>
@@ -93,7 +101,7 @@
 
             <!-- ===== 冬の御岳 Start ===== -->
             <figure class="mitake-valley__figure tab__panel js-tab-cts" data-tab="is-winter">
-              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-winter.jpg'); ?>" alt="冬の御岳渓谷">
+              <img class="mitake-valley__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-winter.jpg'); ?>" alt="冬の御岳渓谷">
               <figcaption class="mitake-valley__caption">
                 冬は木の葉が散り、広々とした自然の空間が広がります
               </figcaption>
@@ -131,7 +139,7 @@
 
           <div class="mitake-col">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-cablecar.jpg'); ?>" alt="御岳登山鉄道 ケーブルカー">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-cablecar.jpg'); ?>" alt="御岳登山鉄道 ケーブルカー">
             </figure>
 
 
@@ -187,7 +195,7 @@
 
           <div class="mitake-col mitake-col--row-reverse">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_mitake-shrine.jpg'); ?>" alt="武蔵御嶽神社">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_mitake-shrine.jpg'); ?>" alt="武蔵御嶽神社">
             </figure>
 
             <div class="desc" data-aos="fade">
@@ -222,7 +230,7 @@
 
           <div class="mitake-col">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_nagaodaira.jpg'); ?>" alt="長尾平">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_nagaodaira.jpg'); ?>" alt="長尾平">
             </figure>
 
             <div class="desc" data-aos="fade">
@@ -254,7 +262,7 @@
 
           <div class="mitake-col  mitake-col--row-reverse">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_nanadai-waterfall.jpg'); ?>" alt="七代の滝">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_nanadai-waterfall.jpg'); ?>" alt="七代の滝">
             </figure>
 
             <div class="desc" data-aos="fade">
@@ -288,7 +296,7 @@
 
           <div class="mitake-col">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_lockgarden.jpg'); ?>" alt="ロックガーデン（岩石園）">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_lockgarden.jpg'); ?>" alt="ロックガーデン（岩石園）">
             </figure>
 
             <div class="desc" data-aos="fade">
@@ -321,7 +329,7 @@
 
           <div class="mitake-col  mitake-col--row-reverse">
             <figure class="mitake-col__figure">
-              <img class="mitake-col__img" src="<?php echo get_theme_file_uri( '/assets/images/Mitake_img/img_ayahiro-waterfall.jpg'); ?>" alt="綾広の滝">
+              <img class="mitake-col__img" src="<?php echo get_theme_file_uri('/assets/images/Mitake_img/img_ayahiro-waterfall.jpg'); ?>" alt="綾広の滝">
             </figure>
 
             <div class="desc" data-aos="fade">
@@ -356,5 +364,5 @@
 
   <!-- ------------------------------------------------------------------------------- -->
 
- <!-- ⬇︎ ######################## フッター 読み込み ######################## ⬇︎ -->
- <?php get_footer(); ?>
+  <!-- ⬇︎ ######################## フッター 読み込み ######################## ⬇︎ -->
+  <?php get_footer(); ?>

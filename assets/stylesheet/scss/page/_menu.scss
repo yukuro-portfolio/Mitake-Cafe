@@ -24,6 +24,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -35,9 +36,35 @@
   }
 
   &__box {
-    margin-bottom: 80px;
+    margin-bottom: 64px;
+
     @include mq(tab) {
       margin-bottom: 64px;
+    }
+  }
+
+  & .desc {
+    &--col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 64px;
+
+      @include mq(sp) {
+        flex-direction: column;
+        gap: 32px;
+      }
+    }
+
+    &__figure {
+      flex: 1;
+      @include mq(tab) {
+        width: 100%;
+      }
+    }
+    
+    &__text {
+      flex: 1;
     }
   }
 }
@@ -49,12 +76,8 @@
   @include InnerWidth;
   display: flex;
   flex-wrap: wrap;
-  gap: 64px;
 
-  @include mq(tab) {
-    flex-wrap: wrap;
-    gap: 48px;
-  }
+ 
 
   @include mq(sp) {
     gap: normal;
@@ -76,7 +99,98 @@
       margin-bottom: 0;
     }
   }
+
+  & .fdm-section-header {
+    display: none;
+  }
+
+  & .fdm-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+    margin: 0;
+    
+    @include mq(tab) {
+      gap: 48px;
+    }
+
+    @include mq(sp) {
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+  }
+
+  & .fdm-item {
+    width: calc(100% / 2 - 32px);
+    margin-bottom: 0;
+
+    @include mq(sp) {
+      width: 100%;
+    }
+  }
+
+  & .fdm-item-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+
+    @include mq(sp) {
+      gap: 8px;
+      width: 100%;
+    }
+  }
+
+  & .fdm-item-price-wrapper {
+    top: 360px;
+
+    @include mq(sp) {
+      width: 100%;
+      margin-bottom: 0;
+      position: static;
+      text-align: right;
+    }
+  }
+
+  & .fdm-item-image {
+    width: 100%;
+    height: 344px;
+
+    @include mq(sp) {
+      height: auto;
+      margin-bottom: 8px;
+    }
+  }
+
+  & .fdm-item-title {
+    font-size: 1rem;
+    font-family: $font-source-serif;
+  }
+
+  & .fdm-item-price {
+    text-align: right;
+    font-size: $f-small;
+    font-weight: 600;
+
+    @include mq(sp) {
+      text-align: right;
+    }
+  }
+
+  & .fdm-item-has-image .fdm-item-panel p {
+    padding: 0;
+    margin: 0;
+  }
+
+  & .fdm-item-content p{
+    font-size: $f-small;
+  }
 }
+
+
+
 
 /* --------------------------------------------------
  メニューカード
@@ -118,6 +232,7 @@
 
   &__name {
     font-weight: 600;
+
     @include mq(tab) {
       width: 100%;
     }

@@ -42,6 +42,7 @@
 @use "module/sns-share";
 @use "module/archive";
 @use "module/article-parts";
+@use "module/page-top";
 
 /* --------------------------------------------------
  commonファイル
@@ -61,6 +62,7 @@
 @use "page/mitake";
 @use "page/blog";
 @use "page/article";
+@use "page/page";
 
 
 

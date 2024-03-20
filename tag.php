@@ -29,8 +29,15 @@
      <!-- ------------------------------------------------------------------------------- -->
 
      <!-- ⬇︎ ######################## パンくずリスト 読み込み ######################## ⬇︎ -->
-     <?php breadcrumb(); ?>
-
+     <div class="breadcrumb">
+         <div class="breadcrumb__list">
+           <?php
+            if (function_exists('bcn_display')) {
+              bcn_display();
+            }
+            ?>
+         </div>
+       </div>
      <div class="contents contents--col">
 
        <!-- ⬇︎ ######################## ブログリスト Start ######################## ⬇︎ -->

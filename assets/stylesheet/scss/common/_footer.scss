@@ -32,6 +32,46 @@
     margin: 0 auto 40px auto;
   }
 
+  & .custom-logo {
+    filter: brightness(0) saturate(100%) invert(93%) sepia(43%) saturate(1725%) hue-rotate(256deg) brightness(137%) contrast(131%);
+  }
+
+  &__nav {
+    margin-bottom: 32px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    & a {
+      display: inline-block;
+      color: $c-white;
+      position: relative;
+      padding-left: 24px;
+      font-size: $f-small;
+      font-weight: 600;
+      transition: 0.3s;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 16px;
+        height: 1px;
+        background-color: $c-white;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+  
+
   &__address {
     margin-bottom: 24px;
   }
@@ -54,6 +94,7 @@
     color: $c-white;
   }
   
+  // ##### SNS #####
   &__sns {
     display: flex;
     justify-content: center;
@@ -62,14 +103,18 @@
   }
 
   &__sns-icon {
-    padding: 12px;
+    width: 40px;
+    height: 40px;
     background-color: $c-accent;
     border-radius: 50px;
-  }
+    position: relative;
 
-  &__icon {
-    width: 18px;
-    height: 18px;
+    & a {
+      position: absolute;
+      top: 50%;
+      left: 53%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &__copyright {

@@ -8,7 +8,7 @@
  <head>
    <meta charset="<?php bloginfo('charset'); ?>">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>TOP | Cafe Mitake</title>
+   <!-- <title></title> functions.phpで記載 -->
    <meta name="description" content="多摩川が生み出した景勝地「御岳渓谷」にあるカフェ。季節限定のスイーツ、地元の食材を使ったこだわりの料理、コロンビア産の豆を焙煎したコーヒーなどテラス席で四季を感じながら至福のひとときをお過ごしください。" />
    <meta name="robots" content="noindex,nofollow" /> <!--検索エンジンに掲載しない場合は記載-->
 
@@ -28,7 +28,7 @@
    <!-- ##### ⬆︎ OGPタグ ⬆︎ ##### -->
 
    <!-- ##### ⬇︎ サイトアイコン ⬇︎ ##### -->
-   <link rel="icon" href="/images/icon/ico_favicon.svg" sizes="16x16" type="image/svg" />
+   <link rel="icon" href="<?php echo get_theme_file_uri('/assets/images/icon/ico_favicon.svg"'); ?> sizes="16x16" type="image/svg" />
    <!-- ##### ⬆︎ サイトアイコン ⬆︎ ##### -->
 
    <!-- ⬇︎ ===== slick.css slickカルーセル読み込み ===== ⬇︎ -->

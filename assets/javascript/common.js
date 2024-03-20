@@ -74,7 +74,7 @@ window.onload = function () {
     speed: 400,
     infinite: false,
     centerPadding: '50%',
-    dots: true,
+    dots: false,
     dotsClass: 'dots-class',
     variableWidth: true,
 
@@ -161,6 +161,24 @@ window.addEventListener('DOMContentLoaded', function () {
     easing: "ease-out",
     delay: 100,
   });
+});
+
+/* --------------------------------------------------
+ ページのトップに戻る
+-------------------------------------------------- */
+$(document).ready(function() {
+  var pagetop = $('.pagetop');
+    $(window).scroll(function () {
+       if ($(this).scrollTop() > 100) {
+            pagetop.fadeIn();
+       } else {
+            pagetop.fadeOut();
+            }
+       });
+       pagetop.click(function () {
+           $('body, html').animate({ scrollTop: 0 }, 500);
+              return false;
+   });
 });
 
 /* --------------------------------------------------
