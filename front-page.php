@@ -206,7 +206,7 @@
 
                <!-- ⬇︎ //////// ボタン End //////// ⬇︎ -->
                <div class="primary-btn" data-aos="fade">
-                 <a class="primary-btn__link" href="/menu.html">
+                 <a class="primary-btn__link" href="<?php echo home_url(); ?>/menu/">
                    Menu more
                  </a>
                </div>
